@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false"
+         forceCoversAnnotation="false"
+         checkForUnintentionallyCoveredCode="false"
+        >
+    <testsuites>
+        <testsuite name="Application Test Suite">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+
+    <!--<filter>-->
+    <!--<whitelist>-->
+    <!--<directory>./app/</directory>-->
+    <!--<exclude>-->
+    <!--<directory>./app/tests/</directory>-->
+    <!--<directory>./app/database/</directory>-->
+    <!--<directory>./app/lang/</directory>-->
+    <!--<directory>./app/views/</directory>-->
+    <!--<directory>./app/config/</directory>-->
+    <!--</exclude>-->
+    <!--</whitelist>-->
+    <!--</filter>-->
+
+    <!--<logging>-->
+    <!--<log type="coverage-html" target="./app/storage/logs/phpunit.html" charset="UTF-8"-->
+    <!--yui="true" highlight="true" lowUppoerBound="50" highLowerBound="80" />-->
+    <!--</logging>-->
+
+
+</phpunit>
+

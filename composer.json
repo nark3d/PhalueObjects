@@ -1,0 +1,14 @@
+{
+  "require": {
+    "nesbot/carbon": "~1.14"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "test",
+      "src"
+    ]
+  }
+}
