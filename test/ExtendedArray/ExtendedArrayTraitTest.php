@@ -1,12 +1,19 @@
 <?php namespace PhalueObjects\Test\ExtendedArray;
 
 use PhalueObjects\Test\TestCase;
+use PhalueObjects\Number\Integer;
+use PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 
 class ExtendedArrayTraitTest extends TestCase
 {
+    use ExtendedArrayTrait;
 
-    public function testBob()
+    public function testArrayToCommaString()
     {
-        $this->assertTrue(true);
+        $this->assertEquals('bob,  mary,  susan', $this->arrayToCommaString(['bob', 'mary', 'susan'], new Integer(2)));
+        $this->assertNotEquals(
+            'this is not, right, susan',
+            $this->arrayToCommaString(['some', 'random', 'array'], new Integer(1))
+        );
     }
 }

@@ -5,4 +5,6 @@ interface ObjectInterface
     public function __toString();
 
     public function __set($field, $value);
+
+    public function native();
 }

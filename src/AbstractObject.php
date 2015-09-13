@@ -20,4 +20,24 @@ abstract class AbstractObject implements ObjectInterface
     {
         throw new \RuntimeException("You cannot set a value of a Value Object, that's the whole point!");
     }
+
+    public function __invoke($value)
+    {
+        return new static($value);
+    }
+
+    public function native()
+    {
+        return $this->value;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function hash()
+    {
+        return spl_object_hash($this);
+    }
 }

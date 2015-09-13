@@ -10,12 +10,7 @@ class StringTraitTest extends TestCase
 
     public function testIntegerToSpace()
     {
-        $integer = new Integer(8);
-        $this->assertTrue($integer->getValue() === $integer->getValue());
-//        $this->integerToSpace(
-//            $this->integerToSpace(
-//                new Integer(8)),
-//                $integer->getValue()
-//        );
+        $this->assertEquals("    ", $this->integerToSpace(new Integer(4)));
+        $this->assertNotEquals("    ", $this->integerToSpace(new Integer(0)));
     }
 }

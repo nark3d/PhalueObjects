@@ -7,7 +7,7 @@ trait ExtendedArrayTrait
 {
     use StringTrait;
 
-    public function arrayToCommaString(array $array, Integer $spaces = 1)
+    public function arrayToCommaString(array $array, Integer $spaces)
     {
         return implode(",{$this->integerToSpace($spaces)}", $array);
     }
