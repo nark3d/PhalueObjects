@@ -3,7 +3,7 @@
     "nesbot/carbon": "~1.14"
   },
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "~4.0"
   },
   "autoload": {
     "classmap": [
