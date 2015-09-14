@@ -39,22 +39,22 @@ class Mathmatic extends AbstractObject
         return $this->getValue() === (int) 0;
     }
 
-    public function isGreaterThan(Number $number)
+    public function isGreaterThan(Mathmatic $number)
     {
         return $this->getValue() > $number->getValue();
     }
 
-    public function isLessThan(Number $number)
+    public function isLessThan(Mathmatic $number)
     {
         return $this->getValue() < $number->getValue();
     }
 
-    public function isGreaterThanOrEqualTo(Number $number)
+    public function isGreaterThanOrEqualTo(Mathmatic $number)
     {
         return $this->getValue() >= $number->getValue();
     }
 
-    public function isLessThanOrEqualTo(number $number)
+    public function isLessThanOrEqualTo(Mathmatic $number)
     {
         return $this->getValue() <= $number->getValue();
     }

@@ -1,4 +1,13 @@
 {
+  "name": "Phalue Objects",
+  "description": "PHP Value Objects",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Adam Lewis",
+      "email": "adam.lewis@bestservedcold.com"
+    }
+  ],
   "require": {
     "nesbot/carbon": "~1.14"
   },
@@ -6,9 +15,9 @@
     "phpunit/phpunit": "~4.0"
   },
   "autoload": {
-    "classmap": [
-      "test",
-      "src"
-    ]
+    "psr-4": {"PhalueObjects\\": "src"}
+  },
+  "autoload-dev": {
+    "psr-4": {"PhalueObjects\\Test": "test"}
   }
 }

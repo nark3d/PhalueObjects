@@ -1,6 +1,6 @@
 <?php namespace PhalueObjects\DateTime;
 
-use PhalueObjects\Number\ZeroPaddedInteger;
+use PhalueObjects\Mathmatic\ZeroPaddedInteger;
 
 final class Second extends ZeroPaddedInteger
 {
