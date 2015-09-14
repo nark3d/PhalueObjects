@@ -1,8 +1,10 @@
 {
   "require": {
-    "nesbot/carbon": "~1.14",
-    "phpunit/phpunit": "~4.0"
+    "nesbot/carbon": "~1.14"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  }
   "autoload": {
     "classmap": [
       "test",
