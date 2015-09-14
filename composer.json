@@ -18,6 +18,6 @@
     "psr-4": {"PhalueObjects\\": "src"}
   },
   "autoload-dev": {
-    "psr-4": {"PhalueObjects\\Test": "test"}
+    "psr-4": {"PhalueObjects\\Test\\": "test"}
   }
 }
