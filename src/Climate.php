@@ -1,6 +1,6 @@
 <?php namespace PhalueObjects;
 
-class Climate extends AbstractObject
+class Climate extends SingleValueObject
 {
 
 }

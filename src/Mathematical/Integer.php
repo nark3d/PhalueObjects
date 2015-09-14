@@ -1,9 +1,9 @@
-<?php namespace PhalueObjects\Mathmatic;
+<?php namespace PhalueObjects\Mathematical;
 
 use PhalueObjects\Exception\InvalidTypeException;
-use PhalueObjects\Mathmatic;
+use PhalueObjects\Mathematical;
 
-final class Integer extends Mathmatic
+final class Integer extends Mathematical
 {
     public function __construct($value)
     {

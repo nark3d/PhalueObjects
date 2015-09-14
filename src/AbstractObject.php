@@ -3,11 +3,9 @@
 abstract class AbstractObject implements ObjectInterface
 {
     protected $reflection;
-    protected $value;
 
-    public function __construct($value)
+    public function __construct()
     {
-        $this->value = $value;
         $this->reflection = new \ReflectionClass($this);
     }
 
@@ -21,20 +19,7 @@ abstract class AbstractObject implements ObjectInterface
         throw new \RuntimeException("You cannot set a value of a Value Object, that's the whole point!");
     }
 
-    public function __invoke($value)
-    {
-        return new static($value);
-    }
-
     public function native()
-    {
-        return $this->value;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getValue()
     {
         return $this->value;
     }

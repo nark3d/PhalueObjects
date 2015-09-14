@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\Test\Mathmatic;
+<?php namespace PhalueObjects\Test\Mathematical;
 
-use PhalueObjects\Mathmatic\Integer;
+use PhalueObjects\Mathematical\Integer;
 use PhalueObjects\Test\TestCase;
 
 class IntegerTest extends TestCase

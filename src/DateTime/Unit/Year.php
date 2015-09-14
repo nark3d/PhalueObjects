@@ -1,8 +1,11 @@
-<?php namespace PhalueObjects\DateTime;
+<?php namespace PhalueObjects\DateTime\Unit;
 
-use PhalueObjects\Mathmatic\ZeroPaddedInteger;
+use PhalueObjects\DateTime\Unit;
 
-final class Year extends ZeroPaddedInteger
+final class Year extends Unit implements UnitInterface
 {
-
+    public static function now()
+    {
+        return new static(parent::getNowDateTime()->format('Y'));
+    }
 }

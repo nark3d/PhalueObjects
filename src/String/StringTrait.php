@@ -1,6 +1,6 @@
 <?php namespace PhalueObjects\String;
 
-use PhalueObjects\Mathmatic\Integer;
+use PhalueObjects\Mathematical\Integer;
 
 trait StringTrait
 {

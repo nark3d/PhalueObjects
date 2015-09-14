@@ -1,7 +1,7 @@
 <?php namespace PhalueObjects\Test\ExtendedArray;
 
 use PhalueObjects\Test\TestCase;
-use PhalueObjects\Mathmatic\Integer;
+use PhalueObjects\Mathematical\Integer;
 use PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 
 class ExtendedArrayTraitTest extends TestCase

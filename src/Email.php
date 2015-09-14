@@ -1,6 +1,8 @@
 <?php namespace PhalueObjects;
 
-class Email extends AbstractObject
+use PhalueObjects\AbstractObject\SingleValueObject;
+
+class Email extends SingleValueObject
 {
 
 }

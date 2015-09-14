@@ -2,7 +2,7 @@
 
 use PhalueObjects\Test\TestCase;
 use PhalueObjects\String\StringTrait;
-use PhalueObjects\Mathmatic\Integer;
+use PhalueObjects\Mathematical\Integer;
 
 class StringTraitTest extends TestCase
 {

@@ -1,8 +1,8 @@
 <?php namespace PhalueObjects\DateTime;
 
-use PhalueObjects\AbstractObject;
+use PhalueObjects\AbstractObject\MultipleValueObject;
 
-class TimeZone extends AbstractObject
+class TimeZone extends MultipleValueObject
 {
 
 }

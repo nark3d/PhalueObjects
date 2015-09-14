@@ -1,9 +1,9 @@
-<?php namespace PhalueObjects\Mathmatic;
+<?php namespace PhalueObjects\Mathematical;
 
 use PhalueObjects\Exception\InvalidTypeException;
-use PhalueObjects\Mathmatic;
+use PhalueObjects\Mathematical;
 
-class Float extends Mathmatic
+class Float extends Mathematical
 {
     public function __construct($value)
     {

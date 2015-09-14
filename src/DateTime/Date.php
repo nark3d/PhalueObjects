@@ -1,17 +1,30 @@
 <?php namespace PhalueObjects\Date;
 
-use PhalueObjects\AbstractObject;
-use PhalueObjects\DateTime\Day;
-use PhalueObjects\DateTime\Month;
-use PhalueObjects\DateTime\Year;
+use PhalueObjects\AbstractObject\MultipleValueObject;
+use PhalueObjects\DateTime\DateTimeInterface;
+use PhalueObjects\DateTime\Unit\Day;
+use PhalueObjects\DateTime\Unit\Month;
+use PhalueObjects\DateTime\Unit\Year;
 
-class Date extends AbstractObject
+class Date extends MultipleValueObject implements DateTimeInterface
 {
     protected $year;
     protected $month;
     protected $day;
 
-    public function __construct2(Year $year, Month $month, Day $day)
+    public function __construct(Year $year, Month $month, Day $day)
+    {
+        $this->year = $year;
+        $this->month = $month;
+        $this->day = $day;
+    }
+
+    public static function now()
+    {
+        return new static(Year::now(), Month::now(), Day::now());
+    }
+
+    public static function fromString($string)
     {
 
     }

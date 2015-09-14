@@ -1,6 +1,8 @@
 <?php namespace PhalueObjects;
 
-class Mathmatic extends AbstractObject
+use PhalueObjects\AbstractObject\SingleValueObject;
+
+class Mathematical extends SingleValueObject
 {
     protected $value;
 
@@ -39,22 +41,22 @@ class Mathmatic extends AbstractObject
         return $this->getValue() === (int) 0;
     }
 
-    public function isGreaterThan(Mathmatic $number)
+    public function isGreaterThan(Mathematical $number)
     {
         return $this->getValue() > $number->getValue();
     }
 
-    public function isLessThan(Mathmatic $number)
+    public function isLessThan(Mathematical $number)
     {
         return $this->getValue() < $number->getValue();
     }
 
-    public function isGreaterThanOrEqualTo(Mathmatic $number)
+    public function isGreaterThanOrEqualTo(Mathematical $number)
     {
         return $this->getValue() >= $number->getValue();
     }
 
-    public function isLessThanOrEqualTo(Mathmatic $number)
+    public function isLessThanOrEqualTo(Mathematical $number)
     {
         return $this->getValue() <= $number->getValue();
     }
