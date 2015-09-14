@@ -13,7 +13,7 @@ final class DateTime extends MultipleValueObject
     {
         $this->date = $date;
         $this->time = $time;
-        parent::__construct([$date, $time]);
+        parent::__construct([ $date, $time ]);
     }
 
     public static function now()
