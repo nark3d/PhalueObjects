@@ -31,6 +31,9 @@ abstract class AbstractObject implements ObjectInterface
         return $this->value;
     }
 
+    /**
+     * @return integer
+     */
     public function getValue()
     {
         return $this->value;
