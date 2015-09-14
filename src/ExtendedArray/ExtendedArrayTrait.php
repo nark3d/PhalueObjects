@@ -1,6 +1,6 @@
 <?php namespace PhalueObjects\ExtendedArray;
 
-use PhalueObjects\Number\Integer;
+use PhalueObjects\Mathmatic\Integer;
 use PhalueObjects\String\StringTrait;
 
 trait ExtendedArrayTrait

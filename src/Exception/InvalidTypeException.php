@@ -1,7 +1,7 @@
 <?php namespace PhalueObjects\Exception;
 
 use PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-use PhalueObjects\Number\Integer;
+use PhalueObjects\Mathmatic\Integer;
 
 class InvalidTypeException extends \InvalidArgumentException
 {
