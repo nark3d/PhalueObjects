@@ -13,6 +13,6 @@ class Date extends AbstractObject
 
     public function __construct2(Year $year, Month $month, Day $day)
     {
-        
+
     }
 }
