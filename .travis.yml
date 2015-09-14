@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 language: php
 
 php:
@@ -18,3 +19,24 @@ script:
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+=======
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+  - nightly
+
+before_script:
+  - composer self-update
+  - composer install --prefer-dist --no-interaction
+
+script:
+  - vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text
+
+after_script:
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+>>>>>>> 99c2fb53f99389c208631623c7c181048bb3c760
