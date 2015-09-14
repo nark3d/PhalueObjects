@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "Phalue Objects",
   "description": "PHP Value Objects",
@@ -22,19 +21,3 @@
     "psr-4": {"PhalueObjects\\Test": "test"}
   }
 }
-=======
-{
-  "require": {
-    "nesbot/carbon": "~1.14"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "~4.0"
-  },
-  "autoload": {
-    "classmap": [
-      "test",
-      "src"
-    ]
-  }
-}
->>>>>>> 99c2fb53f99389c208631623c7c181048bb3c760
