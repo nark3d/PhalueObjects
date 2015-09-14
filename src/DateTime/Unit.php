@@ -1,7 +1,7 @@
 <?php namespace PhalueObjects\DateTime;
 
-use PhalueObjects\AbstractObject\SingleValueObject;
 use Carbon\Carbon;
+use PhalueObjects\AbstractObject\SingleValueObject;
 
 
 abstract class Unit extends SingleValueObject
