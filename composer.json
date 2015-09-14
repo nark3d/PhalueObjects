@@ -1,8 +1,6 @@
 {
   "require": {
-    "nesbot/carbon": "~1.14"
-  },
-  "require-dev": {
+    "nesbot/carbon": "~1.14",
     "phpunit/phpunit": "~4.0"
   },
   "autoload": {
