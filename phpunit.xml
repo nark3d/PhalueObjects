@@ -20,19 +20,15 @@
 
     <!--<filter>-->
     <!--<whitelist>-->
-    <!--<directory>./app/</directory>-->
+    <!--<directory>./src/</directory>-->
     <!--<exclude>-->
-    <!--<directory>./app/tests/</directory>-->
-    <!--<directory>./app/database/</directory>-->
-    <!--<directory>./app/lang/</directory>-->
-    <!--<directory>./app/views/</directory>-->
-    <!--<directory>./app/config/</directory>-->
+    <!--<directory>./test/</directory>-->
     <!--</exclude>-->
     <!--</whitelist>-->
     <!--</filter>-->
 
     <!--<logging>-->
-    <!--<log type="coverage-html" target="./app/storage/logs/phpunit.html" charset="UTF-8"-->
+    <!--<log type="coverage-html" target="./coverage/phpunit.html" charset="UTF-8"-->
     <!--yui="true" highlight="true" lowUppoerBound="50" highLowerBound="80" />-->
     <!--</logging>-->
 
