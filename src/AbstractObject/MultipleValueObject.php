@@ -11,4 +11,9 @@ abstract class MultipleValueObject extends AbstractObject
         $this->arguments = $arguments;
         parent::__construct();
     }
+
+    public function equals(MultipleValueObject $object)
+    {
+
+    }
 }

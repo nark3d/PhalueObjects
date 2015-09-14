@@ -9,4 +9,10 @@ class DayTest extends TestCase
     {
         $this->assertSame(date('d'), Day::now()->getValue());
     }
+
+    public function testToString()
+    {
+        $day = new Day(8);
+        $this->assertEquals(8,  "$day");
+    }
 }

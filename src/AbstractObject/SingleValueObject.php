@@ -29,4 +29,14 @@ abstract class SingleValueObject extends AbstractObject
     {
         return new static($value);
     }
+
+    public function __toString()
+    {
+        return (string) $this->value;
+    }
+
+    public function equal(SingleValueObject $object)
+    {
+        return $this->value === $object->value;
+    }
 }

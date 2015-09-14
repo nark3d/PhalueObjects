@@ -9,7 +9,7 @@ abstract class AbstractObject implements ObjectInterface
         $this->reflection = new \ReflectionClass($this);
     }
 
-    public function __toString()
+    public function getShortName()
     {
         return $this->reflection->getShortName();
     }
@@ -17,11 +17,6 @@ abstract class AbstractObject implements ObjectInterface
     public function __set($field, $value)
     {
         throw new \RuntimeException("You cannot set a value of a Value Object, that's the whole point!");
-    }
-
-    public function native()
-    {
-        return $this->value;
     }
 
     public function hash()
