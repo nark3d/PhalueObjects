@@ -5,7 +5,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/nark3d/phalueobjects/badges/coverage.png?s=59dd4a142412a9dcd989870610f1c9f89c19cf48)](https://scrutinizer-ci.com/g/nark3d/phalueobjects/)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/5820fcfd-8593-4b76-99a6-397b94cd659c/mini.png)](https://insight.sensiolabs.com/projects/5820fcfd-8593-4b76-99a6-397b94cd659c)
 
-PHP Value Objects - a work in progress, but aiming towards an everyday usable set of generic value objects for PHP
+PHP Value Objects - a work in progress, but aiming towards an everyday usable set of generic immutable value objects for PHP
 
 Work in Progress
 ------------------
