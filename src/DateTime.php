@@ -20,4 +20,12 @@ final class DateTime extends MultipleValueObject
     {
         return new static(Date::now(), Time::now());
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+    }
 }
