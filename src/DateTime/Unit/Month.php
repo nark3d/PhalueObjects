@@ -9,6 +9,6 @@ final class Month extends Unit implements UnitInterface
 
     public static function now()
     {
-        return new static(parent::getNowDateTime()->format('n'));
+        return new static(parent::getNowDateTimeFormat('n'));
     }
 }

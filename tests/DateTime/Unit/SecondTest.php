@@ -7,6 +7,6 @@ class SecondTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame(date('s'), Second::now()->getValue());
+        $this->assertSame((int) date('s'), Second::now()->getValue());
     }
 }

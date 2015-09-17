@@ -7,7 +7,7 @@ use BestServedCold\PhalueObjects\Mathematical;
 {
     public function __construct($value)
     {
-        if (!filter_var($value, FILTER_VALIDATE_INT)) {
+        if (!is_int($value)) {
             throw new InvalidTypeException($value, [ 'integer' ]);
         }
 

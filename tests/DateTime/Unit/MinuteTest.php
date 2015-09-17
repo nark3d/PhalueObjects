@@ -7,6 +7,6 @@ class MinuteTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame(date('i'), Minute::now()->getValue());
+        $this->assertSame((int) date('i'), Minute::now()->getValue());
     }
 }

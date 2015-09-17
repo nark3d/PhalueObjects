@@ -17,12 +17,17 @@ final class Month extends Unit implements UnitInterface
         parent::__construct($value);
 
         if (!$this->inRange($this, self::MIN, self::MAX)) {
-            throw new InvalidRangeTypeException($value, ['integer'], self::MIN, self::MAX);
+            throw new InvalidRangeTypeException(
+                $value,
+                ['integer'],
+                self::MIN,
+                self::MAX
+            );
         }
     }
 
     public static function now()
     {
-        return new static(parent::getNowDateTime()->format('d'));
+        return new static(parent::getNowDateTimeFormat('j'));
     }
 }

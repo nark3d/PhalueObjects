@@ -4,8 +4,9 @@ use BestServedCold\PhalueObjects\Mathematical\Integer;
 
 abstract class Unit extends Integer
 {
-    public static function getNowDateTime()
+    public static function getNowDateTimeFormat($format)
     {
-        return new \DateTime('now');
+        $dateTime = new \DateTime('now');
+        return (int) $dateTime->format($format);
     }
 }

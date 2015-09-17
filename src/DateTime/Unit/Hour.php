@@ -9,7 +9,7 @@ final class Hour extends Unit implements UnitInterface
 
     public static function now()
     {
-        return new static(parent::getNowDateTime()->format('H'));
+        return new static(parent::getNowDateTimeFormat('H'));
     }
 }
 

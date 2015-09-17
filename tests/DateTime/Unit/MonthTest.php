@@ -7,6 +7,6 @@ class MonthTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame(date('m'), Month::now()->getNative());
+        $this->assertSame((int) date('n'), Month::now()->getValue());
     }
 }

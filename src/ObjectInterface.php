@@ -1,4 +1,4 @@
-<?php namespace PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects;
 
 interface ObjectInterface
 {

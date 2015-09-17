@@ -1,4 +1,4 @@
-<?php namespace PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects;
 
 class Climate extends SingleValueObject
 {

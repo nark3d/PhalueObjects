@@ -7,6 +7,6 @@ class HourTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame(date('H'), Hour::now()->getValue());
+        $this->assertSame((int) date('H'), Hour::now()->getValue());
     }
 }

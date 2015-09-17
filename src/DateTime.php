@@ -1,4 +1,4 @@
-<?php namespace PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
 use BestServedCold\PhalueObjects\DateTime\Time;

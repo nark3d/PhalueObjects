@@ -7,6 +7,6 @@ class YearTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame(date('Y'), Year::now()->getValue());
+        $this->assertSame((int) date('Y'), Year::now()->getValue());
     }
 }

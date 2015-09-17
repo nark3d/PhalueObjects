@@ -9,6 +9,6 @@ final class Minute extends Unit implements UnitInterface
 
     public static function now()
     {
-        return new static(parent::getNowDateTime()->format('i'));
+        return new static(parent::getNowDateTimeFormat('i'));
     }
 }
