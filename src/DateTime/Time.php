@@ -1,9 +1,9 @@
-<?php namespace PhalueObjects\DateTime;
+<?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use PhalueObjects\AbstractObject\MultipleValueObject;
-use PhalueObjects\DateTime\Unit\Hour;
-use PhalueObjects\DateTime\Unit\Minute;
-use PhalueObjects\DateTime\Unit\Second;
+use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
+use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
+use BestServedCold\PhalueObjects\DateTime\Unit\Second;
 
 class Time extends MultipleValueObject implements DateTimeInterface
 {

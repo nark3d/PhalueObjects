@@ -1,8 +1,7 @@
-<?php namespace PhalueObjects\Test\String;
+<?php namespace BestServedCold\PhalueObjects\String;
 
-use PhalueObjects\Test\TestCase;
-use PhalueObjects\String\StringTrait;
-use PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\TestCase;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
 
 class StringTraitTest extends TestCase
 {

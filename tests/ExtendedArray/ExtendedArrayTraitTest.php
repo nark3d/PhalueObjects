@@ -1,8 +1,8 @@
-<?php namespace PhalueObjects\Test\ExtendedArray;
+<?php namespace BestServedCold\PhalueObjects\Test\ExtendedArray;
 
-use PhalueObjects\Test\TestCase;
-use PhalueObjects\Mathematical\Integer;
-use PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\TestCase;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 
 class ExtendedArrayTraitTest extends TestCase
 {

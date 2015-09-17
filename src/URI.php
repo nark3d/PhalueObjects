@@ -1,7 +1,7 @@
 <?php namespace PhalueObjects;
 
-use PhalueObjects\AbstractObject\SingleValueObject;
-use PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 class URI extends SingleValueObject
 {

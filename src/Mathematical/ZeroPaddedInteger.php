@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\Mathematical;
+<?php namespace BestServedCold\PhalueObjects\Mathematical;
 
-use PhalueObjects\Mathematical;
+use BestServedCold\PhalueObjects\Mathematical;
 
 class ZeroPaddedInteger extends Mathematical
 {

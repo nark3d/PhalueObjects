@@ -1,7 +1,7 @@
 <?php namespace PhalueObjects;
 
-use PhalueObjects\AbstractObject\SingleValueObject;
-use PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 class Email extends SingleValueObject
 {
@@ -18,6 +18,11 @@ class Email extends SingleValueObject
     }
 
     public function getDomain()
+    {
+
+    }
+
+    public function emailGinny(Email $bob)
     {
 
     }

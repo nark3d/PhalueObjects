@@ -1,6 +1,6 @@
 <?php namespace PhalueObjects;
 
-use PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
 
 class String extends SingleValueObject
 {

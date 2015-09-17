@@ -14,7 +14,7 @@
         >
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./test</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 

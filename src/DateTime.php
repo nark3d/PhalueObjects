@@ -1,8 +1,8 @@
 <?php namespace PhalueObjects;
 
-use PhalueObjects\AbstractObject\MultipleValueObject;
-use PhalueObjects\DateTime\Time;
-use PhalueObjects\DateTime\Date;
+use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\DateTime\Time;
+use BestServedCold\PhalueObjects\DateTime\Date;
 
 final class DateTime extends MultipleValueObject
 {

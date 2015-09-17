@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\Test\Exception;
+<?php namespace BestServedCold\PhalueObjects\Test\Exception;
 
-use PhalueObjects\Test\TestCase;
+use BestServedCold\PhalueObjects\TestCase;
 
 class InvalidTypeExceptionTest extends TestCase
 {

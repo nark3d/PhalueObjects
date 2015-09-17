@@ -1,4 +1,4 @@
-<?php namespace PhalueObjects\Mathematical;
+<?php namespace BestServedCold\PhalueObjects\Mathematical;
 
 class Percentage extends Float
 {

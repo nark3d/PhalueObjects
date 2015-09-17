@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\AbstractObject;
+<?php namespace BestServedCold\PhalueObjects\AbstractObject;
 
-use PhalueObjects\AbstractObject;
+use BestServedCold\PhalueObjects\AbstractObject;
 
 abstract class SingleValueObject extends AbstractObject
 {

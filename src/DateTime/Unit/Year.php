@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\DateTime\Unit;
+<?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
-use PhalueObjects\DateTime\Unit;
+use BestServedCold\PhalueObjects\DateTime\Unit;
 
 final class Year extends Unit implements UnitInterface
 {

@@ -1,6 +1,6 @@
-<?php namespace PhalueObjects\DateTime;
+<?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
 
 class TimeZone extends MultipleValueObject
 {

@@ -1,13 +1,13 @@
-<?php namespace PhalueObjects\Mathematical;
+<?php namespace BestServedCold\PhalueObjects\Mathematical;
 
-use PhalueObjects\Exception\InvalidTypeException;
-use PhalueObjects\Mathematical;
+use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\Mathematical;
 
 class Float extends Mathematical
 {
     public function __construct($value)
     {
-        if (!is_float($value)) {
+        if (! filter_var($value, FILTER_VALIDATE_FLOAT)) {
             throw new InvalidTypeException($value, [ 'float' ]);
         }
 

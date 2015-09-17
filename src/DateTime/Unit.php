@@ -1,8 +1,8 @@
-<?php namespace PhalueObjects\DateTime;
+<?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use PhalueObjects\Mathematical\ZeroPaddedInteger;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-abstract class Unit extends ZeroPaddedInteger
+abstract class Unit extends Integer
 {
     public static function getNowDateTime()
     {

@@ -1,7 +1,7 @@
-<?php namespace PhalueObjects\ExtendedArray;
+<?php namespace BestServedCold\PhalueObjects\ExtendedArray;
 
-use PhalueObjects\Mathematical\Integer;
-use PhalueObjects\String\StringTrait;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\String\StringTrait;
 
 trait ExtendedArrayTrait
 {

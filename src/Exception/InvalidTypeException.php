@@ -1,7 +1,7 @@
-<?php namespace PhalueObjects\Exception;
+<?php namespace BestServedCold\PhalueObjects\Exception;
 
-use PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-use PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
 
 class InvalidTypeException extends \InvalidArgumentException
 {
@@ -9,10 +9,17 @@ class InvalidTypeException extends \InvalidArgumentException
 
     public function __construct($value, array $allowedTypes)
     {
-        $this->message = sprintf(
-            'Argument "%s" is an invalid type. Allowed types for argument are "%s".',
-            $value,
-            $this->arrayToCommaString($allowedTypes, new Integer(1))
-        );
+        $this->message = 'Argument [' . $this->getType($value) . '] is not a valid type.' .
+            ' The allowed type(s) are [' . $this->getAllowedTypes($allowedTypes) . ']';
+    }
+
+    protected function getAllowedTypes($allowedTypes)
+    {
+        return $this->arrayToCommaString($allowedTypes, new Integer(1));
+    }
+
+    protected function getType($value)
+    {
+        return var_export($value, true);
     }
 }

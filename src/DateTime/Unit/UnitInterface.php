@@ -1,4 +1,4 @@
-<?php namespace PhalueObjects\DateTime\Unit;
+<?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 interface UnitInterface
 {

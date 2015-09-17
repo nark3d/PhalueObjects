@@ -1,10 +1,10 @@
-<?php namespace PhalueObjects\Date;
+<?php namespace BestServedCold\PhalueObjects\Date;
 
-use PhalueObjects\AbstractObject\MultipleValueObject;
-use PhalueObjects\DateTime\DateTimeInterface;
-use PhalueObjects\DateTime\Unit\Day;
-use PhalueObjects\DateTime\Unit\Month;
-use PhalueObjects\DateTime\Unit\Year;
+use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
+use BestServedCold\PhalueObjects\DateTime\Unit\Day;
+use BestServedCold\PhalueObjects\DateTime\Unit\Month;
+use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 
 class Date extends MultipleValueObject implements DateTimeInterface
 {
