@@ -10,7 +10,7 @@ class InvalidTypeException extends \InvalidArgumentException
     public function __construct($value, array $allowedTypes)
     {
         $this->message =
-            'Argument [' . var_export($value, true) . '] is not a valid type.' .
+            'Argument [' . gettype($value) . '] is not a valid type.' .
             ' The allowed type(s) are [' . $this->getAllowedTypes($allowedTypes) .
             ']';
     }
@@ -19,9 +19,5 @@ class InvalidTypeException extends \InvalidArgumentException
     {
         return $this->arrayToCommaString($allowedTypes, new Integer(1));
     }
-
-    protected function getType($value)
-    {
-        return var_export($value, true);
-    }
 }
+
