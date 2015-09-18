@@ -4,10 +4,10 @@ use BestServedCold\PhalueObjects\DateTime\Unit;
 use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
 use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
 
-final class Week extends Unit implements UnitInterface
+final class Year extends Unit implements UnitInterface
 {
     const MIN = 1;
-    const MAX = 7;
+    const MAX = 366; // Take account for leap years.
 
     public function __construct($value)
     {
@@ -25,6 +25,6 @@ final class Week extends Unit implements UnitInterface
 
     public static function now()
     {
-        return new static(parent::getNowDateTimeFormat('N'));
+        return new static(parent::getNowDateTimeFormat('z'));
     }
 }

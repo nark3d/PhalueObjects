@@ -3,12 +3,9 @@
 use BestServedCold\PhalueObjects\DateTime\Unit;
 use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
 use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
-use BestServedCold\PhalueObjects\Mathematical\Integer\IntegerTrait;
 
 final class Month extends Unit implements UnitInterface
 {
-    use IntegerTrait;
-
     const MIN = 1;
     const MAX = 31;
 
@@ -28,6 +25,6 @@ final class Month extends Unit implements UnitInterface
 
     public static function now()
     {
-        return new static(parent::getNowDateTimeFormat('j'));
+        return new static(Unit::getNowDateTimeFormat('j'));
     }
 }

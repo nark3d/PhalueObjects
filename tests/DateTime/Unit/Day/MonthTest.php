@@ -3,12 +3,11 @@
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\TestCase;
 
-
 class MonthTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('d'), Month::now()->getValue());
+        $this->assertSame((int) date('j'), Month::now()->getValue());
     }
 
     public function testToString()
@@ -19,7 +18,10 @@ class MonthTest extends TestCase
 
     public function testConstructor()
     {
-        $this->setExpectedException('BestServedCold\PhalueObjects\Exception\InvalidTypeException');
+        $this->setExpectedException(
+            'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
+        );
         new Month(new Integer(52));
     }
 }
+

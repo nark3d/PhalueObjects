@@ -1,8 +1,7 @@
-<?php namespace BestServedCold\PhalueObjects\Date;
+<?php namespace BestServedCold\PhalueObjects\DateTime;
 
 use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
-use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
-use BestServedCold\PhalueObjects\DateTime\Unit\Day;
+use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 
@@ -11,14 +10,14 @@ class Date extends MultipleValueObject implements DateTimeInterface
     protected $year;
     protected $month;
     protected $day;
-    protected $dateTime;
+    protected $native;
 
     public function __construct(Year $year, Month $month, Day $day)
     {
         $this->year = $year;
         $this->month = $month;
         $this->day = $day;
-        $this->dateTime = new DateTime("$year-$month-$day");
+        $this->native = new \DateTime("$year-$month-$day");
     }
 
     public static function now()
