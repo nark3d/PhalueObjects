@@ -12,4 +12,6 @@ class IntegerTest extends TestCase
         $this->setExpectedException('BestServedCold\PhalueObjects\Exception\InvalidTypeException');
         new Integer('this is the wrong type');
     }
+
+
 }

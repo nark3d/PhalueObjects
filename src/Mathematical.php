@@ -4,26 +4,26 @@ use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
 
 class Mathematical extends SingleValueObject
 {
-    protected $value;
-
-    public function __construct($value)
-    {
-        $this->value = $value;
-    }
-
-    public function native()
-    {
-        return $this->value;
-    }
-
-    public function makeNegative()
+     public function makeNegative()
     {
         $this->value = -abs($this->value);
+        return $this;
     }
 
     public function makePositive()
     {
         $this->value = abs($this->value);
+        return $this;
+    }
+
+    public function reversePolarity()
+    {
+        if ($this->isNegative() || $this->isZero()) {
+            $this->makePositive();
+        } else {
+            $this->makeNegative();
+        }
+        return $this;
     }
 
     public function isNegative()
@@ -60,13 +60,5 @@ class Mathematical extends SingleValueObject
     {
         return $this->getValue() <= $number->getValue();
     }
-
-    public function reversePolarity()
-    {
-        if ($this->isNegative() || $this->isZero()) {
-            $this->makePositive();
-        } else {
-            $this->makeNegative();
-        }
-    }
 }
+
