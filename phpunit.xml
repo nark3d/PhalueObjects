@@ -18,9 +18,16 @@
         </testsuite>
         <filter>
             <whitelist>
-                <directory>./src/</directory>
+                <directory>./src</directory>
             </whitelist>
+            <blacklist>
+                <directory>./vendor</directory>
+            </blacklist>
         </filter>
     </testsuites>
+    <logging>
+        <log type="coverage-html" target="./coverage" charset="UTF-8"
+             yui="true" highlight="true" LowUpperBound="50" highLowerBound="80" />
+    </logging>
 </phpunit>
 

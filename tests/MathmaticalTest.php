@@ -86,7 +86,7 @@ class MathematicalTest extends TestCase
         );
     }
 
-    public function isLessThanOrEqualToTest(Mathematical $number)
+    public function testisLessThanOrEqualTo()
     {
         $this->assertTrue(
             (new Mathematical(10))->isLessThanOrEqualTo(
@@ -105,11 +105,23 @@ class MathematicalTest extends TestCase
         );
     }
 
-    public function reversePolarityTest()
+    public function testReversePolarity()
     {
-        $this->assertSame(123, (new Mathematical(-123))->reversePolarity());
-        $this->assertNotSame(123, (new Mathematical(123))->reversePolarity());
-        $this->assertSame(-123, (new Mathematical(123))->reversePolarity());
-        $this->assertNotSame(-123, (new Mathematical(-123))->reversePolarity());
+        $this->assertSame(
+            123,
+            (new Mathematical(-123))->reversePolarity()->getValue()
+        );
+        $this->assertNotSame(
+            123,
+            (new Mathematical(123))->reversePolarity()->getValue()
+        );
+        $this->assertSame(
+            -123,
+            (new Mathematical(123))->reversePolarity()->getValue()
+        );
+        $this->assertNotSame(
+            -123,
+            (new Mathematical(-123))->reversePolarity()->getValue()
+        );
     }
 }
