@@ -12,7 +12,7 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [];
+    private static $configuration = [ ];
 
     public static function buildConfiguration()
     {
