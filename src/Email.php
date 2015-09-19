@@ -1,7 +1,7 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
 class Email extends SingleValue
 {
