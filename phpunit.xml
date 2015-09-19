@@ -16,18 +16,18 @@
         <testsuite name="PhalueObjects Test Suite">
             <directory>./tests</directory>
         </testsuite>
-        <filter>
-            <whitelist>
-                <directory>./src</directory>
-            </whitelist>
-            <blacklist>
-                <directory>./vendor</directory>
-            </blacklist>
-        </filter>
     </testsuites>
-    <logging>
-        <log type="coverage-html" target="./coverage" charset="UTF-8"
-             yui="true" highlight="true" LowUpperBound="50" highLowerBound="80" />
-    </logging>
+    <filter>
+        <whitelist>
+            <directory>./src</directory>
+            <exclude>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <!--<logging>-->
+        <!--<log type="coverage-html" target="./coverage" charset="UTF-8"-->
+             <!--yui="true" highlight="true" LowUpperBound="50" highLowerBound="80" />-->
+    <!--</logging>-->
 </phpunit>
 

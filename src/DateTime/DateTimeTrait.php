@@ -4,8 +4,7 @@ trait DateTimeTrait
 {
     public static function getNowDateTimeFormat($format)
     {
-        $dateTime = new \DateTime('now');
-        return (int) $dateTime->format($format);
+        return (int) self::getNowDateTime()->format($format);
     }
 
     public static function getNowDateTime()

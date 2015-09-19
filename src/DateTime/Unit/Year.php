@@ -1,9 +1,13 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
-use BestServedCold\PhalueObjects\DateTime\Unit;
+use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Year extends Unit implements UnitInterface
+
+final class Year extends Integer implements UnitInterface
 {
+    use DateTimeTrait;
+
     protected $native;
 
     public function __construct($value)
@@ -12,17 +16,31 @@ final class Year extends Unit implements UnitInterface
         $this->native = new \DateTime("$value-01-01");
     }
 
-    public static function now()
-    {
-        return new static(parent::getNowDateTimeFormat('Y'));
-    }
-
     public function leap()
     {
         return $this->native->format('L') === '1' ? true : false;
     }
 
+    /**
+     * Now
+     *
+     * @return static
+     */
+    public static function now()
+    {
+        return new static(self::getNowDateTimeFormat('Y'));
+    }
 
+    /**
+     * From String
+     *
+     * @param  $string
+     * @return static
+     */
+    public static function fromString($string)
+    {
+        // TODO: Implement fromString() method.
+    }
 }
 
 

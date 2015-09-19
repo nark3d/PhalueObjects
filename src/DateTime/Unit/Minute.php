@@ -1,29 +1,33 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
-use BestServedCold\PhalueObjects\DateTime\Unit;
-use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
+use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
+use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Minute extends Unit implements UnitInterface
+final class Minute extends Integer implements UnitInterface
 {
-    const MIN = 0;
-    const MAX = 59;
+    use DateTimeTrait;
+
+    protected $minimum = 0;
+    protected $maximum = 59;
 
     public function __construct($value)
     {
         parent::__construct($value);
-
-        if (!$this->inRange($this, self::MIN, self::MAX)) {
-            throw new InvalidRangeTypeException(
-                $value,
-                ['integer'],
-                self::MIN,
-                self::MAX
-            );
-        }
     }
 
     public static function now()
     {
-        return new static(Unit::getNowDateTimeFormat('i'));
+        return new static(self::getNowDateTimeFormat('i'));
+    }
+
+    /**
+     * From String
+     *
+     * @param  $string
+     * @return static
+     */
+    public static function fromString($string)
+    {
+        // TODO: Implement fromString() method.
     }
 }

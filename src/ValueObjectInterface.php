@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-interface ObjectInterface
+interface ValueObjectInterface
 {
     /**
      * @return string

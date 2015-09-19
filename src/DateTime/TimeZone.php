@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
-class TimeZone extends MultipleValueObject
+class TimeZone extends MultipleValue
 {
 
 }

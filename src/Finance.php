@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class Finance extends AbstractObject
+class Finance extends ValueObject
 {
 
 }

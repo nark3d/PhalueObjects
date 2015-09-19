@@ -2,9 +2,18 @@
 
 interface DateTimeInterface
 {
+    /**
+     * Now
+     *
+     * @return static
+     */
     public static function now();
 
+    /**
+     * From String
+     *
+     * @param  $string
+     * @return static
+     */
     public static function fromString($string);
-    
-    public function equals();
 }

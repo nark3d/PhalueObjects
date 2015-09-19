@@ -1,6 +1,13 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
-interface UnitInterface
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
+
+interface UnitInterface extends DateTimeInterface
 {
-    public static function now();
+    /**
+     * Class Constructor
+     *
+     * @param $value
+     */
+    public function __construct($value);
 }

@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class Geography extends AbstractObject
+class Geography extends ValueObject
 {
 
 }

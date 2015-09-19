@@ -9,10 +9,12 @@ class YearTest extends TestCase
     public function testNow()
     {
         $this->assertSame((int) date('Y'), Year::now()->getValue());
+        $this->assertNotSame(1999, Year::now()->getValue());
     }
 
     public function testLeap()
     {
         $this->assertTrue((new Year(2012))->leap());
+        $this->assertFalse((new Year(2013))->leap());
     }
 }

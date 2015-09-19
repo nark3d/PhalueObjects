@@ -1,9 +1,9 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
-class ExtendedArray extends SingleValueObject
+class ExtendedArray extends SingleValue
 {
     public function __construct($value)
     {

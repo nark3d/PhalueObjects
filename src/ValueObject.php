@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-abstract class AbstractObject implements ObjectInterface
+abstract class ValueObject implements ValueObjectInterface
 {
     protected $reflection;
 
@@ -16,7 +16,9 @@ abstract class AbstractObject implements ObjectInterface
 
     public function __set($field, $value)
     {
-        throw new \RuntimeException("You cannot set a value of a Value Object, that's the whole point!");
+        throw new \RuntimeException(
+            "You cannot set a value of a Value Object, that's the whole point!"
+        );
     }
 
     public function hash()

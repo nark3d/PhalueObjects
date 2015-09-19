@@ -1,10 +1,34 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
+use BestServedCold\PhalueObjects\Mathematical\Range;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
-class Mathematical extends SingleValueObject
+class Mathematical extends SingleValue
 {
-     public function makeNegative()
+    protected $maximum = false;
+    protected $minimum = false;
+
+    public function __construct($value)
+    {
+        if (
+            $this->minimum &&
+            $this->maximum &&
+            ! (new Range($this->maximum, $this->minimum))
+                ->inRange(new Mathematical($value)))
+        {
+
+            throw new InvalidRangeTypeException(
+                $value,
+                ['Mathematical'],
+                $this->minimum,
+                $this->maximum
+            );
+        }
+
+        parent::__construct($value);
+    }
+    public function makeNegative()
     {
         $this->value = -abs($this->value);
         return $this;
@@ -61,4 +85,5 @@ class Mathematical extends SingleValueObject
         return $this->getValue() <= $number->getValue();
     }
 }
+
 

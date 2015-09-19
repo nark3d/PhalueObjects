@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
-class String extends SingleValueObject
+class String extends SingleValue
 {
 
     /**

@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class Null extends AbstractObject
+class Null extends ValueObject
 {
 
 }

@@ -1,9 +1,9 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
-class Email extends SingleValueObject
+class Email extends SingleValue
 {
     protected $domain;
     protected $userName;

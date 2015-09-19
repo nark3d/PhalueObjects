@@ -1,8 +1,9 @@
-<?php namespace BestServedCold\PhalueObjects\AbstractObject;
+<?php namespace BestServedCold\PhalueObjects\ValueObject;
 
-use BestServedCold\PhalueObjects\AbstractObject;
+use BestServedCold\PhalueObjects\Mathematical\Range;
+use BestServedCold\PhalueObjects\ValueObject;
 
-abstract class SingleValueObject extends AbstractObject
+abstract class SingleValue extends ValueObject
 {
     protected $value;
 
@@ -25,17 +26,12 @@ abstract class SingleValueObject extends AbstractObject
         return $this->value;
     }
 
-    public function __invoke($value)
-    {
-        return new static($value);
-    }
-
     public function __toString()
     {
         return (string) $this->value;
     }
 
-    public function equal(SingleValueObject $object)
+    public function equals(SingleValue $object)
     {
         return $this->value === $object->value;
     }

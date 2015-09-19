@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
-class Climate extends SingleValueObject
+class Climate extends SingleValue
 {
 
 }

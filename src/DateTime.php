@@ -1,10 +1,10 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Time;
 use BestServedCold\PhalueObjects\DateTime\Date;
 
-final class DateTime extends MultipleValueObject
+final class DateTime extends MultipleValue
 {
     protected $date;
     protected $time;

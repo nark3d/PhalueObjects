@@ -1,9 +1,9 @@
-<?php namespace PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\AbstractObject\SingleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
-class URI extends SingleValueObject
+class URI extends SingleValue
 {
     protected $protocol;
     protected $host;

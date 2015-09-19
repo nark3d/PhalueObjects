@@ -1,11 +1,11 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
 use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
 
-class Time extends MultipleValueObject implements DateTimeInterface
+class Time extends MultipleValue implements DateTimeInterface
 {
     protected $hour;
     protected $minute;
@@ -23,13 +23,21 @@ class Time extends MultipleValueObject implements DateTimeInterface
         return new static(Hour::now(), Minute::now(), Second::now());
     }
 
-    public static function fromString()
-    {
-        // TODO: Implement fromString() method.
-    }
-
     public function equals()
     {
         // TODO: Implement equals() method.
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+    }
+
+    public static function fromString($string)
+    {
+        // TODO: Implement fromString() method.
     }
 }

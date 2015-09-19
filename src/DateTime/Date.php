@@ -1,11 +1,11 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\AbstractObject\MultipleValueObject;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 
-class Date extends MultipleValueObject implements DateTimeInterface
+class Date extends MultipleValue implements DateTimeInterface
 {
     protected $year;
     protected $month;

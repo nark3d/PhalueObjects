@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class Identity extends AbstractObject
+class Identity extends ValueObject
 {
 
 }
