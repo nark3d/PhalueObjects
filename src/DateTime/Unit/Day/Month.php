@@ -1,7 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
-require_once('/home/vagrant/Code/PhalueObjects/src/DateTime/DateTimeTrait.php');
 use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
