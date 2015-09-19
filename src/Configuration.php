@@ -1,14 +1,14 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Config\Configuration;
-use BestServedCold\PhalueObjects\Config\YamlConfigLoader;
+use BestServedCold\PhalueObjects\Configuration\Definition;
+use BestServedCold\PhalueObjects\Configuration\YamlConfigurationLoader;
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 
 
-class Config extends Singleton
+class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
@@ -16,12 +16,12 @@ class Config extends Singleton
 
     public static function buildConfiguration()
     {
-        $locator = new FileLocator(__DIR__ . '/Config');
-        $loader = new YamlConfigLoader($locator);
-        $configValues = $loader->load($locator->locate('Config.yml'));
+        $locator = new FileLocator(__DIR__ . '/Configuration');
+        $loader = new YamlConfigurationLoader($locator);
+        $configValues = $loader->load($locator->locate('configuration.yml'));
 
         $configuration = (new Processor())->processConfiguration(
-                new Configuration(),
+                new Definition(),
                 $configValues);
 
         return $configuration;
@@ -32,7 +32,6 @@ class Config extends Singleton
         $config = self::singleton();
 
         if (empty($config::$configuration)) {
-            echo "I'm doing this";
             $config::$configuration = self::buildConfiguration();
         }
 

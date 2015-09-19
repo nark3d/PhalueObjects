@@ -1,21 +1,10 @@
-<?php namespace BestServedCold\PhalueObjects\Config;
+<?php namespace BestServedCold\PhalueObjects\Configuration;
 
-use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Config\Loader\FileLoader;
 use Symfony\Component\Yaml\Yaml;
 
-class YamlConfigLoader extends FileLoader
+class YamlConfigurationLoader extends FileLoader
 {
-
-    /**
-     * Loads a resource.
-     *
-     * @param mixed $resource The resource
-     * @param string|null $type The resource type or null if unknown
-     *
-     * @throws \Exception If something went wrong
-     */
-
     /**
      * Loads a resource.
      *

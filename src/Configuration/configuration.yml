@@ -1,4 +1,4 @@
-# Config/Config.yml
+# Config/config.yml
 phalueObjects:
     language:
         locale: en_GB

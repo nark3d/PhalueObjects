@@ -1,11 +1,10 @@
-<?php namespace BestServedCold\PhalueObjects\Config;
+<?php namespace BestServedCold\PhalueObjects\Configuration;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-class Configuration implements ConfigurationInterface
+class Definition implements ConfigurationInterface
 {
-
     /**
      * Generates the configuration tree builder.
      *
@@ -30,5 +29,4 @@ class Configuration implements ConfigurationInterface
 
         return $treeBuilder;
     }
-
 }
