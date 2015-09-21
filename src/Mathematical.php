@@ -28,6 +28,7 @@ class Mathematical extends SingleValue
 
         parent::__construct($value);
     }
+
     public function makeNegative()
     {
         $this->value = -abs($this->value);
@@ -85,5 +86,3 @@ class Mathematical extends SingleValue
         return $this->getValue() <= $number->getValue();
     }
 }
-
-

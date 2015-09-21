@@ -11,6 +11,7 @@ class Date extends MultipleValue implements DateTimeInterface
     protected $month;
     protected $day;
     protected $native;
+    protected $epoch;
 
     public function __construct(Year $year, Month $month, Day $day)
     {
@@ -18,11 +19,32 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->month = $month;
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
+        $this->epoch = $this->native->getTimestamp();
+    }
+
+    public function __toString()
+    {
+        return $this->year . '-' . $this->month . '-' . $this->day;
+    }
+
+    public function native()
+    {
+        return $this->native;
     }
 
     public static function now()
     {
         return new static(Year::now(), Month::now(), Day::now());
+    }
+
+    public static function tomorrow()
+    {
+
+    }
+
+    public static function yesterday()
+    {
+
     }
 
     public static function fromString($string)
@@ -35,8 +57,4 @@ class Date extends MultipleValue implements DateTimeInterface
             new Day($date->format('j'))) : false;
     }
 
-    public function __toString()
-    {
-        return $this->year . '-' . $this->month . '-' . $this->day;
-    }
 }

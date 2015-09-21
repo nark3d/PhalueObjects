@@ -16,16 +16,13 @@ class Time extends MultipleValue implements DateTimeInterface
         $this->hour = $hour;
         $this->minute = $minute;
         $this->second = $second;
+
+        parent::__construct(func_get_args());
     }
 
     public static function now()
     {
         return new static(Hour::now(), Minute::now(), Second::now());
-    }
-
-    public function equals()
-    {
-        // TODO: Implement equals() method.
     }
 
     /**
