@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects\Language;
 
 use Symfony\Component\Translation\Loader\YamlFileLoader;
-use Symfony\Component\Translation\Translator as SymfonyTranslator;
 use Symfony\Component\Translation\MessageSelector;
+use Symfony\Component\Translation\Translator as SymfonyTranslator;
 
 final class Translator
 {

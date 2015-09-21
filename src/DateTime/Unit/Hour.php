@@ -10,6 +10,9 @@ final class Hour extends Integer implements UnitInterface
     protected $minimum = 0;
     protected $maximum = 23;
 
+    /**
+     * @param integer $value
+     */
     public function __construct($value)
     {
         parent::__construct($value);

@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects\Mathematical;
 
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Mathematical;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 class Range extends MultipleValue
 {
@@ -11,6 +11,10 @@ class Range extends MultipleValue
     protected $minimum;
     protected $maximum;
 
+    /**
+     * @param boolean $maximum
+     * @param boolean $minimum
+     */
     public function __construct($maximum, $minimum)
     {
         $this->maximum = $maximum;
@@ -23,7 +27,7 @@ class Range extends MultipleValue
     public function __toString()
     {
         return $this->arrayToCommaString(
-            [$this->maximum, $this->minimum],
+            [ $this->maximum, $this->minimum ],
             new Integer(1)
         );
     }
