@@ -14,13 +14,13 @@ class Mathematical extends SingleValue
         if (
             $this->minimum &&
             $this->maximum &&
-            ! (new Range($this->maximum, $this->minimum))
+            !(new Range($this->maximum, $this->minimum))
                 ->inRange(new Mathematical($value)))
         {
 
             throw new InvalidRangeTypeException(
                 $value,
-                ['Mathematical'],
+                [ 'Mathematical' ],
                 $this->minimum,
                 $this->maximum
             );
