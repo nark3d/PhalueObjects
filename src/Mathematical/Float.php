@@ -7,7 +7,7 @@ class Float extends Mathematical
 {
     public function __construct($value)
     {
-        if (! filter_var($value, FILTER_VALIDATE_FLOAT)) {
+        if (!filter_var($value, FILTER_VALIDATE_FLOAT)) {
             throw new InvalidTypeException($value, [ 'float' ]);
         }
 

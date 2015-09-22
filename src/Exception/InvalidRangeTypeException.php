@@ -16,9 +16,9 @@ class InvalidRangeTypeException extends InvalidTypeException
 
     protected function getAllowedTypes($allowedTypes)
     {
-        $string = [];
+        $string = [ ];
         foreach ($allowedTypes as $type) {
-            $string[] = '(' . $type . ' >= ' . $this->minimum . ', ' . $type .
+            $string[ ] = '(' . $type . ' >= ' . $this->minimum . ', ' . $type .
                 ' <= ' . $this->maximum . ')';
         }
         return $this->arrayToCommaString($string, new Integer(1));

@@ -1,9 +1,9 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
 use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 class Time extends MultipleValue implements DateTimeInterface
 {
@@ -16,16 +16,13 @@ class Time extends MultipleValue implements DateTimeInterface
         $this->hour = $hour;
         $this->minute = $minute;
         $this->second = $second;
+
+        parent::__construct(func_get_args());
     }
 
     public static function now()
     {
         return new static(Hour::now(), Minute::now(), Second::now());
-    }
-
-    public function equals()
-    {
-        // TODO: Implement equals() method.
     }
 
     /**

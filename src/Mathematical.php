@@ -14,13 +14,13 @@ class Mathematical extends SingleValue
         if (
             $this->minimum &&
             $this->maximum &&
-            ! (new Range($this->maximum, $this->minimum))
+            !(new Range($this->maximum, $this->minimum))
                 ->inRange(new Mathematical($value)))
         {
 
             throw new InvalidRangeTypeException(
                 $value,
-                ['Mathematical'],
+                [ 'Mathematical' ],
                 $this->minimum,
                 $this->maximum
             );
@@ -28,6 +28,7 @@ class Mathematical extends SingleValue
 
         parent::__construct($value);
     }
+
     public function makeNegative()
     {
         $this->value = -abs($this->getValue());
@@ -85,5 +86,3 @@ class Mathematical extends SingleValue
         return $this->getValue() <= $number->getValue();
     }
 }
-
-
