@@ -7,10 +7,13 @@ use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 
 class Date extends MultipleValue implements DateTimeInterface
 {
+    use DateTimeTrait;
+
     protected $year;
     protected $month;
     protected $day;
     protected $native;
+    protected $timestamp;
 
     public function __construct(Year $year, Month $month, Day $day)
     {
@@ -18,6 +21,89 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->month = $month;
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
+        $this->timestamp = $this->native->getTimeStamp();
+    }
+
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    public function getMonth()
+    {
+        return $this->month;
+    }
+
+    public function getDay()
+    {
+        return $this->day;
+    }
+
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * @todo
+     */
+    public function isWeekend()
+    {
+        return in_array($this->native->format('w'), [0,6]);
+    }
+
+    public function isWeekDay()
+    {
+        return ! $this->isWeekend();
+    }
+
+    public function isLeap()
+    {
+        return $this->year->isLeap();
+    }
+
+    public function isBeforeToday()
+    {
+        return $this->isLess(Date::now());
+    }
+
+    public function isBeforeOrIsToday()
+    {
+        return $this->isLessOrEqual(Date::now());
+    }
+
+    public function __toString()
+    {
+        return $this->year . '-' . $this->month . '-' . $this->day;
+    }
+
+    public static function fromString($string)
+    {
+        $dateTime = new \DateTime(preg_replace('/\//', '-', $string));
+
+        return self::fromNative($dateTime);
+    }
+
+    public static function fromTimestamp($timestamp)
+    {
+        $dateTime = new \DateTime;
+        $dateTime->setTimeStamp($timestamp);
+
+        return self::fromNative($dateTime);
+    }
+
+    public static function fromNative(\DateTime $dateTime)
+    {
+        return new static(
+            new Year((int) $dateTime->format('Y')),
+            new Month((int) $dateTime->format('n')),
+            new Day((int) $dateTime->format('j'))
+        );
+    }
+
+    private static function fromTimestampUTC($timestamp)
+    {
+
     }
 
     public static function now()
@@ -25,18 +111,34 @@ class Date extends MultipleValue implements DateTimeInterface
         return new static(Year::now(), Month::now(), Day::now());
     }
 
-    public static function fromString($string)
+    public static function tomorrow()
     {
-        $date = new \DateTime(preg_replace('/\//', '-', $string));
-
-        return $date ? new static(
-            new Year($date->format('Y')),
-            new Month($date->format('n')),
-            new Day($date->format('j'))) : false;
+        return self::now()->nextDay();
     }
 
-    public function __toString()
+    public static function yesterday()
     {
-        return $this->year . '-' . $this->month . '-' . $this->day;
+        return self::now()->previousDay();
+    }
+
+    public function nextDay()
+    {
+        return $this->addDay(1);
+    }
+
+    public function previousDay()
+    {
+        return $this->addDay(-1);
+    }
+
+    public function addDay($days)
+    {
+        $native = clone($this->native);
+        $native->modify($days . ' day');
+        return new Date(
+            new Year($native->format('Y')),
+            new Month($native->format('n')),
+            new Day($native->format('j'))
+        );
     }
 }

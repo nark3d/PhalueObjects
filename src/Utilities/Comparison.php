@@ -1,17 +1,7 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime;
+<?php namespace BestServedCold\PhalueObjects\Utilities;
 
-trait DateTimeTrait
+trait Comparison
 {
-    public static function getNowDateTimeFormat($format)
-    {
-        return (int) self::getNowDateTime()->format($format);
-    }
-
-    public static function getNowDateTime()
-    {
-        return new \DateTime('now');
-    }
-
     public function isLess(Date $date)
     {
         return $this->getTimestamp() < $date->getTimestamp();

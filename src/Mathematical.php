@@ -30,13 +30,13 @@ class Mathematical extends SingleValue
     }
     public function makeNegative()
     {
-        $this->value = -abs($this->value);
+        $this->value = -abs($this->getValue());
         return $this;
     }
 
     public function makePositive()
     {
-        $this->value = abs($this->value);
+        $this->value = abs($this->getValue());
         return $this;
     }
 

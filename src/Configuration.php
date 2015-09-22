@@ -13,18 +13,27 @@ class Configuration extends Singleton
     use ExtendedArrayTrait;
 
     private static $configuration = [];
+    private static $path = '/Configuration';
+    private static $file = 'configuration.yml';
+    private static $fileLocator;
+
+    private static function getFileLocator($path)
+    {
+        self::$fileLocator = new FileLocator(__DIR__ . $path);
+    }
+
+    public static function getYml()
+    {
+        self::getFileLocator(self::$path);
+        return (new YamlConfigurationLoader(self::$fileLocator))
+            ->load(self::$fileLocator->locate(self::$file));
+
+    }
 
     public static function buildConfiguration()
     {
-        $locator = new FileLocator(__DIR__ . '/Configuration');
-        $loader = new YamlConfigurationLoader($locator);
-        $configValues = $loader->load($locator->locate('configuration.yml'));
-
-        $configuration = (new Processor())->processConfiguration(
-                new Definition(),
-                $configValues);
-
-        return $configuration;
+        return (new Processor())
+            ->processConfiguration(new Definition(),self::getYml());
     }
 
     public static function get($key)

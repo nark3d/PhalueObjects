@@ -1,0 +1,88 @@
+<?php namespace BestServedCold\PhalueObjects\DateTime;
+
+use BestServedCold\PhalueObjects\DateTime\Unit\Year;
+use BestServedCold\PhalueObjects\TestCase;
+
+class DateTest extends TestCase
+{
+    public function testGetYear()
+    {
+        $date = Date::fromString('2012-02-04');
+        $this->assertEquals($date->getYear()->getValue(), 2012);
+        $this->assertNotEquals($date->getYear()->getValue(), 2011);
+    }
+
+    public function testGetMonth()
+    {
+        $date = Date::fromString('2012-02-04');
+        $this->assertEquals($date->getMonth()->getValue(), 2);
+        $this->assertNotEquals($date->getMonth()->getValue(), 3);
+    }
+
+    public function testGetDay()
+    {
+        $date = Date::fromString('2012-02-04');
+        $this->assertEquals($date->getDay()->getValue(), 4);
+        $this->assertNotEquals($date->getDay()->getValue(), 3);
+    }
+
+    public function testGetTimestamp()
+    {
+        $date = Date::fromString('2012-02-04');
+
+        $this->assertEquals($date->getTimestamp(), 1328313600);
+        $this->assertNotEquals($date->getTimestamp(), 22);
+    }
+
+    public function testIsWeekend()
+    {
+        $this->assertTrue(Date::fromString('2015-09-20')->isWeekend());
+        $this->assertTrue(Date::fromString('2015-09-19')->isWeekend());
+        $this->assertFalse(Date::fromString('2015-09-18')->isWeekend());
+    }
+
+    public function testIsWeekDay()
+    {
+        $this->assertFalse(Date::fromString('2015-09-20')->isWeekDay());
+        $this->assertFalse(Date::fromString('2015-09-19')->isWeekDay());
+        $this->assertTrue(Date::fromString('2015-09-18')->isWeekDay());
+    }
+
+    public function isLeap()
+    {
+        $this->assertEquals(
+            (new Year(2012))->isLeap(),
+            Date::fromString('2012-01-01')->isLeap()
+        );
+    }
+
+    public function testIsBeforeToday()
+    {
+        $this->assertTrue(
+            Date::fromNative((new \DateTime())->modify('-1 day'))->isBeforeToday()
+        );
+
+        $this->assertFalse(
+            Date::fromNative((new \DateTime())->modify('1 day'))->isBeforeToday()
+        );
+    }
+
+    public function testIsBeforeOrIsToday()
+    {
+        $this->assertTrue(
+            Date::fromNative(new \DateTime())->isBeforeOrIsToday()
+        );
+
+        $this->assertTrue(
+            Date::fromNative((new \DateTime())->modify('-1 day'))
+                ->isBeforeOrIsToday()
+        );
+
+//        $this->assertFalse(
+//            Date::fromNative((new \DateTime())->modify('1 day'))
+//                ->isBeforeOrIsToday()
+//        );
+    }
+
+
+}

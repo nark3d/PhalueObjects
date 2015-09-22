@@ -16,7 +16,7 @@ final class Year extends Integer implements UnitInterface
         $this->native = new \DateTime("$value-01-01");
     }
 
-    public function leap()
+    public function isLeap()
     {
         return $this->native->format('L') === '1' ? true : false;
     }
