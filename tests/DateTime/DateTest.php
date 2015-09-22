@@ -78,10 +78,38 @@ class DateTest extends TestCase
                 ->isBeforeOrIsToday()
         );
 
-//        $this->assertFalse(
-//            Date::fromNative((new \DateTime())->modify('1 day'))
-//                ->isBeforeOrIsToday()
-//        );
+        $this->assertFalse(
+            Date::fromNative((new \DateTime())->modify('+1 day'))
+                ->isBeforeOrIsToday()
+        );
+    }
+
+    public function testIsAfterToday()
+    {
+        $this->assertTrue(
+            Date::fromNative((new \DateTime())->modify('1 day'))->isAfterToday()
+        );
+
+        $this->assertFalse(
+            Date::fromNative((new \DateTime())->modify('-1 day'))->isAfterToday()
+        );
+    }
+
+    public function testIsAfterOrIsToday()
+    {
+        $this->assertTrue(
+            Date::fromNative(new \DateTime())->isBeforeOrIsToday()
+        );
+
+        $this->assertTrue(
+            Date::fromNative((new \DateTime())->modify('-1 day'))
+                ->isBeforeOrIsToday()
+        );
+
+        $this->assertFalse(
+            Date::fromNative((new \DateTime())->modify('+1 day'))
+                ->isBeforeOrIsToday()
+        );
     }
 
 

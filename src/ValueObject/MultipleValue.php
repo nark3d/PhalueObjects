@@ -19,7 +19,7 @@ abstract class MultipleValue extends ValueObject
 
     public function equals(MultipleValue $object)
     {
-        return $this->arguments === $object->getValues();
+        return serialize($this->getValues()) === serialize($object->getValues());
     }
 }
 

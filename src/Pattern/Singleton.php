@@ -4,9 +4,20 @@ abstract class Singleton
 {
     protected static $instance;
 
-    private function __clone() {}
-    private function __construct() {}
-    private function __wakeup() {}
+    public function __clone()
+    {
+        throw new \RuntimeException('You cannot clone a Singleton class');
+    }
+
+    public function __construct()
+    {
+        throw new \RuntimeException('You cannot construct a Singleton class');
+    }
+
+    public function __wakeup()
+    {
+        throw new \RuntimeException('You cannot wake up a Singleon class');
+    }
 
     final public static function singleton()
     {

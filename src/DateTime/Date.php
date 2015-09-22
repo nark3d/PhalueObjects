@@ -22,6 +22,7 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
+        parent::__construct([$year, $month, $day]);
     }
 
     public function getYear()
@@ -62,16 +63,6 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->year->isLeap();
     }
 
-    public function isBeforeToday()
-    {
-        return $this->isLess(Date::now());
-    }
-
-    public function isBeforeOrIsToday()
-    {
-        return $this->isLessOrEqual(Date::now());
-    }
-
     public function __toString()
     {
         return $this->year . '-' . $this->month . '-' . $this->day;
@@ -79,17 +70,12 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public static function fromString($string)
     {
-        $dateTime = new \DateTime(preg_replace('/\//', '-', $string));
-
-        return self::fromNative($dateTime);
+        return self::fromNative(self::getDateTime(preg_replace('/\//', '-', $string)));
     }
 
     public static function fromTimestamp($timestamp)
     {
-        $dateTime = new \DateTime;
-        $dateTime->setTimeStamp($timestamp);
-
-        return self::fromNative($dateTime);
+        return self::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
     }
 
     public static function fromNative(\DateTime $dateTime)
@@ -99,11 +85,6 @@ class Date extends MultipleValue implements DateTimeInterface
             new Month((int) $dateTime->format('n')),
             new Day((int) $dateTime->format('j'))
         );
-    }
-
-    private static function fromTimestampUTC($timestamp)
-    {
-
     }
 
     public static function now()
@@ -133,8 +114,7 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public function addDay($days)
     {
-        $native = clone($this->native);
-        $native->modify($days . ' day');
+        $native = $this->cloneObject($this->native)->modify($days . ' day');
         return new Date(
             new Year($native->format('Y')),
             new Month($native->format('n')),
