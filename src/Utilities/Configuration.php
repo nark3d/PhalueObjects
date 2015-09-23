@@ -1,7 +1,7 @@
 <?php namespace BestServedCold\PhalueObjects\Utilities;
 
-use BestServedCold\PhalueObjects\Utilities\Configuration\Definition;
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\Utilities\Configuration\Definition;
 use BestServedCold\PhalueObjects\Utilities\FileLoader\Yaml;
 use Symfony\Component\Config\Definition\Processor;
 
@@ -9,7 +9,7 @@ class Configuration extends Yaml
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [];
+    private static $configuration = [ ];
     protected static $path = '/Configuration';
     protected static $file = 'configuration.yml';
     protected static $fileLocator;

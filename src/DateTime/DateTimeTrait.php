@@ -2,6 +2,9 @@
 
 trait DateTimeTrait
 {
+    /**
+     * @param string $format
+     */
     public static function getNowDateTimeFormat($format)
     {
         return (int) self::getNowDateTime()->format($format);
@@ -77,6 +80,9 @@ trait DateTimeTrait
         return $this->addDay(-1);
     }
 
+    /**
+     * @param integer $days
+     */
     public function addDay($days)
     {
         $native = $this->cloneObject($this->native)->modify($days . ' day');

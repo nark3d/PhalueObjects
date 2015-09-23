@@ -22,7 +22,7 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
-        parent::__construct([$year, $month, $day]);
+        parent::__construct([ $year, $month, $day ]);
     }
 
     public function getYear()
@@ -55,12 +55,12 @@ class Date extends MultipleValue implements DateTimeInterface
      */
     public function isWeekend()
     {
-        return in_array($this->native->format('w'), [0,6]);
+        return in_array($this->native->format('w'), [ 0, 6 ]);
     }
 
     public function isWeekDay()
     {
-        return ! $this->isWeekend();
+        return !$this->isWeekend();
     }
 
     public function isLeap()
