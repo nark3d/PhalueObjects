@@ -56,4 +56,34 @@ trait DateTimeTrait
     {
         return $this->isGreaterOrEqual(self::now());
     }
+
+    public static function tomorrow()
+    {
+        return self::now()->nextDay();
+    }
+
+    public static function yesterday()
+    {
+        return self::now()->previousDay();
+    }
+
+    public function nextDay()
+    {
+        return $this->addDay(1);
+    }
+
+    public function previousDay()
+    {
+        return $this->addDay(-1);
+    }
+
+    public function addDay($days)
+    {
+        $native = $this->cloneObject($this->native)->modify($days . ' day');
+        return new Date(
+            new Year($native->format('Y')),
+            new Month($native->format('n')),
+            new Day($native->format('j'))
+        );
+    }
 }

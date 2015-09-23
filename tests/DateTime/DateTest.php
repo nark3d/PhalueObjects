@@ -112,5 +112,17 @@ class DateTest extends TestCase
         );
     }
 
+    public function testNow()
+    {
+        $this->assertEquals(
+            (new \DateTime)->setTime(0, 0),
+            Date::now()->getNative()
+        );
+
+        $this->assertNotEquals(
+            (new \DateTime())->modify('1 day')->setTime(0, 0),
+            Date::now()->getNative()
+        );
+    }
 
 }

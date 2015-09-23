@@ -45,6 +45,11 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->timestamp;
     }
 
+    public function getNative()
+    {
+        return $this->native;
+    }
+
     /**
      * @todo
      */
@@ -92,33 +97,5 @@ class Date extends MultipleValue implements DateTimeInterface
         return new static(Year::now(), Month::now(), Day::now());
     }
 
-    public static function tomorrow()
-    {
-        return self::now()->nextDay();
-    }
 
-    public static function yesterday()
-    {
-        return self::now()->previousDay();
-    }
-
-    public function nextDay()
-    {
-        return $this->addDay(1);
-    }
-
-    public function previousDay()
-    {
-        return $this->addDay(-1);
-    }
-
-    public function addDay($days)
-    {
-        $native = $this->cloneObject($this->native)->modify($days . ' day');
-        return new Date(
-            new Year($native->format('Y')),
-            new Month($native->format('n')),
-            new Day($native->format('j'))
-        );
-    }
 }

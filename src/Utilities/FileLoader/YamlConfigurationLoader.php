@@ -1,4 +1,4 @@
-<?php namespace BestServedCold\PhalueObjects\Configuration;
+<?php namespace BestServedCold\PhalueObjects\Utilities\FileLoader;
 
 use Symfony\Component\Config\Loader\FileLoader;
 use Symfony\Component\Yaml\Yaml as SymfonyYaml;
