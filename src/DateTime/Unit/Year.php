@@ -10,6 +10,9 @@ final class Year extends Integer implements UnitInterface
 
     protected $native;
 
+    /**
+     * @param integer $value
+     */
     public function __construct($value)
     {
         parent::__construct($value);

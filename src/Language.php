@@ -4,6 +4,6 @@ final class Language
 {
     public function __construct(ValueObjectInterface $object)
     {
-        
+
     }
 }
