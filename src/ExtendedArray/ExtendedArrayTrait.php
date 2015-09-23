@@ -12,6 +12,11 @@ trait ExtendedArrayTrait
         return implode(",{$this->integerToSpace($spaces)}", $array);
     }
 
+    public static function getArrayUsingJsonNotation($json)
+    {
+        return explode('.', $json);
+    }
+
     /**
      * Get an item from an array using "dot" notation.
      *
@@ -20,11 +25,8 @@ trait ExtendedArrayTrait
      * @param  mixed   $default
      * @return mixed
      */
-    public static function getFromArrayUsingJsonNotation(
-        $array,
-        $key,
-        $default = null
-    ) {
+    public static function getFromArrayUsingJsonNotation($array, $key = null, $default = null)
+    {
         if (is_null($key)) {
             return $array;
         }
@@ -33,11 +35,10 @@ trait ExtendedArrayTrait
             return $array[ $key ];
         }
 
-        foreach (explode('.', $key) as $segment) {
+        foreach (self::getArrayUsingJsonNotation($key) as $segment) {
             if (!is_array($array) || !array_key_exists($segment, $array)) {
                 return $default;
             }
-
             $array = $array[ $segment ];
         }
 

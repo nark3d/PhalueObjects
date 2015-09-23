@@ -1,23 +1,20 @@
-<?php namespace BestServedCold\PhalueObjects\Utilities;
+<?php namespace BestServedCold\PhalueObjects\Utility;
 
-use BestServedCold\PhalueObjects\Utilities\Configuration\Definition;
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-use BestServedCold\PhalueObjects\Utilities\FileLoader\Yaml;
-use Symfony\Component\Config\Definition\Processor;
+use BestServedCold\PhalueObjects\Pattern\Singleton;
+use Symfony\Component\Yaml\Yaml;
 
-class Configuration extends Yaml
+class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
     private static $configuration = [];
-    protected static $path = '/Configuration';
+    protected static $path = '/Configuration/';
     protected static $file = 'configuration.yml';
-    protected static $fileLocator;
 
     public static function buildConfiguration()
     {
-        return (new Processor())
-            ->processConfiguration(new Definition(), self::getYml(__DIR__ . self::$path, self::$file));
+        return Yaml::parse(file_get_contents(__DIR__ . self::$path . self::$file));
     }
 
     public static function get($key)

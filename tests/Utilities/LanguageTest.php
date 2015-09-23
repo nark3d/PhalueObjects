@@ -2,7 +2,7 @@
 
 use BestServedCold\PhalueObjects\TestCase;
 
-class ConfigurationTest extends TestCase
+class LanguageTest extends TestCase
 {
     public function testGet()
     {
@@ -11,6 +11,6 @@ class ConfigurationTest extends TestCase
 //        );
 
 //        $config = $this->reflect(new );
-        var_dump(Configuration::get('language.locale'));
+        var_dump(Language::get('datetime.weekdays'));
     }
 }

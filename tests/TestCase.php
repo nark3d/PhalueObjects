@@ -1,7 +1,7 @@
 <?php namespace BestServedCold\PhalueObjects;
 
 use Mockery;
-use BestServedCold\PhalueObjects\Utilities\Reflection;
+use BestServedCold\PhalueObjects\Utility\Reflection;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {

@@ -1,4 +1,4 @@
-<?php namespace BestServedCold\PhalueObjects\Utilities;
+<?php namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\TestCase;
 
