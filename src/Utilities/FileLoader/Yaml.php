@@ -4,6 +4,10 @@ use BestServedCold\PhalueObjects\Utilities\FileLoader;
 
 class Yaml extends FileLoader
 {
+    /**
+     * @param string $path
+     * @param string $file
+     */
     public static function getYml($path, $file)
     {
         self::getFileLocator($path);
