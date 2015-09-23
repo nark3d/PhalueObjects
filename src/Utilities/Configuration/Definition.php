@@ -1,4 +1,4 @@
-<?php namespace BestServedCold\PhalueObjects\Configuration;
+<?php namespace BestServedCold\PhalueObjects\Utilities\Configuration;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

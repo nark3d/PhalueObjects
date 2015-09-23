@@ -11,6 +11,6 @@ class FileLoader extends Singleton
 
     protected static function getFileLocator($path)
     {
-        self::$fileLocator = new FileLocator(__DIR__ . $path);
+        self::$fileLocator = new FileLocator($path);
     }
 }

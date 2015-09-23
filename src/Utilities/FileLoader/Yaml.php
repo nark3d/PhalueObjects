@@ -4,14 +4,9 @@ use BestServedCold\PhalueObjects\Utilities\FileLoader;
 
 class Yaml extends FileLoader
 {
-    public static function getYml()
+    public static function getYml($path, $file)
     {
-        var_dunp(self::$path);
-        self::getFileLocator(self::$path);
-        return (
-            new YamlConfigurationLoader(self::$fileLocator)
-        )->load(
-                self::$fileLocator->locate(self::$file)
-            );
+        self::getFileLocator($path);
+        return (new YamlConfigurationLoader(self::$fileLocator))->load(self::$fileLocator->locate($file));
     }
 }
