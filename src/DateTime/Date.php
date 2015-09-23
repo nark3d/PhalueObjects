@@ -22,6 +22,7 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
+        parent::__construct([$year, $month, $day]);
     }
 
     public function getYear()
@@ -44,6 +45,11 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->timestamp;
     }
 
+    public function getNative()
+    {
+        return $this->native;
+    }
+
     /**
      * @todo
      */
@@ -62,16 +68,6 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->year->isLeap();
     }
 
-    public function isBeforeToday()
-    {
-        return $this->isLess(Date::now());
-    }
-
-    public function isBeforeOrIsToday()
-    {
-        return $this->isLessOrEqual(Date::now());
-    }
-
     public function __toString()
     {
         return $this->year . '-' . $this->month . '-' . $this->day;
@@ -79,17 +75,12 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public static function fromString($string)
     {
-        $dateTime = new \DateTime(preg_replace('/\//', '-', $string));
-
-        return self::fromNative($dateTime);
+        return self::fromNative(self::getDateTime(preg_replace('/\//', '-', $string)));
     }
 
     public static function fromTimestamp($timestamp)
     {
-        $dateTime = new \DateTime;
-        $dateTime->setTimeStamp($timestamp);
-
-        return self::fromNative($dateTime);
+        return self::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
     }
 
     public static function fromNative(\DateTime $dateTime)
@@ -101,44 +92,10 @@ class Date extends MultipleValue implements DateTimeInterface
         );
     }
 
-    private static function fromTimestampUTC($timestamp)
-    {
-
-    }
-
     public static function now()
     {
         return new static(Year::now(), Month::now(), Day::now());
     }
 
-    public static function tomorrow()
-    {
-        return self::now()->nextDay();
-    }
 
-    public static function yesterday()
-    {
-        return self::now()->previousDay();
-    }
-
-    public function nextDay()
-    {
-        return $this->addDay(1);
-    }
-
-    public function previousDay()
-    {
-        return $this->addDay(-1);
-    }
-
-    public function addDay($days)
-    {
-        $native = clone($this->native);
-        $native->modify($days . ' day');
-        return new Date(
-            new Year($native->format('Y')),
-            new Month($native->format('n')),
-            new Day($native->format('j'))
-        );
-    }
 }
