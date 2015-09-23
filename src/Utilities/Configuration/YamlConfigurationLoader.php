@@ -1,7 +1,7 @@
-<?php namespace BestServedCold\PhalueObjects\Configuration;
+<?php namespace BestServedCold\PhalueObjects\Utilities\Configuration;
 
 use Symfony\Component\Config\Loader\FileLoader;
-use Symfony\Component\Yaml\Yaml as SymfonyYaml;
+use Symfony\Component\Yaml\Yaml;
 
 class YamlConfigurationLoader extends FileLoader
 {
@@ -15,7 +15,7 @@ class YamlConfigurationLoader extends FileLoader
      */
     public function load($resource, $type = null)
     {
-        return SymfonyYaml::parse($resource);
+        return Yaml::parse($resource);
     }
 
     /**

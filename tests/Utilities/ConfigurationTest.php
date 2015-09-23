@@ -1,5 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects\Utilities;
 
+use BestServedCold\PhalueObjects\TestCase;
 
 class ConfigurationTest extends TestCase
 {
