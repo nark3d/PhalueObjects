@@ -1,7 +1,7 @@
 {
   "name": "best-served-cold/phalue-objects",
   "description": "PHP Value Objects",
-  "keywords": ["value objects", "immutable"],
+  "keywords": ["value objects", "immutable", "PhalueObjects", "Best Served Cold"],
   "homepage": "http://bestservedcold.com",
   "type": "library",
   "license": "MIT",
