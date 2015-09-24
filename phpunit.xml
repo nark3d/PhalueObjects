@@ -10,7 +10,7 @@
          stopOnFailure="false"
          syntaxCheck="false"
          forceCoversAnnotation="false"
-         checkForUnintentionallyCoveredCode="false"
+         checkForUnintentionallyCoveredCode="true"
         >
     <testsuites>
         <testsuite name="PhalueObjects Test Suite">

@@ -10,14 +10,29 @@ class Time extends MultipleValue implements DateTimeInterface
     protected $hour;
     protected $minute;
     protected $second;
+    protected $timestamp;
 
     public function __construct(Hour $hour, Minute $minute, Second $second)
     {
         $this->hour = $hour;
         $this->minute = $minute;
         $this->second = $second;
-
         parent::__construct(func_get_args());
+    }
+
+    public function getHour()
+    {
+        return $this->hour;
+    }
+
+    public function getMinute()
+    {
+        return $this->minute;
+    }
+
+    public function getSecond()
+    {
+        return $this->minute;
     }
 
     public static function now()
