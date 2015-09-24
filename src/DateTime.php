@@ -1,11 +1,14 @@
 <?php namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\DateTime\Date;
+use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\DateTime\Time;
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 final class DateTime extends MultipleValue
 {
+    use DateTimeTrait;
+
     protected $date;
     protected $time;
 
@@ -19,6 +22,16 @@ final class DateTime extends MultipleValue
     public static function now()
     {
         return new static(Date::now(), Time::now());
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function getTime()
+    {
+        return $this->time;
     }
 
     /**

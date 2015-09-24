@@ -18,6 +18,11 @@ final class Minute extends Integer implements UnitInterface
         parent::__construct($value);
     }
 
+    public function getSeconds()
+    {
+        return $this->multiply(new Integer(60));
+    }
+
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('i'));

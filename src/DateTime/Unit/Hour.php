@@ -18,6 +18,11 @@ final class Hour extends Integer implements UnitInterface
         parent::__construct($value);
     }
 
+    public function getSeconds()
+    {
+        return $this->multiply(new Integer(3600));
+    }
+
     /**
      * From String
      *

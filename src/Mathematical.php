@@ -29,6 +29,29 @@ class Mathematical extends SingleValue
         parent::__construct($value);
     }
 
+    public function multiply(Mathematical $mathematical)
+    {
+        $this->value = $this->getValue() * $mathematical->getValue();
+        return $this;
+    }
+
+    public function divide(Mathematical $mathematical)
+    {
+        $this->value = $this->getValue() / $mathematical->getValue();
+    }
+
+    public function add(Mathematical $mathematical)
+    {
+        $this->value = $this->getValue() + $mathematical->getValue();
+        return $this;
+    }
+
+    public function subtract(Mathematical $mathematical)
+    {
+        $this->value = $this->getValue() + $mathematical->getValue();
+        return $this;
+    }
+
     public function makeNegative()
     {
         $this->value = -abs($this->getValue());
