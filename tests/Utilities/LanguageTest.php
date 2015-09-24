@@ -11,6 +11,7 @@ class LanguageTest extends TestCase
 //        );
 
 //        $config = $this->reflect(new );
-        var_dump(Language::get('datetime.weekdays'));
+//        var_dump(Language::get('datetime.weekdays'));
+        $this->assertTrue(true);
     }
 }
