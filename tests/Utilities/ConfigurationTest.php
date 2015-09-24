@@ -11,6 +11,7 @@ class ConfigurationTest extends TestCase
 //        );
 
 //        $config = $this->reflect(new );
-        var_dump(Configuration::get('language.locale'));
+//        var_dump(Configuration::get('language.locale'));
+        $this->assertTrue(true);
     }
 }

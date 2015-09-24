@@ -6,11 +6,11 @@
   "type": "library",
   "license": "MIT",
   "authors": [
-    {
-      "name": "Adam Lewis",
-      "email": "adam.lewis@bestservedcold.com",
-      "homepage": "http://adam.lewis.gb.com"
-    }
+  {
+    "name": "Adam Lewis",
+    "email": "adam.lewis@bestservedcold.com",
+    "homepage": "http://adam.lewis.gb.com"
+  }
   ],
   "require": {
     "php": ">=5.4.0",
