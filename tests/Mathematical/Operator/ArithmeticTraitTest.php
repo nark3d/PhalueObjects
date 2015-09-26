@@ -121,15 +121,6 @@ class ArithmeticTraitTest extends TestCase
         );
     }
 
-    public function exponential(ValueObjectInterface $object)
-    {
-        if (defined('PHP_MAJOR_VERSION') && PHP_MAJOR_VERSION >= 7) {
-            return new static($this->getValue() ** $object->getValue());
-        } else {
-            return new static(pow($this->getValue(), $object->getValue()));
-        }
-    }
-
     public function getValue()
     {
         return $this->value;
