@@ -3,6 +3,7 @@
 abstract class ValueObject implements ValueObjectInterface
 {
     protected $reflection;
+    protected $value;
 
     public function __construct()
     {
@@ -29,5 +30,10 @@ abstract class ValueObject implements ValueObjectInterface
     protected function cloneObject($object)
     {
         return clone($object);
+    }
+
+    public function getValue()
+    {
+        return $this->value;
     }
 }

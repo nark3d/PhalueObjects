@@ -1,5 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
+use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
@@ -23,6 +26,12 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
         parent::__construct([ $year, $month, $day ]);
+    }
+
+
+    public function getValue()
+    {
+        return (int) $this->timestamp;
     }
 
     public function getYear()
@@ -75,7 +84,11 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public static function fromString($string)
     {
-        return self::fromNative(self::getDateTime(preg_replace('/\//', '-', $string)));
+
+        $dateTime = new \DateTime($string);
+        return self::fromNative(
+            $dateTime
+        );
     }
 
     public static function fromTimestamp($timestamp)

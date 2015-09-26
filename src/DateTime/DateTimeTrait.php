@@ -1,13 +1,22 @@
 <?php namespace BestServedCold\PhalueObjects\DateTime;
 
+use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
+use BestServedCold\PhalueObjects\DateTime\Unit\Month;
+use BestServedCold\PhalueObjects\DateTime\Unit\Year;
+use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
+
 trait DateTimeTrait
 {
+    use  ArithmeticTrait, ComparisonTrait, TypeTrait;
+
     public static function getNowDateTimeFormat($format)
     {
         return (int) self::getNowDateTime()->format($format);
     }
 
-    public static function getDateTime($string)
+    public static function getDateTime($string = null)
     {
         return new \DateTime($string);
     }
@@ -17,44 +26,24 @@ trait DateTimeTrait
         return self::getDateTime('now');
     }
 
-    public function isLess(Date $date)
-    {
-        return $this->getTimestamp() < $date->getTimestamp();
-    }
-
-    public function isLessOrEqual(Date $date)
-    {
-        return $this->isLess($date) || $this->equals($date);
-    }
-
-    public function isGreater(Date $date)
-    {
-        return $this->getTimestamp() > $date->getTimestamp();
-    }
-
-    public function isGreaterOrEqual(Date $date)
-    {
-        return $this->isLess($date) || $this->equals($date);
-    }
-
     public function isBeforeToday()
     {
-        return $this->isLess(self::now());
+        return $this->isLessThan(static::now());
     }
 
     public function isBeforeOrIsToday()
     {
-        return $this->isLessOrEqual(self::now());
+        return $this->isLessThanOrEqualTo(static::now());
     }
 
     public function isAfterToday()
     {
-        return $this->isGreater(self::now());
+        return $this->isGreaterThan(static::now());
     }
 
     public function isAfterOrIsToday()
     {
-        return $this->isGreaterOrEqual(self::now());
+        return $this->isGreaterThanOrEqualTo(static::now());
     }
 
     public static function tomorrow()
@@ -69,21 +58,21 @@ trait DateTimeTrait
 
     public function nextDay()
     {
-        return $this->addDay(1);
+        return new static($this->addDay(1));
     }
 
     public function previousDay()
     {
-        return $this->addDay(-1);
+        return new static($this->addDay(-1));
     }
 
     public function addDay($days)
     {
-        $native = $this->cloneObject($this->native)->modify($days . ' day');
-        return new Date(
-            new Year($native->format('Y')),
-            new Month($native->format('n')),
-            new Day($native->format('j'))
+        $this->native->modify($days . ' day');
+        return new static(
+            new Year($this->native->format('Y')),
+            new Month($this->native->format('n')),
+            new Day($this->native->format('j'))
         );
     }
 }

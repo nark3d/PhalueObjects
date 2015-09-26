@@ -1,11 +1,16 @@
 <?php namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
+use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
+use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Range;
 use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
 class Mathematical extends SingleValue
 {
+    use ComparisonTrait, TypeTrait, ArithmeticTrait;
+
     protected $maximum = false;
     protected $minimum = false;
 
@@ -27,85 +32,5 @@ class Mathematical extends SingleValue
         }
 
         parent::__construct($value);
-    }
-
-    public function multiply(Mathematical $mathematical)
-    {
-        $this->value = $this->getValue() * $mathematical->getValue();
-        return $this;
-    }
-
-    public function divide(Mathematical $mathematical)
-    {
-        $this->value = $this->getValue() / $mathematical->getValue();
-    }
-
-    public function add(Mathematical $mathematical)
-    {
-        $this->value = $this->getValue() + $mathematical->getValue();
-        return $this;
-    }
-
-    public function subtract(Mathematical $mathematical)
-    {
-        $this->value = $this->getValue() + $mathematical->getValue();
-        return $this;
-    }
-
-    public function makeNegative()
-    {
-        $this->value = -abs($this->getValue());
-        return $this;
-    }
-
-    public function makePositive()
-    {
-        $this->value = abs($this->getValue());
-        return $this;
-    }
-
-    public function reversePolarity()
-    {
-        if ($this->isNegative() || $this->isZero()) {
-            $this->makePositive();
-        } else {
-            $this->makeNegative();
-        }
-        return $this;
-    }
-
-    public function isNegative()
-    {
-        return $this->getValue() < 0;
-    }
-
-    public function isPositive()
-    {
-        return $this->getValue() > 0;
-    }
-
-    public function isZero()
-    {
-        return $this->getValue() === (int) 0;
-    }
-
-    public function isGreaterThan(Mathematical $number)
-    {
-        return $this->getValue() > $number->getValue();
-    }
-
-    public function isLessThan(Mathematical $number)
-    {
-        return $this->getValue() < $number->getValue();
-    }
-
-    public function isGreaterThanOrEqualTo(Mathematical $number)
-    {
-        return $this->getValue() >= $number->getValue();
-    }
-
-    public function isLessThanOrEqualTo(Mathematical $number)
-    {
-        return $this->getValue() <= $number->getValue();
     }
 }
