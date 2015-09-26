@@ -26,8 +26,12 @@ trait ComparisonTrait
 
     public function spaceship(ValueObjectInterface $object)
     {
-//            return $this->getValue() <=> $object->getValue();
-            return ($this->getValue() < $object->getValue()) ? -1 : (
-            ($this->getValue() > $object->getValue()) ? 1 : 0);
+            return ($this->getValue() < $object->getValue())
+                ? -1
+                : (
+                ($this->getValue() > $object->getValue())
+                    ? 1
+                    : 0
+                );
     }
 }

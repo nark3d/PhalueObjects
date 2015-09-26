@@ -6,18 +6,17 @@ trait ArithmeticTrait
 {
     public function absolute()
     {
-        $value = $this->getValue();
-        return new static((($value >> 31) ^ $value) - ($value >> 31));
+        return new static(abs($this->getValue()));
     }
 
     public function makeNegative()
     {
-        return new static(-abs($this->getValue()));
+        return new static(-$this->absolute($this->getValue())->getValue());
     }
 
     public function makePositive()
     {
-        return new static(abs($this->getValue()));
+        return new static($this->absolute($this->getValue())->getValue());
     }
 
     public function reversePolarity()
@@ -36,7 +35,7 @@ trait ArithmeticTrait
 
     public function subtract(ValueObjectInterface $object)
     {
-        return new static($this->getValue() + $object->getValue());
+        return new static($this->getValue() - $object->getValue());
     }
 
     public function multiply(ValueObjectInterface $object)
@@ -54,7 +53,7 @@ trait ArithmeticTrait
         return new static($this->getValue() % $object->getValue());
     }
 
-    public function exponential(ValueObjectInterface $object)
+    public function exponentiation(ValueObjectInterface $object)
     {
         if (defined('PHP_MAJOR_VERSION') && PHP_MAJOR_VERSION >= 7) {
             return new static($this->getValue() ** $object->getValue());
