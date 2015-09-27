@@ -35,6 +35,5 @@ final class Week extends Integer implements UnitInterface
      */
     public static function fromString($string)
     {
-        // TODO: Implement fromString() method.
     }
 }

@@ -67,11 +67,9 @@ class Time extends MultipleValue implements DateTimeInterface
      */
     public function __toString()
     {
-        // TODO: Implement __toString() method.
     }
 
     public static function fromString($string)
     {
-        // TODO: Implement fromString() method.
     }
 }

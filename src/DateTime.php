@@ -3,12 +3,11 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
-use BestServedCold\PhalueObjects\Mathematical\Operator\OperatorInterface;
 use BestServedCold\PhalueObjects\DateTime\Date;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\DateTime\Time;
 
-final class DateTime extends MultipleValue implements OperatorInterface
+final class DateTime extends MultipleValue
 {
     use DateTimeTrait;
 
