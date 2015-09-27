@@ -2,5 +2,4 @@
 
 class Null extends ValueObject
 {
-
 }

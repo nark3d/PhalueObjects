@@ -6,7 +6,7 @@ class LanguageTest extends TestCase
 {
     public function testGet()
     {
-//        $configuration = $this->mock(
+        //        $configuration = $this->mock(
 //            'BestServedCold\PhalueObjects\Configuration'
 //        );
 

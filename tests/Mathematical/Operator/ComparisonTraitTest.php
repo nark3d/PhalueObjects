@@ -69,6 +69,6 @@ class ComparisonTraitTest extends TestCase
 
     public function getValue()
     {
-       return $this->value;
+        return $this->value;
     }
 }

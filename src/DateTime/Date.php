@@ -84,7 +84,6 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public static function fromString($string)
     {
-
         $dateTime = new \DateTime($string);
         return self::fromNative(
             $dateTime
@@ -109,6 +108,4 @@ class Date extends MultipleValue implements DateTimeInterface
     {
         return new static(Year::now(), Month::now(), Day::now());
     }
-
-
 }

@@ -22,4 +22,3 @@ abstract class MultipleValue extends ValueObject
         return serialize($this->getValues()) === serialize($object->getValues());
     }
 }
-

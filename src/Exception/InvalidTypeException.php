@@ -20,4 +20,3 @@ class InvalidTypeException extends \InvalidArgumentException
         return $this->arrayToCommaString($allowedTypes, new Integer(1));
     }
 }
-

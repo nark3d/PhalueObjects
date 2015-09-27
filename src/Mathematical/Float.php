@@ -28,5 +28,4 @@ class Float extends Mathematical
     {
         return $this->round ?: $this->round($this->value, $this->round);
     }
-
 }

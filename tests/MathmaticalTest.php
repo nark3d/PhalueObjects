@@ -1,6 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class MathematicalTest extends TestCase
+class MathmaticalTest extends TestCase
 {
     public function testMakeNegative()
     {

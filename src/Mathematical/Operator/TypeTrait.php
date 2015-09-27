@@ -1,7 +1,5 @@
 <?php namespace BestServedCold\PhalueObjects\Mathematical\Operator;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValueObjectTrait;
-
 trait TypeTrait
 {
     public function isPositive()

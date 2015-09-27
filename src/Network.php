@@ -2,5 +2,4 @@
 
 class Network extends ValueObject
 {
-
 }

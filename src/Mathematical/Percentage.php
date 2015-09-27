@@ -2,5 +2,4 @@
 
 class Percentage extends Float
 {
-
 }

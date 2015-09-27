@@ -24,4 +24,3 @@ class MonthTest extends TestCase
         new Month(new Integer(52));
     }
 }
-

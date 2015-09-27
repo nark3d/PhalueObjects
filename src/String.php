@@ -4,7 +4,6 @@ use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
 class String extends SingleValue
 {
-
     /**
      * @return string
      */

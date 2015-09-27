@@ -2,5 +2,4 @@
 
 class Identity extends ValueObject
 {
-
 }

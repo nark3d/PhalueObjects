@@ -19,11 +19,9 @@ class Email extends SingleValue
 
     public function getDomain()
     {
-
     }
 
     public function emailGinny(Email $bob)
     {
-
     }
 }

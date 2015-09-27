@@ -2,7 +2,6 @@
 
 class Person extends ValueObject
 {
-
     /**
      * @return string
      */

@@ -24,4 +24,3 @@ class WeekTest extends TestCase
         new Week(new Integer(52));
     }
 }
-

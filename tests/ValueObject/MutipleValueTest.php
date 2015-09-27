@@ -2,7 +2,7 @@
 
 use BestServedCold\PhalueObjects\TestCase;
 
-class MultipleValueTest extends TestCase
+class MutipleValueTest extends TestCase
 {
     public $multipleValue;
 

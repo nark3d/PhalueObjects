@@ -1,6 +1,5 @@
 <?php namespace BestServedCold\PhalueObjects\ValueObject;
 
-use BestServedCold\PhalueObjects\Mathematical\Range;
 use BestServedCold\PhalueObjects\ValueObject;
 
 abstract class SingleValue extends ValueObject

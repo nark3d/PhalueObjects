@@ -2,7 +2,7 @@
 
 use BestServedCold\PhalueObjects\Mathematical\Float;
 
-final class MicroTime extends Float implements UnitInterface
+final class MicroSecond extends Float implements UnitInterface
 {
     public function __construct($value)
     {

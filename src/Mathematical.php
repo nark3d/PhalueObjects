@@ -20,9 +20,7 @@ class Mathematical extends SingleValue
             $this->minimum &&
             $this->maximum &&
             !(new Range($this->maximum, $this->minimum))
-                ->inRange(new Mathematical($value)))
-        {
-
+                ->inRange(new Mathematical($value))) {
             throw new InvalidRangeTypeException(
                 $value,
                 [ 'Mathematical' ],

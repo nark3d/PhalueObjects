@@ -2,5 +2,4 @@
 
 class Geography extends ValueObject
 {
-
 }

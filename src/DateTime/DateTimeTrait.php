@@ -9,7 +9,7 @@ use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
 
 trait DateTimeTrait
 {
-    use  ArithmeticTrait, ComparisonTrait, TypeTrait;
+    use ArithmeticTrait, ComparisonTrait, TypeTrait;
 
     public static function getNowDateTimeFormat($format)
     {

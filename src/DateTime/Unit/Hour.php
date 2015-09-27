@@ -39,5 +39,3 @@ final class Hour extends Integer implements UnitInterface
         return new static(self::getNowDateTimeFormat('H'));
     }
 }
-
-

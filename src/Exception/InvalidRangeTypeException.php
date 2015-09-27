@@ -24,4 +24,3 @@ class InvalidRangeTypeException extends InvalidTypeException
         return $this->arrayToCommaString($string, new Integer(1));
     }
 }
-

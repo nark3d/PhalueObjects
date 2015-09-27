@@ -3,7 +3,6 @@
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-
 final class Year extends Integer implements UnitInterface
 {
     use DateTimeTrait;
@@ -45,5 +44,3 @@ final class Year extends Integer implements UnitInterface
         // TODO: Implement fromString() method.
     }
 }
-
-

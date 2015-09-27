@@ -4,7 +4,6 @@ use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
 use Symfony\Component\Yaml\Yaml;
 
-
 final class Language extends Singleton
 {
     use ExtendedArrayTrait;
@@ -35,5 +34,4 @@ final class Language extends Singleton
         $file = self::getArrayUsingJsonNotation($key);
         return is_array($file) ? reset($file) : $file;
     }
-
 }

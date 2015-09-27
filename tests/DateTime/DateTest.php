@@ -124,5 +124,4 @@ class DateTest extends TestCase
             Date::now()->getNative()
         );
     }
-
 }
