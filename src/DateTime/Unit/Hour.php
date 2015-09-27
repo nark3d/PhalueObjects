@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
@@ -11,7 +13,7 @@ final class Hour extends Integer implements UnitInterface
     protected $maximum = 23;
 
     /**
-     * @param integer $value
+     * @param int $value
      */
     public function __construct($value)
     {
@@ -24,9 +26,10 @@ final class Hour extends Integer implements UnitInterface
     }
 
     /**
-     * From String
+     * From String.
      *
      * @param  $string
+     *
      * @return static
      */
     public static function fromString($string)

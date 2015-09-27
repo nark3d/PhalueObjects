@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Utility;
+<?php
+
+namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
@@ -14,7 +16,7 @@ class Configuration extends Singleton
 
     public static function buildConfiguration()
     {
-        return Yaml::parse(file_get_contents(__DIR__ . self::$path . self::$file));
+        return Yaml::parse(file_get_contents(__DIR__.self::$path.self::$file));
     }
 
     public static function get($key)

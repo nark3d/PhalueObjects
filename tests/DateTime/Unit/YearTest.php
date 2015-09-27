@@ -1,7 +1,8 @@
-<?php namespace BestServedCold\PhalueObjects\Test\DateTime\Unit;
+<?php
+
+namespace BestServedCold\PhalueObjects\Test\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
-use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\TestCase;
 
 class YearTest extends TestCase

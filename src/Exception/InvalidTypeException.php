@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Exception;
+<?php
+
+namespace BestServedCold\PhalueObjects\Exception;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
@@ -10,9 +12,9 @@ class InvalidTypeException extends \InvalidArgumentException
     public function __construct($value, array $allowedTypes)
     {
         $this->message =
-            'Argument [' . $value . '] of type [' . gettype($value) .
-            '] is not a valid type.' . ' The allowed type(s) are [' .
-            $this->getAllowedTypes($allowedTypes) . ']';
+            'Argument ['.$value.'] of type ['.gettype($value).
+            '] is not a valid type.'.' The allowed type(s) are ['.
+            $this->getAllowedTypes($allowedTypes).']';
     }
 
     protected function getAllowedTypes($allowedTypes)

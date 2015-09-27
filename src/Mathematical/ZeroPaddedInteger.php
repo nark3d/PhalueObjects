@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Mathematical;
+<?php
+
+namespace BestServedCold\PhalueObjects\Mathematical;
 
 use BestServedCold\PhalueObjects\Mathematical;
 

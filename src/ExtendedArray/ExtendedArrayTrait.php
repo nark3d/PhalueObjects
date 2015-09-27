@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\ExtendedArray;
+<?php
+
+namespace BestServedCold\PhalueObjects\ExtendedArray;
 
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\String\StringTrait;
@@ -20,9 +22,10 @@ trait ExtendedArrayTrait
     /**
      * Get an item from an array using "dot" notation.
      *
-     * @param  array   $array
-     * @param  string  $key
-     * @param  mixed   $default
+     * @param array  $array
+     * @param string $key
+     * @param mixed  $default
+     *
      * @return mixed
      */
     public static function getFromArrayUsingJsonNotation($array, $key = null, $default = null)

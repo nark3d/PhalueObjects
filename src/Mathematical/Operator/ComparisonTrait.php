@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Mathematical\Operator;
+<?php
+
+namespace BestServedCold\PhalueObjects\Mathematical\Operator;
 
 use BestServedCold\PhalueObjects\ValueObjectInterface;
 

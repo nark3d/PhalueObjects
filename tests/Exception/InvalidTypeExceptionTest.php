@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Test\Exception;
+<?php
+
+namespace BestServedCold\PhalueObjects\Test\Exception;
 
 use BestServedCold\PhalueObjects\TestCase;
 

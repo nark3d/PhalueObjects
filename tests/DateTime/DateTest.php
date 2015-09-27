@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime;
 
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 use BestServedCold\PhalueObjects\TestCase;
@@ -115,7 +117,7 @@ class DateTest extends TestCase
     public function testNow()
     {
         $this->assertEquals(
-            (new \DateTime)->setTime(0, 0),
+            (new \DateTime())->setTime(0, 0),
             Date::now()->getNative()
         );
 

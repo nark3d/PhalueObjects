@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php
+
+namespace BestServedCold\PhalueObjects;
 
 class MockValueObject extends ValueObject
 {
@@ -25,11 +27,11 @@ class AbstractObjectTest extends TestCase
     public function testGetShortName()
     {
         $this->assertSame(
-            "MockValueObject",
+            'MockValueObject',
             $this->abstractObject->getShortName()
         );
         $this->assertNotSame(
-            "AbstractObject",
+            'AbstractObject',
             $this->abstractObject->getShortName()
         );
     }

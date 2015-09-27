@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php
+
+namespace BestServedCold\PhalueObjects;
 
 abstract class ValueObject implements ValueObjectInterface
 {

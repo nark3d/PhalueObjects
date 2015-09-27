@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\TestCase;
@@ -13,7 +15,7 @@ class YearTest extends TestCase
     public function testToString()
     {
         $day = new Year(258);
-        $this->assertEquals("258",  "$day");
+        $this->assertEquals('258',  "$day");
     }
 
     public function testConstructor()

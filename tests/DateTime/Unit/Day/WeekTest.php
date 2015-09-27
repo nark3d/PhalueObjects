@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\TestCase;
@@ -13,7 +15,7 @@ class WeekTest extends TestCase
     public function testToString()
     {
         $day = new Week(3);
-        $this->assertEquals("3",  "$day");
+        $this->assertEquals('3',  "$day");
     }
 
     public function testConstructor()

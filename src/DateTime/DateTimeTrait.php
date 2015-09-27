@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime;
 
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
@@ -68,7 +70,8 @@ trait DateTimeTrait
 
     public function addDay($days)
     {
-        $this->native->modify($days . ' day');
+        $this->native->modify($days.' day');
+
         return new static(
             new Year($this->native->format('Y')),
             new Month($this->native->format('n')),

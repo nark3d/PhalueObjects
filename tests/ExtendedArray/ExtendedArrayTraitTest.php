@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Test\ExtendedArray;
+<?php
+
+namespace BestServedCold\PhalueObjects\Test\ExtendedArray;
 
 use BestServedCold\PhalueObjects\TestCase;
 use BestServedCold\PhalueObjects\Mathematical\Integer;

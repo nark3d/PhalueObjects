@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
@@ -25,9 +27,10 @@ final class Month extends Integer implements UnitInterface
     }
 
     /**
-     * From String
+     * From String.
      *
      * @param  $string
+     *
      * @return static
      */
     public static function fromString($string)

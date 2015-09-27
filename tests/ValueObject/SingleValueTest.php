@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\ValueObject;
+<?php
+
+namespace BestServedCold\PhalueObjects\ValueObject;
 
 use BestServedCold\PhalueObjects\TestCase;
 
@@ -24,8 +26,8 @@ class SingleValueTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals("1", "$this->singleValue");
-        $this->assertNotEquals("1234", "$this->singleValue");
+        $this->assertEquals('1', "$this->singleValue");
+        $this->assertNotEquals('1234', "$this->singleValue");
     }
 
     public function testEqual()

@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php
+
+namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
@@ -20,10 +22,10 @@ class Mathematical extends SingleValue
             $this->minimum &&
             $this->maximum &&
             !(new Range($this->maximum, $this->minimum))
-                ->inRange(new Mathematical($value))) {
+                ->inRange(new self($value))) {
             throw new InvalidRangeTypeException(
                 $value,
-                [ 'Mathematical' ],
+                ['Mathematical'],
                 $this->minimum,
                 $this->maximum
             );

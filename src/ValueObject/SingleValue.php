@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\ValueObject;
+<?php
+
+namespace BestServedCold\PhalueObjects\ValueObject;
 
 use BestServedCold\PhalueObjects\ValueObject;
 
@@ -7,7 +9,7 @@ abstract class SingleValue extends ValueObject
     protected $value;
 
     /**
-     * Class Constructor
+     * Class Constructor.
      *
      * @param $value
      */
@@ -18,7 +20,7 @@ abstract class SingleValue extends ValueObject
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getValue()
     {

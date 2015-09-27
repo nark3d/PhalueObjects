@@ -1,18 +1,21 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime;
 
 interface DateTimeInterface
 {
     /**
-     * Now
+     * Now.
      *
      * @return static
      */
     public static function now();
 
     /**
-     * From String
+     * From String.
      *
      * @param  $string
+     *
      * @return static
      */
     public static function fromString($string);

@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php
+
+namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;

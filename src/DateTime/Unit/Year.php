@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
@@ -10,7 +12,7 @@ final class Year extends Integer implements UnitInterface
     protected $native;
 
     /**
-     * @param integer $value
+     * @param int $value
      */
     public function __construct($value)
     {
@@ -24,7 +26,7 @@ final class Year extends Integer implements UnitInterface
     }
 
     /**
-     * Now
+     * Now.
      *
      * @return static
      */
@@ -34,9 +36,10 @@ final class Year extends Integer implements UnitInterface
     }
 
     /**
-     * From String
+     * From String.
      *
      * @param  $string
+     *
      * @return static
      */
     public static function fromString($string)

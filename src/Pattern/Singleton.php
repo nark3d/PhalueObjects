@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\Pattern;
+<?php
+
+namespace BestServedCold\PhalueObjects\Pattern;
 
 abstract class Singleton
 {
@@ -22,7 +24,7 @@ abstract class Singleton
 
         $classCalled = get_called_class();
 
-        if (! isset($instances[$classCalled])) {
+        if (!isset($instances[$classCalled])) {
             $instances[$classCalled] = new $classCalled();
         }
 

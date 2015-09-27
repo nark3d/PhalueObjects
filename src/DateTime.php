@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php
+
+namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\Mathematical\Operator\OperatorInterface;
@@ -19,7 +21,7 @@ final class DateTime extends MultipleValue implements OperatorInterface
         $this->date = $date;
         $this->time = $time;
         $this->timestamp = $date->getTimestamp() + $time->getTimestamp();
-        parent::__construct([ $date, $time ]);
+        parent::__construct([$date, $time]);
     }
 
     public function getValue()

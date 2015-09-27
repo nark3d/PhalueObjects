@@ -1,14 +1,15 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime\Unit;
+<?php
+
+namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 
 interface UnitInterface extends DateTimeInterface
 {
     /**
-     * Class Constructor
+     * Class Constructor.
      *
      * @param $value
-     * @return void
      */
     public function __construct($value);
 }

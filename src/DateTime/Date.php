@@ -1,8 +1,7 @@
-<?php namespace BestServedCold\PhalueObjects\DateTime;
+<?php
 
-use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
-use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
-use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
+namespace BestServedCold\PhalueObjects\DateTime;
+
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
@@ -25,9 +24,8 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
-        parent::__construct([ $year, $month, $day ]);
+        parent::__construct([$year, $month, $day]);
     }
-
 
     public function getValue()
     {
@@ -64,7 +62,7 @@ class Date extends MultipleValue implements DateTimeInterface
      */
     public function isWeekend()
     {
-        return in_array($this->native->format('w'), [ 0, 6 ]);
+        return in_array($this->native->format('w'), [0, 6]);
     }
 
     public function isWeekDay()
@@ -79,12 +77,13 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public function __toString()
     {
-        return $this->year . '-' . $this->month . '-' . $this->day;
+        return $this->year.'-'.$this->month.'-'.$this->day;
     }
 
     public static function fromString($string)
     {
         $dateTime = new \DateTime($string);
+
         return self::fromNative(
             $dateTime
         );

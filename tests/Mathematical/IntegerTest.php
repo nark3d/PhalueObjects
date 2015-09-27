@@ -1,6 +1,7 @@
-<?php namespace BestServedCold\PhalueObjects\Mathematical;
+<?php
 
-use BestServedCold\PhalueObjects\Mathematical\Integer;
+namespace BestServedCold\PhalueObjects\Mathematical;
+
 use BestServedCold\PhalueObjects\TestCase;
 
 class IntegerTest extends TestCase
