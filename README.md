@@ -10,4 +10,4 @@ PHP Value Objects - a work in progress, but aiming towards an everyday usable se
 Work in Progress
 ------------------
 
-I wouldn't recommend using this just yet as I'm still working things out, but if you have any ideas or suggestions, they'd be welcome.
+I wouldn't recommend using this just yet as I'm still working things out, but if you have any ideas or suggestions, they'd be welcome.  The DateTime class is mostly usable, but I'll release alpha v0.0.2 soon for a usable set of date objects.
