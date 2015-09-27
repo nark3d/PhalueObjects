@@ -26,5 +26,25 @@ class DateTimeTest extends TestCase
         );
     }
 
+    public function testToString()
+    {
+        $dateTime = DateTime::fromString('2013-04-01 01:03:02');
+        $this->assertEquals(
+            '2013-04-01 01:03:02',
+            "$dateTime"
+        );
+    }
+
+    public function testAddDay()
+    {
+        $this->assertEquals(
+            (new \DateTime())->modify('1 day'),
+            DateTime::now()->addDay(1)->getNative()
+        );
+        $this->assertNotEquals(
+            (new \DateTime())->modify('15 day'),
+            DateTime::now()->addDay(1)->getNative()
+        );
+    }
 
 }

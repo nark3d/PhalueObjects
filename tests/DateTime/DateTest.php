@@ -126,4 +126,16 @@ class DateTest extends TestCase
             Date::now()->getNative()
         );
     }
+
+    public function testAddDay()
+    {
+        $this->assertEquals(
+            (new \DateTime())->setTime(0, 0, 0)->modify('1 day'),
+            Date::now()->addDay(1)->getNative()
+        );
+        $this->assertNotEquals(
+            (new \DateTime())->setTime(0, 0, 0)->modify('15 day'),
+            Date::now()->addDay(1)->getNative()
+        );
+    }
 }

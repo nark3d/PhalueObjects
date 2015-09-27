@@ -41,4 +41,9 @@ final class Hour extends Integer implements UnitInterface
     {
         return new static(self::getNowDateTimeFormat('H'));
     }
+
+    public function __toString()
+    {
+        return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
+    }
 }

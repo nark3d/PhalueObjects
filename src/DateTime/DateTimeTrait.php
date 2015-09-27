@@ -87,12 +87,6 @@ trait DateTimeTrait
 
     public function addDay($days)
     {
-        $this->native->modify($days.' day');
-
-        return new static(
-            new Year($this->native->format('Y')),
-            new Month($this->native->format('n')),
-            new Day($this->native->format('j'))
-        );
+        return static::fromNative($this->native->modify($days . ' day'));
     }
 }

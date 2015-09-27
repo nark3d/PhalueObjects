@@ -26,6 +26,12 @@ final class Month extends Integer implements UnitInterface
         return new static(self::getNowDateTimeFormat('j'));
     }
 
+
+    public function __toString()
+    {
+        return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
+    }
+
     /**
      * From String.
      *
