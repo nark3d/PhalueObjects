@@ -67,6 +67,7 @@ class Time extends MultipleValue implements DateTimeInterface
      */
     public function __toString()
     {
+        return $this->hour . ':' . $this->minute . ':' . $this->second;
     }
 
     public static function fromString($string)

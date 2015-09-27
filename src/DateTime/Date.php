@@ -27,6 +27,20 @@ class Date extends MultipleValue implements DateTimeInterface
         parent::__construct([$year, $month, $day]);
     }
 
+    public static function fromNative(\DateTime $dateTime)
+    {
+        return new static(
+            new Year((int) $dateTime->format('Y')),
+            new Month((int) $dateTime->format('n')),
+            new Day((int) $dateTime->format('j'))
+        );
+    }
+
+    public static function now()
+    {
+        return new static(Year::now(), Month::now(), Day::now());
+    }
+
     public function getValue()
     {
         return (int) $this->timestamp;
@@ -52,11 +66,6 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->timestamp;
     }
 
-    public function getNative()
-    {
-        return $this->native;
-    }
-
     /**
      * @todo
      */
@@ -80,31 +89,4 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->year.'-'.$this->month.'-'.$this->day;
     }
 
-    public static function fromString($string)
-    {
-        $dateTime = new \DateTime($string);
-
-        return self::fromNative(
-            $dateTime
-        );
-    }
-
-    public static function fromTimestamp($timestamp)
-    {
-        return self::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
-    }
-
-    public static function fromNative(\DateTime $dateTime)
-    {
-        return new static(
-            new Year((int) $dateTime->format('Y')),
-            new Month((int) $dateTime->format('n')),
-            new Day((int) $dateTime->format('j'))
-        );
-    }
-
-    public static function now()
-    {
-        return new static(Year::now(), Month::now(), Day::now());
-    }
 }

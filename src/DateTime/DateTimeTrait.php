@@ -13,6 +13,18 @@ trait DateTimeTrait
 {
     use ArithmeticTrait, ComparisonTrait, TypeTrait;
 
+    public static function fromString($string)
+    {
+        $dateTime = new \DateTime($string);
+
+        return static::fromNative($dateTime);
+    }
+
+    public static function fromTimestamp($timestamp)
+    {
+        return static::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
+    }
+
     public static function getNowDateTimeFormat($format)
     {
         return (int) self::getNowDateTime()->format($format);
@@ -26,6 +38,11 @@ trait DateTimeTrait
     public static function getNowDateTime()
     {
         return self::getDateTime('now');
+    }
+
+    public function getNative()
+    {
+        return $this->native;
     }
 
     public function isBeforeToday()
