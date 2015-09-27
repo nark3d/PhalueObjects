@@ -5,12 +5,28 @@ use BestServedCold\PhalueObjects\Mathematical;
 
 class Float extends Mathematical
 {
-    public function __construct($value)
+    protected $round = null;
+
+    public function __construct($value, $round = null)
     {
         if (!filter_var($value, FILTER_VALIDATE_FLOAT)) {
             throw new InvalidTypeException($value, [ 'float' ]);
         }
 
+        $value = $round ?: $this->round($value, $round);
+        $this->round = $round;
+
         parent::__construct($value);
     }
+
+    public function round($value, $round)
+    {
+        return round($value, $round);
+    }
+
+    public function getValue()
+    {
+        return $this->round ?: $this->round($this->value, $this->round);
+    }
+
 }
