@@ -47,4 +47,15 @@ class DateTimeTest extends TestCase
         );
     }
 
+    public function testTomorrow()
+    {
+        $this->assertEquals(
+            (new \DateTime())->modify('1 day'),
+            DateTime::tomorrow()->getNative()
+        );
+        $this->assertNotEquals(
+            (new \DateTime())->modify('15 day'),
+            DateTime::tomorrow()->getNative()
+        );
+    }
 }

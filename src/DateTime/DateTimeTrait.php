@@ -67,22 +67,22 @@ trait DateTimeTrait
 
     public static function tomorrow()
     {
-        return self::now()->nextDay();
+        return static::now()->nextDay();
     }
 
     public static function yesterday()
     {
-        return self::now()->previousDay();
+        return static::now()->previousDay();
     }
 
     public function nextDay()
     {
-        return new static($this->addDay(1));
+        return $this->addDay(1);
     }
 
     public function previousDay()
     {
-        return new static($this->addDay(-1));
+        return $this->addDay(-1);
     }
 
     public function addDay($days)
