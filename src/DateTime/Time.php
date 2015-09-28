@@ -11,8 +11,7 @@ use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 class Time extends MultipleValue implements DateTimeInterface
 {
-    use ComparisonTrait;
-    use ArithmeticTrait;
+    use DateTimeTrait;
 
     protected $hour;
     protected $minute;
@@ -25,11 +24,25 @@ class Time extends MultipleValue implements DateTimeInterface
         $this->hour = $hour;
         $this->minute = $minute;
         $this->second = $second;
-        $this->timestamp = $hour->getSeconds()
-            ->add($minute->getSeconds())
-            ->add($second);
-        $this->native = new \DateTime();
+        $this->timestamp = $hour->getSeconds()->add($minute->getSeconds())->add($second);
+        $this->native = self::getNowDateTime()
+            ->setTime($hour->getValue(), $minute->getValue(), $minute->getValue()
+        );
         parent::__construct(func_get_args());
+    }
+
+    public static function fromNative(\DateTime $dateTime)
+    {
+        return new static(
+            new Hour((int) $dateTime->format('G')),
+            new Minute((int) $dateTime->format('i')),
+            new Second((int) $dateTime->format('s'))
+        );
+    }
+
+    public static function fromString($string)
+    {
+
     }
 
     public function getHour()
@@ -68,9 +81,5 @@ class Time extends MultipleValue implements DateTimeInterface
     public function __toString()
     {
         return $this->hour . ':' . $this->minute . ':' . $this->second;
-    }
-
-    public static function fromString($string)
-    {
     }
 }

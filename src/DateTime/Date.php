@@ -27,6 +27,11 @@ class Date extends MultipleValue implements DateTimeInterface
         parent::__construct([$year, $month, $day]);
     }
 
+    public function __toString()
+    {
+        return $this->year.'-'.$this->month.'-'.$this->day;
+    }
+
     public static function fromNative(\DateTime $dateTime)
     {
         return new static(
@@ -66,9 +71,6 @@ class Date extends MultipleValue implements DateTimeInterface
         return $this->timestamp;
     }
 
-    /**
-     * @todo
-     */
     public function isWeekend()
     {
         return in_array($this->native->format('w'), [0, 6]);
@@ -83,10 +85,4 @@ class Date extends MultipleValue implements DateTimeInterface
     {
         return $this->year->isLeap();
     }
-
-    public function __toString()
-    {
-        return $this->year.'-'.$this->month.'-'.$this->day;
-    }
-
 }

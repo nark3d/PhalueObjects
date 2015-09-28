@@ -22,16 +22,4 @@ final class Year extends Integer implements UnitInterface
     {
         return new static(self::getNowDateTimeFormat('z'));
     }
-
-    /**
-     * From String.
-     *
-     * @param  $string
-     *
-     * @return static
-     */
-    public static function fromString($string)
-    {
-        // TODO: Implement fromString() method.
-    }
 }

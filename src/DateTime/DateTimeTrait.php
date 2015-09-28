@@ -2,9 +2,6 @@
 
 namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
-use BestServedCold\PhalueObjects\DateTime\Unit\Month;
-use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
@@ -16,7 +13,6 @@ trait DateTimeTrait
     public static function fromString($string)
     {
         $dateTime = new \DateTime($string);
-
         return static::fromNative($dateTime);
     }
 
