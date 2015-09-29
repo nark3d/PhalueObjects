@@ -24,4 +24,34 @@ class ExtendedArrayTraitTest extends TestCase
             $this->arrayToCommaString(['some', 'random', 'array'], new Integer(1))
         );
     }
+
+    public function testGetArrayUsingJsonNotation()
+    {
+        $this->assertEquals(
+            ['bob', 'susan', 'harry', 'sally'],
+            $this->getArrayUsingJsonNotation('bob.susan.harry.sally')
+
+        );
+    }
+
+    public function testGetFromArrayUsingJsonNotation()
+    {
+        $array = ['bob' => 'susan', 'mary' => ['susan' => 'harry']];
+        $this->assertEquals(
+            $array,
+            $this->getFromArrayUsingJsonNotation($array)
+        );
+        $this->assertEquals(
+            'harry',
+            $this->getFromArrayUsingJsonNotation($array, 'mary.susan')
+        );
+        $this->assertEquals(
+            'default',
+            $this->getFromArrayUsingJsonNotation($array, 'sally', 'default')
+        );
+        $this->assertEquals(
+            null,
+            $this->getFromArrayUsingJsonNotation($array, 'george')
+        );
+    }
 }

@@ -58,4 +58,16 @@ class DateTimeTest extends TestCase
             DateTime::tomorrow()->getNative()
         );
     }
+
+    public function testYesterday()
+    {
+        $this->assertEquals(
+            (new \DateTime())->modify('-1 day'),
+            DateTime::yesterday()->getNative()
+        );
+        $this->assertNotEquals(
+            (new \DateTime())->modify('15 day'),
+            DateTime::yesterday()->getNative()
+        );
+    }
 }
