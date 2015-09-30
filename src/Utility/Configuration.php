@@ -10,15 +10,18 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [];
+    private static $configuration = [ ];
     protected static $path = '/Configuration/';
     protected static $file = 'configuration.yml';
 
     public static function buildConfiguration()
     {
-        return Yaml::parse(file_get_contents(__DIR__.self::$path.self::$file));
+        return Yaml::parse(file_get_contents(__DIR__ . self::$path . self::$file));
     }
 
+    /**
+     * @param string $key
+     */
     public static function get($key)
     {
         $config = self::singleton();

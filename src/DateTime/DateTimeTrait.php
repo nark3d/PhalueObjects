@@ -21,11 +21,17 @@ trait DateTimeTrait
         return static::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
     }
 
+    /**
+     * @param string $format
+     */
     public static function getNowDateTimeFormat($format)
     {
         return (int) self::getNowDateTime()->format($format);
     }
 
+    /**
+     * @param string $string
+     */
     public static function getDateTime($string = null)
     {
         return new \DateTime($string);
@@ -81,6 +87,9 @@ trait DateTimeTrait
         return $this->addDay(-1);
     }
 
+    /**
+     * @param integer $days
+     */
     public function addDay($days)
     {
         return static::fromNative($this->native->modify($days . ' day'));
