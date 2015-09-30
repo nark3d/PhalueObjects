@@ -16,9 +16,7 @@ script:
   - vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text
 
 after_script:
-  - echo $TRAVIS_PHP_VERSION;
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];
     then wget https://scrutinizer-ci.com/ocular.phar; fi
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];
-    then echo 'coverage uploading'; php ocular.phar code-coverage:upload --format=php-clover .coverage.clover;
-    echo 'coverage uploaded'; fi
+    then php ocular.phar code-coverage:upload --format=php-clover .coverage.clover; fi
