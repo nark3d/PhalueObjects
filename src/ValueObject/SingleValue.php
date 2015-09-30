@@ -20,7 +20,7 @@ abstract class SingleValue extends ValueObject
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getValue()
     {

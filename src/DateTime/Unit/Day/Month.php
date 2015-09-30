@@ -13,6 +13,9 @@ final class Month extends Integer implements UnitInterface
     protected $minimum = 1;
     protected $maximum = 31;
 
+    /**
+     * @param integer $value
+     */
     public function __construct($value)
     {
         parent::__construct($value);

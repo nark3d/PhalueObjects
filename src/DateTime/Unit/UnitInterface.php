@@ -10,6 +10,7 @@ interface UnitInterface extends DateTimeInterface
      * Class Constructor.
      *
      * @param $value
+     * @return void
      */
     public function __construct($value);
 }

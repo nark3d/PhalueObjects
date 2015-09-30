@@ -10,7 +10,7 @@ class ExtendedArray extends SingleValue
     public function __construct($value)
     {
         if (!is_array($value)) {
-            throw new InvalidTypeException($value, ['array']);
+            throw new InvalidTypeException($value, [ 'array' ]);
         }
 
         parent::__construct($value);

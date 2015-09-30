@@ -25,7 +25,7 @@ class Mathematical extends SingleValue
                 ->inRange(new self($value))) {
             throw new InvalidRangeTypeException(
                 $value,
-                ['Mathematical'],
+                [ 'Mathematical' ],
                 $this->minimum,
                 $this->maximum
             );
