@@ -13,7 +13,8 @@ before_script:
   - composer install --prefer-dist --no-interaction
 
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];
+        then vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text; fi
 
 after_script:
   - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];
