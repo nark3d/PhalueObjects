@@ -2,10 +2,10 @@
 
 namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
+use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 class Date extends MultipleValue implements DateTimeInterface
 {
@@ -24,12 +24,12 @@ class Date extends MultipleValue implements DateTimeInterface
         $this->day = $day;
         $this->native = new \DateTime("$year-$month-$day");
         $this->timestamp = $this->native->getTimeStamp();
-        parent::__construct([$year, $month, $day]);
+        parent::__construct([ $year, $month, $day ]);
     }
 
     public function __toString()
     {
-        return $this->year.'-'.$this->month.'-'.$this->day;
+        return $this->year . '-' . $this->month . '-' . $this->day;
     }
 
     public static function fromNative(\DateTime $dateTime)
@@ -73,7 +73,7 @@ class Date extends MultipleValue implements DateTimeInterface
 
     public function isWeekend()
     {
-        return in_array($this->native->format('w'), [0, 6]);
+        return in_array($this->native->format('w'), [ 0, 6 ]);
     }
 
     public function isWeekDay()

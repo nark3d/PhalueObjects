@@ -29,7 +29,7 @@ class Range extends MultipleValue
     public function __toString()
     {
         return $this->arrayToCommaString(
-            [$this->maximum, $this->minimum],
+            [ $this->maximum, $this->minimum ],
             new Integer(1)
         );
     }

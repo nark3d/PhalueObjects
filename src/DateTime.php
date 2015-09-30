@@ -28,7 +28,7 @@ final class DateTime extends MultipleValue
         $this->time = $time;
         $this->timestamp = $date->getTimestamp() + $time->getTimestamp();
         $this->native = self::getDateTime($date . ' ' . $time);
-        parent::__construct([$date, $time]);
+        parent::__construct([ $date, $time ]);
     }
 
     public static function fromNative(\DateTime $dateTime)
