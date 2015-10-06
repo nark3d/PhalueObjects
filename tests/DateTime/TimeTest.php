@@ -6,6 +6,11 @@ use BestServedCold\PhalueObjects\TestCase;
 
 class TimeTest extends TestCase
 {
+    public function testFromNative()
+    {
+//        $this->assert
+    }
+    
     public function testGetTimestamp()
     {
         $this->assertEquals(

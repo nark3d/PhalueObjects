@@ -5,8 +5,6 @@ namespace BestServedCold\PhalueObjects\DateTime;
 use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
 use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
-use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
-use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 class Time extends MultipleValue implements DateTimeInterface
@@ -38,11 +36,6 @@ class Time extends MultipleValue implements DateTimeInterface
             new Minute((int) $dateTime->format('i')),
             new Second((int) $dateTime->format('s'))
         );
-    }
-
-    public static function fromString($string)
-    {
-
     }
 
     public function getHour()

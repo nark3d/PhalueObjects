@@ -2,6 +2,21 @@
 
 class DateTimeTest extends TestCase
 {
+    public function testGetDate()
+    {
+        $dateTime = DateTime::fromString('2013-06-02 09:22:44');
+        $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Date', $dateTime->getDate());
+        $this->assertEquals('2013-06-02', $dateTime->getDate());
+    }
+
+    public function testGetTime()
+    {
+        $dateTime = DateTime::fromString('2013-06-02 09:22:44');
+        $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Time', $dateTime->getTime());
+        $this->assertEquals('09:22:44', $dateTime->getTime());
+
+    }
+
     public function testGetNative()
     {
         $this->assertEquals(

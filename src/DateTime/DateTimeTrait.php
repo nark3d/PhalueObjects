@@ -62,6 +62,9 @@ trait DateTimeTrait
         return $this->isGreaterThan(static::now());
     }
 
+    /**
+     * @return boolean
+     */
     public function isAfterOrIsToday()
     {
         return $this->isGreaterThanOrEqualTo(static::now());

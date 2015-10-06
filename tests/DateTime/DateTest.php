@@ -7,6 +7,14 @@ use BestServedCold\PhalueObjects\TestCase;
 
 class DateTest extends TestCase
 {
+    public function testFromString()
+    {
+        $this->assertEquals(
+            new \DateTime('1970-01-01 14:22:55'),
+            Time::fromString('14:22:55')->getNative()
+        );
+    }
+
     public function testGetYear()
     {
         $date = Date::fromString('2012-02-04');
@@ -32,7 +40,7 @@ class DateTest extends TestCase
     {
         $date = Date::fromString('2012-02-04');
 
-        $this->assertEquals($date->getTimestamp(), 1328313600);
+        $this->assertEquals(1328310000, $date->getTimestamp());
         $this->assertNotEquals($date->getTimestamp(), 22);
     }
 
@@ -137,5 +145,12 @@ class DateTest extends TestCase
             (new \DateTime())->setTime(0, 0, 0)->modify('15 day'),
             Date::now()->addDay(1)->getNative()
         );
+    }
+
+    public function testIsLeap()
+    {
+        $this->assertTrue(Date::fromString('2012-01-01')->isLeap());
+        $this->assertFalse(Date::fromString('2011-01-01')->isLeap());
+
     }
 }
