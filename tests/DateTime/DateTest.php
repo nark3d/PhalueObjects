@@ -7,17 +7,10 @@ use BestServedCold\PhalueObjects\TestCase;
 
 class DateTest extends TestCase
 {
-    public function testFromString()
-    {
-        $this->assertEquals(
-            new \DateTime('1970-01-01 14:22:55'),
-            Time::fromString('14:22:55')->getNative()
-        );
-    }
-
     public function testGetYear()
     {
         $date = Date::fromString('2012-02-04');
+        $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Unit\Year', $date->getYear());
         $this->assertEquals($date->getYear()->getValue(), 2012);
         $this->assertNotEquals($date->getYear()->getValue(), 2011);
     }
@@ -25,6 +18,7 @@ class DateTest extends TestCase
     public function testGetMonth()
     {
         $date = Date::fromString('2012-02-04');
+        $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Unit\Month', $date->getMonth());
         $this->assertEquals($date->getMonth()->getValue(), 2);
         $this->assertNotEquals($date->getMonth()->getValue(), 3);
     }
@@ -32,6 +26,7 @@ class DateTest extends TestCase
     public function testGetDay()
     {
         $date = Date::fromString('2012-02-04');
+        $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Unit\Day\Month', $date->getDay());
         $this->assertEquals($date->getDay()->getValue(), 4);
         $this->assertNotEquals($date->getDay()->getValue(), 3);
     }

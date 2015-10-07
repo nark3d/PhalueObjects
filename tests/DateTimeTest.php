@@ -14,7 +14,6 @@ class DateTimeTest extends TestCase
         $dateTime = DateTime::fromString('2013-06-02 09:22:44');
         $this->assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Time', $dateTime->getTime());
         $this->assertEquals('09:22:44', $dateTime->getTime());
-
     }
 
     public function testGetNative()
@@ -35,10 +34,7 @@ class DateTimeTest extends TestCase
 
     public function testNow()
     {
-        $this->assertEquals(
-            new \DateTime,
-            DateTime::now()->getNative()
-        );
+        $this->assertEquals(new \DateTime, DateTime::now()->getNative());
     }
 
     public function testToString()
