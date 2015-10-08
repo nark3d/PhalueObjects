@@ -52,4 +52,13 @@ class TimeTest extends TestCase
         );
         $this->assertNotEquals(1, Time::now()->getTimestamp());
     }
+
+    public function testGetValue()
+    {
+        $this->assertEquals(
+            (time() - strtotime('today')),
+            Time::now()->getValue()
+        );
+        $this->assertNotEquals(1, Time::now()->getValue());
+    }
 }

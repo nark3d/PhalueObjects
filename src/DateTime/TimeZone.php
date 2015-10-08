@@ -2,8 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\DateTime;
 
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
-class TimeZone extends MultipleValue
+class TimeZone extends SingleValue
 {
 }

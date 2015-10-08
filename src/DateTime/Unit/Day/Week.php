@@ -2,11 +2,11 @@
 
 namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
-use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Week extends Integer implements UnitInterface
+final class Week extends Integer implements DateTimeInterface
 {
     use DateTimeTrait;
 

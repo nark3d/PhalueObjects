@@ -2,8 +2,9 @@
 
 namespace BestServedCold\PhalueObjects;
 
+use BestServedCold\PhalueObjects\DateTime\Unit\DayInterface;
+use BestServedCold\PhalueObjects\DateTime\Unit\DayTrait;
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
-use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\DateTime\Date;
 use BestServedCold\PhalueObjects\DateTime\Time;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
@@ -13,22 +14,25 @@ use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
 use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
 
-final class DateTime extends MultipleValue
+final class DateTime extends MultipleValue implements DayInterface
 {
-    use DateTimeTrait;
+    use DayTrait;
 
     protected $date;
     protected $time;
-    protected $native;
-    protected $timestamp;
 
     public function __construct(Date $date, Time $time)
     {
         $this->date = $date;
         $this->time = $time;
-        $this->timestamp = $date->getTimestamp() + $time->getTimestamp();
+        $this->timestamp = (int) $date->getTimestamp() + (int) $time->getTimestamp();
         $this->native = self::getDateTime($date . ' ' . $time);
         parent::__construct([ $date, $time ]);
+    }
+
+    public static function now()
+    {
+        return new self(Date::now(), Time::now());
     }
 
     public static function fromNative(\DateTime $dateTime)
@@ -52,9 +56,9 @@ final class DateTime extends MultipleValue
         return $this->timestamp;
     }
 
-    public static function now()
+    public static function fromTimestamp($timestamp)
     {
-        return new static(Date::now(), Time::now());
+        return self::fromNative(new \DateTime($timestamp));
     }
 
     public function getDate()

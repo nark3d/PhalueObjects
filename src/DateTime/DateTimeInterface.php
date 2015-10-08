@@ -2,7 +2,9 @@
 
 namespace BestServedCold\PhalueObjects\DateTime;
 
-interface DateTimeInterface
+use BestServedCold\PhalueObjects\ValueObjectInterface;
+
+interface DateTimeInterface extends ValueObjectInterface
 {
     /**
      * Now.
@@ -12,11 +14,10 @@ interface DateTimeInterface
     public static function now();
 
     /**
-     * From String.
+     * From Native
      *
-     * @param  $string
-     *
-     * @return static
+     * @param \DateTime $native
+     * @return DateTimeInterface
      */
-    public static function fromString($string);
+    public static function fromNative(\DateTime $native);
 }

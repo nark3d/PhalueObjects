@@ -10,28 +10,33 @@ trait DateTimeTrait
 {
     use ArithmeticTrait, ComparisonTrait, TypeTrait;
 
+    /**
+     * @var \DateTime
+     */
+    protected $native;
+
+    protected $timestamp;
+
+    public static function fromNative(\DateTime $native)
+    {
+        return static::fromNative($native);
+    }
+
     public static function fromString($string)
     {
-        $dateTime = new \DateTime($string);
-        return static::fromNative($dateTime);
+        return static::fromNative(new \DateTime($string));
     }
 
     public static function fromTimestamp($timestamp)
     {
-        return static::fromNative(self::getNowDateTime()->setTimestamp($timestamp));
+        return static::fromNative(static::getNowDateTime()->setTimestamp($timestamp));
     }
 
-    /**
-     * @param string $format
-     */
     public static function getNowDateTimeFormat($format)
     {
-        return (int) self::getNowDateTime()->format($format);
+        return (int) static::getNowDateTime()->format($format);
     }
 
-    /**
-     * @param string $string
-     */
     public static function getDateTime($string = null)
     {
         return new \DateTime($string);
@@ -39,7 +44,7 @@ trait DateTimeTrait
 
     public static function getNowDateTime()
     {
-        return self::getDateTime('now');
+        return static::getDateTime('now');
     }
 
     public function getNative()
@@ -47,54 +52,28 @@ trait DateTimeTrait
         return $this->native;
     }
 
-    public function isBeforeToday()
+    public function getTimestamp()
     {
-        return $this->isLessThan(static::now());
+        return $this->timestamp;
     }
 
-    public function isBeforeOrIsToday()
+    public function isBefore(DateTimeInterface $object)
     {
-        return $this->isLessThanOrEqualTo(static::now());
+        return $this->isLessThan($object);
     }
 
-    public function isAfterToday()
+    public function isAfter(DateTimeInterface $object)
     {
-        return $this->isGreaterThan(static::now());
+        return $this->isGreaterThan($object);
     }
 
-    /**
-     * @return boolean
-     */
-    public function isAfterOrIsToday()
+    public function isAfterOrIs(DateTimeInterface $object)
     {
-        return $this->isGreaterThanOrEqualTo(static::now());
+        return $this->isLessThanOrEqualTo($object);
     }
 
-    public static function tomorrow()
+    public function isBeforeOrIs(DateTimeInterface $object)
     {
-        return static::now()->nextDay();
-    }
-
-    public static function yesterday()
-    {
-        return static::now()->previousDay();
-    }
-
-    public function nextDay()
-    {
-        return $this->addDay(1);
-    }
-
-    public function previousDay()
-    {
-        return $this->addDay(-1);
-    }
-
-    /**
-     * @param integer $days
-     */
-    public function addDay($days)
-    {
-        return static::fromNative($this->native->modify($days . ' day'));
+        return $this->isGreaterThanOrEqualTo($object);
     }
 }

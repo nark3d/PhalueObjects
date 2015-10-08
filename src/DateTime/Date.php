@@ -3,19 +3,19 @@
 namespace BestServedCold\PhalueObjects\DateTime;
 
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
+use BestServedCold\PhalueObjects\DateTime\Unit\DayInterface;
+use BestServedCold\PhalueObjects\DateTime\Unit\DayTrait;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
 use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
-class Date extends MultipleValue implements DateTimeInterface
+class Date extends MultipleValue implements DayInterface
 {
-    use DateTimeTrait;
+    use DayTrait;
 
     protected $year;
     protected $month;
     protected $day;
-    protected $native;
-    protected $timestamp;
 
     public function __construct(Year $year, Month $month, Day $day)
     {
@@ -27,9 +27,9 @@ class Date extends MultipleValue implements DateTimeInterface
         parent::__construct([ $year, $month, $day ]);
     }
 
-    public function __toString()
+    public static function now()
     {
-        return $this->year . '-' . $this->month . '-' . $this->day;
+        return new static(Year::now(), Month::now(), Day::now());
     }
 
     public static function fromNative(\DateTime $dateTime)
@@ -41,9 +41,9 @@ class Date extends MultipleValue implements DateTimeInterface
         );
     }
 
-    public static function now()
+    public function __toString()
     {
-        return new static(Year::now(), Month::now(), Day::now());
+        return $this->year . '-' . $this->month . '-' . $this->day;
     }
 
     public function getValue()
@@ -64,11 +64,6 @@ class Date extends MultipleValue implements DateTimeInterface
     public function getDay()
     {
         return $this->day;
-    }
-
-    public function getTimestamp()
-    {
-        return $this->timestamp;
     }
 
     public function isWeekend()

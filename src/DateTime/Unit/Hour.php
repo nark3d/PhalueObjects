@@ -2,10 +2,11 @@
 
 namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Hour extends Integer implements UnitInterface
+final class Hour extends Integer implements DateTimeInterface
 {
     use DateTimeTrait;
 

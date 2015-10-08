@@ -18,4 +18,10 @@ class YearTest extends TestCase
         $this->assertTrue((new Year(2012))->isLeap());
         $this->assertFalse((new Year(2013))->isLeap());
     }
+
+    public function testFromString()
+    {
+        $year = Year::fromString("2012");
+        $this->assertSame(2012, $year->getValue());
+    }
 }

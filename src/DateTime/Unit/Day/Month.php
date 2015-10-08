@@ -2,11 +2,11 @@
 
 namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
-use BestServedCold\PhalueObjects\DateTime\Unit\UnitInterface;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Month extends Integer implements UnitInterface
+final class Month extends Integer implements DateTimeInterface
 {
     use DateTimeTrait;
 
@@ -28,7 +28,6 @@ final class Month extends Integer implements UnitInterface
     {
         return new static(self::getNowDateTimeFormat('j'));
     }
-
 
     public function __toString()
     {

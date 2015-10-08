@@ -2,14 +2,13 @@
 
 namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
+use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
-final class Year extends Integer implements UnitInterface
+final class Year extends Integer implements DateTimeInterface
 {
     use DateTimeTrait;
-
-    protected $native;
 
     /**
      * @param int $value
@@ -44,6 +43,6 @@ final class Year extends Integer implements UnitInterface
      */
     public static function fromString($string)
     {
-        // TODO: Implement fromString() method.
+        return new static((int) $string);
     }
 }
