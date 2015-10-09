@@ -2,6 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Null extends ValueObject
-{
-}
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
+
+class Null extends SingleValue {}

@@ -2,9 +2,4 @@
 
 namespace BestServedCold\PhalueObjects;
 
-final class Language
-{
-    public function __construct(ValueObjectInterface $object)
-    {
-    }
-}
+final class Language {}

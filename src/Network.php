@@ -2,6 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Network extends ValueObject
-{
-}
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
+
+class Network extends SingleValue {}

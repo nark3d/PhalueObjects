@@ -2,6 +2,15 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Geography extends ValueObject
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
+
+class Geography extends SingleValue
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getValue();
+    }
 }

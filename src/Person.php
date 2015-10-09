@@ -2,13 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Person extends ValueObject
-{
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
-    }
-}
+class Person extends SingleValue {}

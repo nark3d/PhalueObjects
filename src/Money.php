@@ -2,8 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Mathematical\Float;
+use BestServedCold\PhalueObjects\Mathematical\FloatVO;
 
-class Money extends Float
-{
-}
+class Money extends FloatVO {}

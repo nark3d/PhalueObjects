@@ -35,13 +35,11 @@ class Reflection
      * object.
      *
      * @param \ReflectionProperty|\ReflectionMethod $reflector
-     *
      * @return \ReflectionProperty|\ReflectionMethod
      */
     private function setAccessible($reflector)
     {
         $reflector->isPublic() ?: $reflector->setAccessible(true);
-
         return $reflector;
     }
 

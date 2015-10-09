@@ -18,12 +18,4 @@ class Email extends SingleValue
 
         parent::__construct($value);
     }
-
-    public function getDomain()
-    {
-    }
-
-    public function emailGinny(Email $bob)
-    {
-    }
 }
