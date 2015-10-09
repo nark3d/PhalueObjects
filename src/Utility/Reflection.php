@@ -20,7 +20,7 @@ class Reflection
      *
      * @param mixed $classOrObject
      */
-    public function __construct($classOrObject, $args = [ ])
+    public function __construct($classOrObject)
     {
         list($this->class, $this->object) = is_object($classOrObject)
             ? [ get_class($classOrObject), $classOrObject ]
