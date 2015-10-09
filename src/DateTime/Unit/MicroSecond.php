@@ -4,9 +4,9 @@ namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
-use BestServedCold\PhalueObjects\Mathematical\Float;
+use BestServedCold\PhalueObjects\Mathematical\FloatVO;
 
-final class MicroSecond extends Float implements DateTimeInterface
+final class MicroSecond extends FloatVO implements DateTimeInterface
 {
     use DateTimeTrait;
 
