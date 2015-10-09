@@ -30,12 +30,11 @@ final class Hour extends Integer implements DateTimeInterface
      * From String.
      *
      * @param  $string
-     *
      * @return static
      */
     public static function fromString($string)
     {
-        // TODO: Implement fromString() method.
+        return new static((int) $string);
     }
 
     public static function now()
@@ -46,5 +45,16 @@ final class Hour extends Integer implements DateTimeInterface
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
+    }
+
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static((int) $native->format('G'));
     }
 }

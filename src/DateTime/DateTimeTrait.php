@@ -17,11 +17,6 @@ trait DateTimeTrait
 
     protected $timestamp;
 
-    public static function fromNative(\DateTime $native)
-    {
-        return static::fromNative($native);
-    }
-
     public static function fromString($string)
     {
         return static::fromNative(new \DateTime($string));

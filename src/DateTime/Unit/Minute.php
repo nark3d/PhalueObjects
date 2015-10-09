@@ -46,6 +46,17 @@ final class Minute extends Integer implements DateTimeInterface
      */
     public static function fromString($string)
     {
+        return new static((int) $string);
+    }
 
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static((int) $native->format('i'));
     }
 }

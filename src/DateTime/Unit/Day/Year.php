@@ -22,4 +22,26 @@ final class Year extends Integer implements DateTimeInterface
     {
         return new static(self::getNowDateTimeFormat('z'));
     }
+
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static((int) $native->format('z'));
+    }
+
+    /**
+     * From String.
+     *
+     * @param  $string
+     * @return static
+     */
+    public static function fromString($string)
+    {
+        return new static((int) $string);
+    }
 }

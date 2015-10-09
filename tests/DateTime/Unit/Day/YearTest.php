@@ -25,4 +25,17 @@ class YearTest extends TestCase
         );
         new Year(new Integer(450));
     }
+
+    public function testFromNative()
+    {
+        $this->assertEquals(
+            281,
+            Year::fromNative((new \Datetime('2015-10-09')))->getValue()
+        );
+    }
+
+    public function testFromString()
+    {
+        $this->assertEquals(281, Year::fromString('281')->getValue());
+    }
 }

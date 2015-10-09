@@ -3,29 +3,47 @@
 namespace BestServedCold\PhalueObjects\DateTime\Unit;
 
 use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
+use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Float;
 
 final class MicroSecond extends Float implements DateTimeInterface
 {
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
+    use DateTimeTrait;
 
+    /**
+     * Now.
+     *
+     * @return static
+     */
     public static function now()
     {
-        return microtime(true);
+        return self::getMicroTimeAsInteger(microtime());
     }
 
     /**
      * From String.
      *
      * @param  $string
-     *
      * @return static
      */
     public static function fromString($string)
     {
-        // TODO: Implement fromString() method.
+        return new static((float) $string);
+    }
+
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static(floatval('0.' . $native->format('u')));
+    }
+
+    public static function getMicroTimeAsInteger($microTime)
+    {
+        return new static(round((float) explode(' ', $microTime)[0], 6));
     }
 }

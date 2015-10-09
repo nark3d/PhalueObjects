@@ -15,7 +15,8 @@ class Float extends Mathematical
             throw new InvalidTypeException($value, [ 'float' ]);
         }
 
-        $value = $round ?: $this->round($value, $round);
+        $value = $round ? $this->round($value, $round) : $value;
+
         $this->round = $round;
 
         parent::__construct($value);
@@ -28,6 +29,8 @@ class Float extends Mathematical
 
     public function getValue()
     {
-        return $this->round ?: $this->round($this->value, $this->round);
+        return $this->round
+            ? $this->round($this->value, $this->round)
+            : $this->value;
     }
 }

@@ -58,7 +58,7 @@ final class DateTime extends MultipleValue implements DayInterface
 
     public static function fromTimestamp($timestamp)
     {
-        return self::fromNative(new \DateTime($timestamp));
+        return self::fromNative((new \DateTime())->setTimestamp($timestamp));
     }
 
     public function getDate()

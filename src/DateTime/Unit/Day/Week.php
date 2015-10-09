@@ -30,10 +30,23 @@ final class Week extends Integer implements DateTimeInterface
      * From String.
      *
      * @param  $string
-     *
      * @return static
      */
     public static function fromString($string)
     {
+        return ctype_digit($string)
+            ? new static((int) $string)
+            : self::fromNative(new \DateTime($string));
+    }
+
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static((int) $native->format('N'));
     }
 }

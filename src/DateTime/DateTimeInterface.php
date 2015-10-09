@@ -20,4 +20,12 @@ interface DateTimeInterface extends ValueObjectInterface
      * @return DateTimeInterface
      */
     public static function fromNative(\DateTime $native);
+
+    /**
+     * From String
+     *
+     * @param  string $string
+     * @return DateTimeInterface
+     */
+    public static function fromString($string);
 }

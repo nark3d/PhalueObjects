@@ -25,4 +25,25 @@ class WeekTest extends TestCase
         );
         new Week(new Integer(52));
     }
+
+    public function testFromString()
+    {
+        $this->assertEquals(1, Week::fromString('01')->getValue());
+        $this->assertEquals(6, Week::fromString('Saturday')->getValue());
+        $this->assertNotEquals(5, Week::fromString("0006")->getValue());
+        $this->assertNotEquals(5, Week::fromString('Sunday')->getValue());
+    }
+
+    public function fromNative()
+    {
+        $this->assertEquals(
+            4,
+            Week::fromNative((new \Datetime('2015-10-09')))->getValue()
+        );
+        $this->assertNotEquals(
+            1,
+            Week::fromNative((new \DateTime('2015-10-09')))->getValue()
+        );
+    }
+
 }

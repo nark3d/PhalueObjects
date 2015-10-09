@@ -9,6 +9,19 @@ class HourTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('H'), Hour::now()->getValue());
+        $this->assertEquals((int) date('H'), Hour::now()->getValue());
+    }
+
+    public function testFromString()
+    {
+        $this->assertEquals(23, Hour::fromString('23')->getValue());
+    }
+
+    public function testFromNative()
+    {
+        $this->assertEquals(
+            11,
+            Hour::fromNative((new \Datetime('11:23:55')))->getValue()
+        );
     }
 }

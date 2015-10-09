@@ -6,32 +6,24 @@ trait DayTrait
 {
     use DateTimeTrait;
 
-    /**
-     * @return \BestServedCold\PhalueObjects\DateTime\Unit\DayInterface
-     */
-    public static function now()
-    {
-        return static::now();
-    }
-
     public function isBeforeToday()
     {
-        return $this->isBefore(self::now());
+        return $this->isBefore(static::now());
     }
 
     public function isBeforeOrIsToday()
     {
-        return $this->isAfterOrIs(self::now());
+        return $this->isAfterOrIs(static::now());
     }
 
     public function isAfterToday()
     {
-        return $this->isAfter(self::now());
+        return $this->isAfter(static::now());
     }
 
     public function isAfterOrIsToday()
     {
-        return $this->isBeforeOrIs(self::now());
+        return $this->isBeforeOrIs(static::now());
     }
 
     public static function tomorrow()

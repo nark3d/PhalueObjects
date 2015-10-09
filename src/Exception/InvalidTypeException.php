@@ -12,7 +12,7 @@ class InvalidTypeException extends \InvalidArgumentException
     public function __construct($value, array $allowedTypes)
     {
         $this->message =
-            'Argument [' . $value . '] of type [' . gettype($value) .
+            '[PhalueObjects] Argument [' . $value . '] of type [' . gettype($value) .
             '] is not a valid type.' . ' The allowed type(s) are [' .
             $this->getAllowedTypes($allowedTypes) . ']';
     }

@@ -25,9 +25,10 @@
             </exclude>
         </whitelist>
     </filter>
-        <!--<logging>-->
-            <!--<log type="coverage-html" target="./coverage" charset="UTF-8"-->
-                 <!--yui="true" highlight="true" LowUpperBound="50" highLowerBound="80" />-->
-        <!--</logging>-->
+        <logging>
+            <log type="coverage-html" target="./coverage" charset="UTF-8"
+                 yui="true" highlight="true" LowUpperBound="50"
+                 highLowerBound="80" />
+        </logging>
 </phpunit>
 

@@ -45,4 +45,15 @@ final class Year extends Integer implements DateTimeInterface
     {
         return new static((int) $string);
     }
+
+    /**
+     * From Native
+     *
+     * @param \DateTime $native
+     * @return DateTimeInterface
+     */
+    public static function fromNative(\DateTime $native)
+    {
+        return new static((int) $native->format('Y'));
+    }
 }

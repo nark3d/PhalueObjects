@@ -11,4 +11,17 @@ class MinuteTest extends TestCase
     {
         $this->assertSame((int) date('i'), Minute::now()->getValue());
     }
+
+    public function testFromString()
+    {
+        $this->assertEquals(23, Minute::fromString('23')->getValue());
+    }
+
+    public function testFromNative()
+    {
+        $this->assertEquals(
+            23,
+            Minute::fromNative((new \Datetime('11:23:55')))->getValue()
+        );
+    }
 }

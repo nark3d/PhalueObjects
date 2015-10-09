@@ -25,4 +25,22 @@ class MonthTest extends TestCase
         );
         new Month(new Integer(52));
     }
+
+    public function testFromString()
+    {
+        $this->assertEquals(1, Month::fromString('01')->getValue());
+        $this->assertNotEquals(5, Month::fromString("0006")->getValue());
+    }
+
+    public function testFromNative()
+    {
+        $this->assertEquals(
+            23,
+            Month::fromNative((new \Datetime('2015-11-23')))->getValue()
+        );
+        $this->assertNotEquals(
+            4,
+            Month::fromNative((new \DateTime('2015-11-23')))->getValue()
+        );
+    }
 }

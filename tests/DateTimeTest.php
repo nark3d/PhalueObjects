@@ -81,4 +81,16 @@ class DateTimeTest extends TestCase
             DateTime::yesterday()->getNative()
         );
     }
+
+    public function testFromTimestamp()
+    {
+        $this->assertEquals(
+            '2015-10-09 11:17:04',
+            (string) DateTime::fromTimestamp(1444389424)
+        );
+        $this->assertNotEquals(
+            '2015-10-10 12:00:00',
+            (string) DateTime::fromTimestamp(1444389424)
+        );
+    }
 }
