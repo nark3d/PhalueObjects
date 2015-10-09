@@ -9,6 +9,6 @@ class Person extends ValueObject
      */
     public function __toString()
     {
-        // TODO: Implement __toString() method.
+
     }
 }
