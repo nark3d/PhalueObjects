@@ -26,6 +26,8 @@ final class Month extends Integer implements DateTimeInterface
     protected $maximum = 31;
 
     /**
+     * Class Constructor
+     *
      * @param integer $value
      */
     public function __construct($value)
@@ -41,6 +43,9 @@ final class Month extends Integer implements DateTimeInterface
         return new static(self::getNowDateTimeFormat('j'));
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);

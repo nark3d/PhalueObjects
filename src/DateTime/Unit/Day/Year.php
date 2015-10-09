@@ -30,6 +30,9 @@ final class Year extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('z'));

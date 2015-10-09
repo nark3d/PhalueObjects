@@ -33,9 +33,12 @@ final class Week extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
-        return new static(self::getNowDateTimeFormat('N'));
+        return new static(static::getNowDateTimeFormat('N'));
     }
 
     /**

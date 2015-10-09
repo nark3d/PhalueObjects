@@ -18,46 +18,73 @@ trait DayTrait
 {
     use DateTimeTrait;
 
+    /**
+     * @return bool
+     */
     public function isBeforeToday()
     {
         return $this->isBefore(static::now());
     }
 
+    /**
+     * @return bool
+     */
     public function isBeforeOrIsToday()
     {
         return $this->isAfterOrIs(static::now());
     }
 
+    /**
+     * @return bool
+     */
     public function isAfterToday()
     {
         return $this->isAfter(static::now());
     }
 
+    /**
+     * @return bool
+     */
     public function isAfterOrIsToday()
     {
         return $this->isBeforeOrIs(static::now());
     }
 
+    /**
+     * @return static
+     */
     public static function tomorrow()
     {
         return static::now()->nextDay();
     }
 
+    /**
+     * @return static
+     */
     public static function yesterday()
     {
         return static::now()->previousDay();
     }
 
+    /**
+     * @return static
+     */
     public function nextDay()
     {
         return $this->addDay(1);
     }
 
+    /**
+     * @return static
+     */
     public function previousDay()
     {
         return $this->addDay(-1);
     }
 
+    /**
+     * @return static
+     */
     public function addDay($days)
     {
         return static::fromNative($this->native->modify($days . ' day'));

@@ -12,11 +12,16 @@ use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
  * @link	  http://bestservedcold.com
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
-
  */
 interface DayInterface extends DateTimeInterface
 {
+    /**
+     * @return static
+     */
     public function nextDay();
 
+    /**
+     * @return static
+     */
     public function previousDay();
 }
