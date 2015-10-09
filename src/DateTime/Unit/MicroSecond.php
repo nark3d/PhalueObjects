@@ -16,7 +16,6 @@ use BestServedCold\PhalueObjects\Mathematical\FloatVO;
  * @link	  http://bestservedcold.com
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
-
  */
 final class MicroSecond extends FloatVO implements DateTimeInterface
 {
@@ -54,8 +53,11 @@ final class MicroSecond extends FloatVO implements DateTimeInterface
         return new static(floatval('0.' . $native->format('u')));
     }
 
+    /**
+     * @param string $microTime
+     */
     public static function getMicroTimeAsInteger($microTime)
     {
-        return new static(round((float) explode(' ', $microTime)[0], 6));
+        return new static(round((float) explode(' ', $microTime)[ 0 ], 6));
     }
 }

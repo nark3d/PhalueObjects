@@ -16,7 +16,6 @@ use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
  * @link	  http://bestservedcold.com
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
-
  */
 trait DateTimeTrait
 {
@@ -39,11 +38,17 @@ trait DateTimeTrait
         return static::fromNative(static::getNowDateTime()->setTimestamp($timestamp));
     }
 
+    /**
+     * @param string $format
+     */
     public static function getNowDateTimeFormat($format)
     {
         return (int) static::getNowDateTime()->format($format);
     }
 
+    /**
+     * @param string $string
+     */
     public static function getDateTime($string = null)
     {
         return new \DateTime($string);

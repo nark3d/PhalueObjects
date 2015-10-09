@@ -13,7 +13,7 @@ class Email extends SingleValue
     public function __construct($value)
     {
         if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-            throw new InvalidTypeException($value, ['email']);
+            throw new InvalidTypeException($value, [ 'email' ]);
         }
 
         parent::__construct($value);

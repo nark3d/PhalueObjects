@@ -16,7 +16,6 @@ use BestServedCold\PhalueObjects\Mathematical\Integer;
  * @link	  http://bestservedcold.com
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
-
  */
 final class Week extends Integer implements DateTimeInterface
 {
