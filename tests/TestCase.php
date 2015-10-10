@@ -3,7 +3,7 @@
 namespace BestServedCold\PhalueObjects;
 
 use Mockery;
-use BestServedCold\PhalueObjects\Utility\Reflection;
+use BestServedCold\PhalueObjects\Utility\Reflection\ReflectionObject;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {
@@ -17,8 +17,8 @@ class TestCase extends \PHPUnit_Framework_TestCase
         return Mockery::mock($class);
     }
 
-    public function reflect($classOrObject, array $args = [])
+    public function reflect($object)
     {
-        return new Reflection($classOrObject, $args);
+        return new ReflectionObject($object);
     }
 }

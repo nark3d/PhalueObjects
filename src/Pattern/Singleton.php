@@ -2,32 +2,35 @@
 
 namespace BestServedCold\PhalueObjects\Pattern;
 
-abstract class Singleton
+use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
+
+class Singleton extends UnConstructable implements SingletonInterface
 {
-    protected static $instance;
+    /**
+     * @var $instance
+     */
+    private static $instance;
 
-    private function __clone()
+    /**
+     * Prevent class from being constructed.
+     */
+    private function __construct() {}
+
+    /**
+     * Get singleton class.
+     *
+     * If the called class is present in the static $instances array, then return it.
+     * Otherwise, create a new copy of the class and store it in the $instances
+     * array.
+     *
+     * @return mixed
+     */
+    final public static function getInstance()
     {
-    }
-
-    private function __construct()
-    {
-    }
-
-    private function __wakeup()
-    {
-    }
-
-    final public static function singleton()
-    {
-        static $instances = [ ];
-
-        $classCalled = get_called_class();
-
-        if (!isset($instances[ $classCalled ])) {
-            $instances[ $classCalled ] = new $classCalled();
+        if (static::$instance === null) {
+            static::$instance = new static;
         }
 
-        return $instances[ $classCalled ];
+        return static::$instance;
     }
 }
