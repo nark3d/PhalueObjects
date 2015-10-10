@@ -50,7 +50,7 @@ trait DateTimeTrait
     }
 
     /**
-     * @param $format
+     * @param string $format
      * @return int
      */
     public static function getNowDateTimeFormat($format)
@@ -59,7 +59,7 @@ trait DateTimeTrait
     }
 
     /**
-     * @param null $string
+     * @param string $string
      * @return \DateTime
      */
     public static function getDateTime($string = null)

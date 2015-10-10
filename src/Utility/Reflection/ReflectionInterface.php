@@ -15,6 +15,7 @@ interface ReflectionInterface
 {
     /**
      * @param $value
+     * @return void
      */
     public function __construct($value);
 }
