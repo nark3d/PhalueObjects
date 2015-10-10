@@ -4,7 +4,6 @@ namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Pattern\Multiton;
-use BestServedCold\PhalueObjects\Pattern\Singleton;
 use Symfony\Component\Yaml\Yaml;
 
 final class Language extends Multiton
