@@ -48,7 +48,7 @@ class Configuration extends Singleton
     }
 
     /**
-     * @param  $key
+     * @param  string $key
      * @return mixed
      */
     public static function get($key)

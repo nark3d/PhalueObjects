@@ -34,7 +34,7 @@ class Singleton extends NotConstructable implements SingletonInterface
      * Otherwise, create a new copy of the class and store it in the $instances
      * array.
      *
-     * @return mixed
+     * @return string|null
      */
     final public static function getInstance()
     {
