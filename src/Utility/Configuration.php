@@ -15,7 +15,12 @@ class Configuration extends Multiton
 
     public static function buildConfiguration()
     {
-        return Yaml::parse(file_get_contents(__DIR__ . self::$path . self::$file));
+        return Yaml::parse(file_get_contents(self::getFileString()));
+    }
+
+    public static function getFileString()
+    {
+        return __DIR__ . self::$path . self::$file;
     }
 
     /**
@@ -31,4 +36,4 @@ class Configuration extends Multiton
 
         return self::getFromArrayUsingJsonNotation($config::$configuration, $key);
     }
-}
+ }

@@ -12,34 +12,38 @@ final class Language extends Multiton
 
     protected static $path = '/Language/';
 
-    public static function buildLanguage($file)
+    public static function buildLanguage($identifier)
     {
         return [
-            $file => Yaml::parse(
-                file_get_contents(
-                    __DIR__ . self::$path . Configuration::get('language.locale') .
-                    "/" . $file . '.yml'
-                )
-            )
+            $identifier =>
+                Yaml::parse(file_get_contents(self::getFileString($identifier)))
         ];
+    }
+
+    public static function getFileString($identifier)
+    {
+        return __DIR__ . self::$path . Configuration::get('language.locale') .
+            "/" . $identifier . '.yml';
     }
 
     public static function get($key)
     {
         $singleton = self::getInstance();
-        $file = self::getFile($key);
+        $identifier = self::getIdentifier($key);
 
-        if (empty($singleton::$language) || !isset($singleton::$language[ $file ])) {
-            $singleton::$language = self::buildLanguage($file);
+        if (
+            empty($singleton::$language) ||
+            !isset($singleton::$language[ $identifier ])
+        ) {
+            $singleton::$language = self::buildLanguage($identifier);
         }
 
         return self::getFromArrayUsingJsonNotation($singleton::$language, $key);
     }
 
-    private static function getFile($key)
+    private static function getIdentifier($key)
     {
         $file = self::getArrayUsingJsonNotation($key);
-
         return is_array($file) ? reset($file) : $file;
     }
 }

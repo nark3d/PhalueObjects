@@ -6,14 +6,14 @@ use BestServedCold\PhalueObjects\TestCase;
 
 class LanguageTest extends TestCase
 {
-    public function testGet()
+    public function testGetFileString()
     {
-        //        $configuration = $this->mock(
-//            'BestServedCold\PhalueObjects\Configuration'
+//        $reflection = new \ReflectionClass(Language::getInstance());
+//        $configuration = $this->reflect(Language::getInstance());
+//        $configuration->path = '/bob/';
+//        $this->assertEquals(
+//            dirname($reflection->getFilename()) . '/bob/bums/bottom.yml',
+//            Language::getFileString('bums')
 //        );
-
-//        $config = $this->reflect(new );
-//        var_dump(Language::get('datetime.weekdays'));
-        $this->assertTrue(true);
     }
 }

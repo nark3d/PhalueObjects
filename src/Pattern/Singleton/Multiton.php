@@ -46,4 +46,14 @@ class Multiton extends NotConstructable implements SingletonInterface
 
         return self::$instances[ $calledClass ];
     }
+
+    final public static function destroy()
+    {
+        self::$instances = [];
+    }
+
+    final public static function destroyInstance($instance)
+    {
+        unset(self::$instances[$instance]);
+    }
 }
