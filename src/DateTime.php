@@ -33,6 +33,10 @@ final class DateTime extends MultipleValue implements DayInterface
     protected $date;
     protected $time;
 
+    /**
+     * @param Date $date
+     * @param Time $time
+     */
     public function __construct(Date $date, Time $time)
     {
         $this->date = $date;
@@ -42,11 +46,18 @@ final class DateTime extends MultipleValue implements DayInterface
         parent::__construct([ $date, $time ]);
     }
 
+    /**
+     * @return DateTime
+     */
     public static function now()
     {
         return new self(Date::now(), Time::now());
     }
 
+    /**
+     * @param \DateTime $dateTime
+     * @return static
+     */
     public static function fromNative(\DateTime $dateTime)
     {
         return new static(
@@ -63,21 +74,34 @@ final class DateTime extends MultipleValue implements DayInterface
         );
     }
 
+    /**
+     * @return int
+     */
     public function getValue()
     {
         return $this->timestamp;
     }
 
+    /**
+     * @param $timestamp
+     * @return DateTime
+     */
     public static function fromTimestamp($timestamp)
     {
         return self::fromNative((new \DateTime())->setTimestamp($timestamp));
     }
 
+    /**
+     * @return Date
+     */
     public function getDate()
     {
         return $this->date;
     }
 
+    /**
+     * @return Time
+     */
     public function getTime()
     {
         return $this->time;

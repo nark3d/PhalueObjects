@@ -4,6 +4,8 @@ namespace BestServedCold\PhalueObjects\Mathematical\Operator;
 
 trait TypeTrait
 {
+    public abstract function getValue();
+
     public function isPositive()
     {
         return $this->getValue() > 0;

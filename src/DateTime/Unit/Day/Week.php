@@ -5,6 +5,7 @@ namespace BestServedCold\PhalueObjects\DateTime\Unit\Day;
 use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\Mathematical\Range\RangeTrait;
 
 /**
  * Class Week
@@ -19,7 +20,7 @@ use BestServedCold\PhalueObjects\Mathematical\Integer;
  */
 final class Week extends Integer implements DateTimeInterface
 {
-    use DateTimeTrait;
+    use DateTimeTrait, RangeTrait;
 
     protected $minimum = 1;
     protected $maximum = 7;
@@ -54,5 +55,15 @@ final class Week extends Integer implements DateTimeInterface
     public static function fromNative(\DateTime $native)
     {
         return new static((int) $native->format('N'));
+    }
+
+    public function getMaximum()
+    {
+        return $this->maximum;
+    }
+
+    public function getMinimum()
+    {
+        return $this->minimum;
     }
 }

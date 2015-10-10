@@ -8,6 +8,12 @@ class ZeroPaddedInteger extends Mathematical
 {
     public function __construct($value, $leading = 2)
     {
-        $this->value = str_pad($value, 2, '0', STR_PAD_LEFT);
+        parent::__construct(
+            str_pad(
+                $value,
+                strlen((string) $value) + $leading,
+                "0",
+                STR_PAD_LEFT)
+        );
     }
 }

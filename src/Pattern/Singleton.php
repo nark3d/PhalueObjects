@@ -20,7 +20,7 @@ class Singleton extends NotConstructable implements SingletonInterface
     /**
      * @var $instance
      */
-    private static $instance;
+    protected static $instance;
 
     /**
      * Prevent class from being constructed.

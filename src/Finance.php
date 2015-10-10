@@ -2,7 +2,9 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Finance extends ValueObject
+use BestServedCold\PhalueObjects\Mathematical\FloatVO;
+
+class Finance extends FloatVO
 {
     /**
      * @return string

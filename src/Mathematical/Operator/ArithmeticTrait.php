@@ -6,6 +6,8 @@ use BestServedCold\PhalueObjects\ValueObjectInterface;
 
 trait ArithmeticTrait
 {
+    public abstract function getValue();
+
     public function absolute()
     {
         return new static(abs($this->getValue()));

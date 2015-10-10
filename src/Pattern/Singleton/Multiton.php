@@ -20,7 +20,7 @@ class Multiton extends NotConstructable implements SingletonInterface
     /**
      * @var array $instances
      */
-    private static $instances = [];
+    protected static $instances = [];
 
     /**
      * Prevent class from being constructed.

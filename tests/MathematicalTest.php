@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class MathmaticalTest extends TestCase
+class MathematicalTest extends TestCase
 {
     public function testMakeNegative()
     {

@@ -5,6 +5,7 @@ namespace BestServedCold\PhalueObjects\DateTime\Unit;
 use BestServedCold\PhalueObjects\DateTime\DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
+use BestServedCold\PhalueObjects\Mathematical\Range\RangeTrait;
 
 /**
  * Class Hour
@@ -19,7 +20,7 @@ use BestServedCold\PhalueObjects\Mathematical\Integer;
  */
 final class Hour extends Integer implements DateTimeInterface
 {
-    use DateTimeTrait;
+    use DateTimeTrait, RangeTrait;
 
     protected $minimum = 0;
     protected $maximum = 23;
@@ -60,4 +61,15 @@ final class Hour extends Integer implements DateTimeInterface
     {
         return new static((int) $native->format('G'));
     }
+
+    public function getMaximum()
+    {
+        return $this->maximum;
+    }
+
+    public function getMinimum()
+    {
+        return $this->minimum;
+    }
+
 }

@@ -1,26 +1,27 @@
 <?php namespace BestServedCold\PhalueObjects\Pattern;
 
+use BestServedCold\PhalueObjects\Pattern\Singleton\Multiton;
 use BestServedCold\PhalueObjects\TestCase;
 
 class MultitonTest extends TestCase
 {
     public function testUnique()
     {
-        $singleton = Singleton::getInstance();
+        $singleton = Multiton::getInstance();
         $this->assertInstanceOf(
-            'BestServedCold\PhalueObjects\Pattern\Singleton',
+            'BestServedCold\PhalueObjects\Pattern\Singleton\Multiton',
             $singleton
         );
         $this->assertEquals(
             $singleton,
-            Singleton::getInstance()
+            Multiton::getInstance()
         );
     }
 
     public function testConstructor()
     {
         $this->assertTrue(
-            (new \ReflectionObject(Singleton::getInstance()))
+            (new \ReflectionObject(Multiton::getInstance()))
                 ->getMethod('__construct')
                 ->isPrivate()
         );

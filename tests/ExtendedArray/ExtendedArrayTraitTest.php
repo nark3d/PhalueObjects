@@ -53,5 +53,9 @@ class ExtendedArrayTraitTest extends TestCase
             null,
             $this->getFromArrayUsingJsonNotation($array, 'george')
         );
+        $this->assertEquals(
+            'susan',
+            $this->getFromArrayUsingJsonNotation($array, 'bob')
+        );
     }
 }

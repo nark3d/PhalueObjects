@@ -1,28 +1,35 @@
 <?php namespace BestServedCold\PhalueObjects\Mathematical\Range;
 
 use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
+use BestServedCold\PhalueObjects\Mathematical;
 use BestServedCold\PhalueObjects\Mathematical\Range;
 
 trait RangeTrait
 {
-    protected $maximum;
-    protected $minimum;
+    abstract public function getMaximum();
+    abstract public function getMinimum();
 
     public function __construct($value)
     {
+        if (method_exists(get_parent_class($this), '__construct')) {
+            parent::__construct($value);
+        }
+
         if (
-            $this->minimum &&
-            $this->maximum &&
-            !(new Range($this->maximum, $this->minimum))
-                ->inRange(new self($value))) {
+            !(
+                new Range(
+                    $this->getMaximum(),
+                    $this->getMinimum())
+                )->inRange(new Mathematical($value))
+        ) {
+
             throw new InvalidRangeTypeException(
                 $value,
                 [ 'Mathematical' ],
-                $this->minimum,
-                $this->maximum
+                $this->getMinimum(),
+                $this->getMaximum()
             );
         }
 
-        static::__construct($value);
     }
 }

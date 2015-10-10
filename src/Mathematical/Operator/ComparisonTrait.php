@@ -6,6 +6,8 @@ use BestServedCold\PhalueObjects\ValueObjectInterface;
 
 trait ComparisonTrait
 {
+    public abstract function getValue();
+
     public function isGreaterThan(ValueObjectInterface $object)
     {
         return $this->getValue() > $object->getValue();

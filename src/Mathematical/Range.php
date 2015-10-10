@@ -50,7 +50,7 @@ class Range extends MultipleValue
         return (
             $this->minimum <= $mathematical->getValue()
         ) && (
-            $this->minimum <= $mathematical->getValue()
+            $this->maximum >= $mathematical->getValue()
         );
     }
 }
