@@ -10,7 +10,6 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [ ];
     protected static $path = '/Configuration/';
     protected static $file = 'configuration.yml';
 
