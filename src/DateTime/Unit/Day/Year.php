@@ -22,14 +22,6 @@ final class Year extends Integer implements DateTimeInterface
     use DateTimeTrait;
 
     /**
-     * @param int $value
-     */
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
-
-    /**
      * @return static
      */
     public static function now()

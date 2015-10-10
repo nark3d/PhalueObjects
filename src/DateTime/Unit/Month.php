@@ -24,14 +24,6 @@ final class Month extends Integer implements DateTimeInterface
     protected $minimum = 1;
     protected $maximum = 12;
 
-    /**
-     * @param int $value
-     */
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
-
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('n'));

@@ -26,6 +26,11 @@ class Time extends MultipleValue implements DateTimeInterface
     protected $minute;
     protected $second;
 
+    /**
+     * @param Hour $hour
+     * @param Minute $minute
+     * @param Second $second
+     */
     public function __construct(Hour $hour, Minute $minute, Second $second)
     {
         $this->hour = $hour;
@@ -38,11 +43,18 @@ class Time extends MultipleValue implements DateTimeInterface
         parent::__construct(func_get_args());
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(Hour::now(), Minute::now(), Second::now());
     }
 
+    /**
+     * @param \DateTime $dateTime
+     * @return static
+     */
     public static function fromNative(\DateTime $dateTime)
     {
         return new static(
@@ -52,29 +64,44 @@ class Time extends MultipleValue implements DateTimeInterface
         );
     }
 
+    /**
+     * @return Hour
+     */
     public function getHour()
     {
         return $this->hour;
     }
 
+    /**
+     * @return Minute
+     */
     public function getMinute()
     {
         return $this->minute;
     }
 
+    /**
+     * @return Second
+     */
     public function getSecond()
     {
         return $this->second;
     }
 
+    /**
+     * @return int
+     */
     public function getTimestamp()
     {
         return $this->timestamp->getValue();
     }
 
+    /**
+     * @return int
+     */
     public function getValue()
     {
-        return $this->timestamp->getValue();
+        return $this->getTimestamp();
     }
 
     /**

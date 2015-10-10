@@ -4,7 +4,6 @@ namespace BestServedCold\PhalueObjects\Pattern;
 
 use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
 
-
 /**
  * Class Singleton
  *
@@ -16,7 +15,7 @@ use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Singleton extends UnConstructable implements SingletonInterface
+class Singleton extends NotConstructable implements SingletonInterface
 {
     /**
      * @var $instance

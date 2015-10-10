@@ -11,7 +11,7 @@
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-abstract class UnConstructable
+abstract class NotConstructable
 {
     /**
      * Prevent instance from being cloned.

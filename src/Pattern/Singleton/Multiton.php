@@ -1,8 +1,8 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Pattern;
+namespace BestServedCold\PhalueObjects\Pattern\Singleton;
 
-use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
+use BestServedCold\PhalueObjects\Pattern\NotConstructable;
 
 /**
  * Class Multiton
@@ -15,7 +15,7 @@ use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Multiton extends UnConstructable implements SingletonInterface
+class Multiton extends NotConstructable implements SingletonInterface
 {
     /**
      * @var array $instances

@@ -24,14 +24,6 @@ final class Minute extends Integer implements DateTimeInterface
     protected $minimum = 0;
     protected $maximum = 59;
 
-    /**
-     * @param int $value
-     */
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
-
     public function getSeconds()
     {
         return $this->multiply(new Integer(60));

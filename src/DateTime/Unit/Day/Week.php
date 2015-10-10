@@ -25,14 +25,6 @@ final class Week extends Integer implements DateTimeInterface
     protected $maximum = 7;
 
     /**
-     * @param int $value
-     */
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
-
-    /**
      * @return static
      */
     public static function now()

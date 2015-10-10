@@ -24,14 +24,6 @@ final class Hour extends Integer implements DateTimeInterface
     protected $minimum = 0;
     protected $maximum = 23;
 
-    /**
-     * @param int $value
-     */
-    public function __construct($value)
-    {
-        parent::__construct($value);
-    }
-
     public function getSeconds()
     {
         return $this->multiply(new Integer(3600));
