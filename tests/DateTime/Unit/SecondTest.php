@@ -24,4 +24,20 @@ class SecondTest extends TestCase
             Second::fromNative((new \Datetime('11:23:55')))->getValue()
         );
     }
+
+    public function testGetMinimum()
+    {
+        $this->assertEquals(
+            0,
+            Second::now()->getMinimum()
+        );
+    }
+
+    public function testGetMaximum()
+    {
+        $this->assertEquals(
+            59,
+            Second::now()->getMaximum()
+        );
+    }
 }

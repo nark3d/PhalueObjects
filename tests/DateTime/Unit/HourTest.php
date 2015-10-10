@@ -24,4 +24,20 @@ class HourTest extends TestCase
             Hour::fromNative((new \Datetime('11:23:55')))->getValue()
         );
     }
+
+    public function testGetMinimum()
+    {
+        $this->assertEquals(
+            0,
+            Hour::now()->getMinimum()
+        );
+    }
+
+    public function testGetMaximum()
+    {
+        $this->assertEquals(
+            23,
+            Hour::now()->getMaximum()
+        );
+    }
 }

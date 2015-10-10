@@ -6,6 +6,7 @@ class RangeTraitImplementation
 {
     use RangeTrait;
 
+
     public function getMaximum()
     {
         return 100;

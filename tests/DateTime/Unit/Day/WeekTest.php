@@ -46,4 +46,19 @@ class WeekTest extends TestCase
         );
     }
 
+    public function testGetMinimum()
+    {
+        $this->assertEquals(
+            1,
+            Week::now()->getMinimum()
+        );
+    }
+
+    public function testGetMaximum()
+    {
+        $this->assertEquals(
+            7,
+            Week::now()->getMaximum()
+        );
+    }
 }

@@ -24,4 +24,20 @@ class MinuteTest extends TestCase
             Minute::fromNative((new \Datetime('11:23:55')))->getValue()
         );
     }
+
+    public function testGetMinimum()
+    {
+        $this->assertEquals(
+            0,
+            Minute::now()->getMinimum()
+        );
+    }
+
+    public function testGetMaximum()
+    {
+        $this->assertEquals(
+            59,
+            Minute::now()->getMaximum()
+        );
+    }
 }

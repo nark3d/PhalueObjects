@@ -31,4 +31,20 @@ class MonthTest extends TestCase
             Month::fromNative((new \DateTime('2015-11-23')))->getValue()
         );
     }
+
+    public function testGetMinimum()
+    {
+        $this->assertEquals(
+            1,
+            Month::now()->getMinimum()
+        );
+    }
+
+    public function testGetMaximum()
+    {
+        $this->assertEquals(
+            12,
+            Month::now()->getMaximum()
+        );
+    }
 }
