@@ -3,10 +3,10 @@
 namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-use BestServedCold\PhalueObjects\Pattern\Singleton\Multiton;
+use BestServedCold\PhalueObjects\Pattern\Singleton;
 use Symfony\Component\Yaml\Yaml;
 
-class Configuration extends Multiton
+class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 

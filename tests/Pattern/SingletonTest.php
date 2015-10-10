@@ -25,4 +25,12 @@ class SingletonTest extends TestCase
                 ->isPrivate()
         );
     }
+
+    public function testDestroy()
+    {
+//        $instance = Singleton::getInstance();
+//
+//        var_dump($instance);
+
+    }
 }
