@@ -2,5 +2,8 @@
 
 interface ReflectionInterface
 {
+    /**
+     * @return void
+     */
     public function __construct($value);
 }

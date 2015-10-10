@@ -25,6 +25,9 @@ final class Second extends Integer implements DateTimeInterface
     protected $minimum = 0;
     protected $maximum = 59;
 
+    /**
+     * @param integer $value
+     */
     public function __construct($value)
     {
         parent::__construct($value);

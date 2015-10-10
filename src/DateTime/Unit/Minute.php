@@ -22,6 +22,9 @@ final class Minute extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
+    /**
+     * @param integer $value
+     */
     public function __construct($value)
     {
         parent::__construct($value);
