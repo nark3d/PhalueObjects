@@ -40,6 +40,7 @@ class Time extends MultipleValue implements DateTimeInterface
         $this->native = self::getNowDateTime()
             ->setTime($hour->getValue(), $minute->getValue(), $minute->getValue()
         );
+
         parent::__construct(func_get_args());
     }
 

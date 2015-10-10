@@ -22,8 +22,11 @@ final class Minute extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 0;
-    protected $maximum = 59;
+    public function __construct($value)
+    {
+        parent::__construct($value);
+    }
+
 
     public function getSeconds()
     {
@@ -34,7 +37,6 @@ final class Minute extends Integer implements DateTimeInterface
     {
         return new static(self::getNowDateTimeFormat('i'));
     }
-
 
     public function __toString()
     {
@@ -66,12 +68,12 @@ final class Minute extends Integer implements DateTimeInterface
 
     public function getMaximum()
     {
-        return $this->maximum;
+        return 59;
     }
 
     public function getMinimum()
     {
-        return $this->minimum;
+        return 0;
     }
 
 }

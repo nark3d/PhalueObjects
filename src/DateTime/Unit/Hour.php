@@ -22,8 +22,10 @@ final class Hour extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 0;
-    protected $maximum = 23;
+    public function __construct($value)
+    {
+        parent::__construct($value);
+    }
 
     public function getSeconds()
     {
@@ -64,12 +66,12 @@ final class Hour extends Integer implements DateTimeInterface
 
     public function getMaximum()
     {
-        return $this->maximum;
+        return 23;
     }
 
     public function getMinimum()
     {
-        return $this->minimum;
+        return 0;
     }
 
 }

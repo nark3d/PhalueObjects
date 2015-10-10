@@ -29,7 +29,7 @@ abstract class ValueObject implements ValueObjectInterface
         return spl_object_hash($this);
     }
 
-    protected function cloneObject($object)
+    public function cloneObject($object)
     {
         return clone($object);
     }
