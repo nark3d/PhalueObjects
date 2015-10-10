@@ -52,6 +52,6 @@ class Singleton extends NotConstructable implements SingletonInterface
      */
     final public static function destroy()
     {
-        self::$instance = [];
+        self::$instance = [ ];
     }
 }
