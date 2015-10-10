@@ -9,11 +9,20 @@ trait ExtendedArrayTrait
 {
     use StringTrait;
 
+    /**
+     * @param  array   $array
+     * @param  Integer $spaces
+     * @return string
+     */
     public function arrayToCommaString(array $array, Integer $spaces)
     {
         return implode(",{$this->integerToSpace($spaces)}", $array);
     }
 
+    /**
+     * @param  $json
+     * @return array
+     */
     public static function getArrayUsingJsonNotation($json)
     {
         return explode('.', $json);

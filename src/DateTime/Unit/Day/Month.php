@@ -54,7 +54,6 @@ final class Month extends Integer implements DateTimeInterface
      * From String.
      *
      * @param  $string
-     *
      * @return static
      */
     public static function fromString($string)
