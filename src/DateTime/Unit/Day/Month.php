@@ -25,6 +25,11 @@ final class Month extends Integer implements DateTimeInterface
     protected $minimum = 1;
     protected $maximum = 31;
 
+    public function __construct($value)
+    {
+        parent::__construct($value);
+    }
+
     /**
      * @return static
      */

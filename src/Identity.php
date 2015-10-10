@@ -2,13 +2,15 @@
 
 namespace BestServedCold\PhalueObjects;
 
-class Identity extends ValueObject
+use BestServedCold\PhalueObjects\ValueObject\SingleValue;
+
+class Identity extends SingleValue
 {
     /**
      * @return string
      */
     public function __toString()
     {
-        return $this->getValue();
+        return (string) $this->getValue();
     }
 }
