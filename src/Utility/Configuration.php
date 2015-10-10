@@ -3,10 +3,11 @@
 namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\Pattern\Multiton;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
 use Symfony\Component\Yaml\Yaml;
 
-class Configuration extends Singleton
+class Configuration extends Multiton
 {
     use ExtendedArrayTrait;
 
@@ -23,7 +24,7 @@ class Configuration extends Singleton
      */
     public static function get($key)
     {
-        $config = self::singleton();
+        $config = self::getInstance();
 
         if (empty($config::$configuration)) {
             $config::$configuration = self::buildConfiguration();
