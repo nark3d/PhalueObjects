@@ -36,4 +36,4 @@ class Configuration extends Multiton
 
         return self::getFromArrayUsingJsonNotation($config::$configuration, $key);
     }
- }
+    }

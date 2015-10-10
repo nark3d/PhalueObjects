@@ -20,7 +20,7 @@ class Multiton extends NotConstructable implements SingletonInterface
     /**
      * @var array $instances
      */
-    protected static $instances = [];
+    protected static $instances = [ ];
 
     /**
      * Prevent class from being constructed.
@@ -49,11 +49,11 @@ class Multiton extends NotConstructable implements SingletonInterface
 
     final public static function destroy()
     {
-        self::$instances = [];
+        self::$instances = [ ];
     }
 
     final public static function destroyInstance($instance)
     {
-        unset(self::$instances[$instance]);
+        unset(self::$instances[ $instance ]);
     }
 }

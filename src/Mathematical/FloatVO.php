@@ -20,6 +20,9 @@ class FloatVO extends Mathematical
 {
     protected $round = null;
 
+    /**
+     * @param double $value
+     */
     public function __construct($value, $round = null)
     {
         if (!filter_var($value, FILTER_VALIDATE_FLOAT)) {
