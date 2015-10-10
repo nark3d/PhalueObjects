@@ -22,9 +22,6 @@ final class Second extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 0;
-    protected $maximum = 59;
-
     /**
      * @param integer $value
      */
@@ -65,14 +62,20 @@ final class Second extends Integer implements DateTimeInterface
         return new static((int) $native->format('s'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
-        return $this->maximum;
+        return 59;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
-        return $this->minimum;
+        return 0;
     }
 
 }

@@ -22,8 +22,19 @@ class Time extends MultipleValue implements DateTimeInterface
 {
     use DateTimeTrait;
 
+    /**
+     * @var Hour
+     */
     protected $hour;
+
+    /**
+     * @var Minute
+     */
     protected $minute;
+
+    /**
+     * @var Second
+     */
     protected $second;
 
     /**

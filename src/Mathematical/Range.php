@@ -21,7 +21,14 @@ class Range extends MultipleValue
 {
     use ExtendedArrayTrait;
 
+    /**
+     * @var mixed
+     */
     protected $minimum;
+
+    /**
+     * @var mixed
+     */
     protected $maximum;
 
     /**
@@ -45,6 +52,10 @@ class Range extends MultipleValue
         );
     }
 
+    /**
+     * @param  Mathematical $mathematical
+     * @return bool
+     */
     public function inRange(Mathematical $mathematical)
     {
         return (

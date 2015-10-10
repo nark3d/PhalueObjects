@@ -24,25 +24,48 @@ class Date extends MultipleValue implements DayInterface
 {
     use DayTrait;
 
+    /**
+     * @var Year
+     */
     protected $year;
+
+    /**
+     * @var Month
+     */
     protected $month;
+
+    /**
+     * @var Day
+     */
     protected $day;
 
+    /**
+     * @param Year $year
+     * @param Month $month
+     * @param Day $day
+     */
     public function __construct(Year $year, Month $month, Day $day)
     {
-        $this->year = $year;
-        $this->month = $month;
-        $this->day = $day;
-        $this->native = new \DateTime("$year-$month-$day");
+        $this->year      = $year;
+        $this->month     = $month;
+        $this->day       = $day;
+        $this->native    = new \DateTime($year . '-' . $month . '-' . $day);
         $this->timestamp = $this->native->getTimeStamp();
         parent::__construct([ $year, $month, $day ]);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(Year::now(), Month::now(), Day::now());
     }
 
+    /**
+     * @param \DateTime $dateTime
+     * @return static
+     */
     public static function fromNative(\DateTime $dateTime)
     {
         return new static(
@@ -52,41 +75,65 @@ class Date extends MultipleValue implements DayInterface
         );
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->year . '-' . $this->month . '-' . $this->day;
     }
 
+    /**
+     * @return int
+     */
     public function getValue()
     {
         return (int) $this->timestamp;
     }
 
+    /**
+     * @return Year
+     */
     public function getYear()
     {
         return $this->year;
     }
 
+    /**
+     * @return Month
+     */
     public function getMonth()
     {
         return $this->month;
     }
 
+    /**
+     * @return Day
+     */
     public function getDay()
     {
         return $this->day;
     }
 
+    /**
+     * @return bool
+     */
     public function isWeekend()
     {
         return in_array($this->native->format('w'), [ 0, 6 ]);
     }
 
+    /**
+     * @return bool
+     */
     public function isWeekDay()
     {
         return !$this->isWeekend();
     }
 
+    /**
+     * @return bool
+     */
     public function isLeap()
     {
         return $this->year->isLeap();

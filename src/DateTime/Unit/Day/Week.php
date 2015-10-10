@@ -22,9 +22,6 @@ final class Week extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 1;
-    protected $maximum = 7;
-
     /**
      * @param integer $value
      */
@@ -65,13 +62,19 @@ final class Week extends Integer implements DateTimeInterface
         return new static((int) $native->format('N'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
-        return $this->maximum;
+        return 7;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
-        return $this->minimum;
+        return 1;
     }
 }

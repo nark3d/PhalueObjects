@@ -30,6 +30,9 @@ final class Hour extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
+    /**
+     * @return static
+     */
     public function getSeconds()
     {
         return $this->multiply(new Integer(3600));
@@ -46,11 +49,17 @@ final class Hour extends Integer implements DateTimeInterface
         return new static((int) $string);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('H'));
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
@@ -67,11 +76,17 @@ final class Hour extends Integer implements DateTimeInterface
         return new static((int) $native->format('G'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
         return 23;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
         return 0;

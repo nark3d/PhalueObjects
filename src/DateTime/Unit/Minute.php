@@ -30,17 +30,25 @@ final class Minute extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
-
+    /**
+     * @return static
+     */
     public function getSeconds()
     {
         return $this->multiply(new Integer(60));
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('i'));
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
@@ -69,14 +77,19 @@ final class Minute extends Integer implements DateTimeInterface
         return new static((int) $native->format('i'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
         return 59;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
         return 0;
     }
-
 }

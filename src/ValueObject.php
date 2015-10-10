@@ -2,21 +2,49 @@
 
 namespace BestServedCold\PhalueObjects;
 
+/**
+ * Class ValueObject
+ *
+ * @package   BestServedCold\PhalueObjects
+ * @author    Adam Lewis <adam.lewis@bestservedcold.com>
+ * @copyright Copyright (c) 2015 Best Served Cold Media Limited
+ * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link	  http://bestservedcold.com
+ * @since	  0.0.1-alpha
+ * @version   0.0.2-alpha
+ */
 abstract class ValueObject implements ValueObjectInterface
 {
+    /**
+     * @var \ReflectionClass
+     */
     protected $reflection;
+
+    /**
+     * @var mixed
+     */
     protected $value;
 
+    /**
+     * Class Constructor
+     */
     public function __construct()
     {
         $this->reflection = new \ReflectionClass($this);
     }
 
+    /**
+     * @return string
+     */
     public function getShortName()
     {
         return $this->reflection->getShortName();
     }
 
+    /**
+     * @param $field
+     * @param $value
+     */
     public function __set($field, $value)
     {
         throw new \RuntimeException(
@@ -24,16 +52,26 @@ abstract class ValueObject implements ValueObjectInterface
         );
     }
 
+    /**
+     * @return string
+     */
     public function hash()
     {
         return spl_object_hash($this);
     }
 
+    /**
+     * @param  $object
+     * @return mixed
+     */
     public function cloneObject($object)
     {
         return clone($object);
     }
 
+    /**
+     * @return mixed
+     */
     public function getValue()
     {
         return $this->value;

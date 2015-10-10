@@ -18,6 +18,9 @@ use BestServedCold\PhalueObjects\Mathematical;
  */
 class FloatVO extends Mathematical
 {
+    /**
+     * @var int|null
+     */
     protected $round = null;
 
     /**
@@ -36,11 +39,19 @@ class FloatVO extends Mathematical
         parent::__construct($value);
     }
 
+    /**
+     * @param  $value
+     * @param  $round
+     * @return float
+     */
     public function round($value, $round)
     {
         return round($value, $round);
     }
 
+    /**
+     * @return float
+     */
     public function getValue()
     {
         return $this->round

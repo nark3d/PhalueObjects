@@ -26,20 +26,32 @@ trait DateTimeTrait
      */
     protected $native;
 
+    /**
+     * @var int
+     */
     protected $timestamp;
 
+    /**
+     * @param $string
+     * @return mixed
+     */
     public static function fromString($string)
     {
         return static::fromNative(new \DateTime($string));
     }
 
+    /**
+     * @param $timestamp
+     * @return mixed
+     */
     public static function fromTimestamp($timestamp)
     {
         return static::fromNative(static::getNowDateTime()->setTimestamp($timestamp));
     }
 
     /**
-     * @param string $format
+     * @param $format
+     * @return int
      */
     public static function getNowDateTimeFormat($format)
     {
@@ -47,43 +59,69 @@ trait DateTimeTrait
     }
 
     /**
-     * @param string $string
+     * @param null $string
+     * @return \DateTime
      */
     public static function getDateTime($string = null)
     {
         return new \DateTime($string);
     }
 
+    /**
+     * @return \DateTime
+     */
     public static function getNowDateTime()
     {
         return static::getDateTime('now');
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getNative()
     {
         return $this->native;
     }
 
+    /**
+     * @return int
+     */
     public function getTimestamp()
     {
         return $this->timestamp;
     }
 
+    /**
+     * @param DateTimeInterface $object
+     * @return bool
+     */
     public function isBefore(DateTimeInterface $object)
     {
         return $this->isLessThan($object);
     }
 
+    /**
+     * @param DateTimeInterface $object
+     * @return bool
+     */
     public function isAfter(DateTimeInterface $object)
     {
         return $this->isGreaterThan($object);
     }
 
+    /**
+     * @param DateTimeInterface $object
+     * @return bool
+     */
     public function isAfterOrIs(DateTimeInterface $object)
     {
         return $this->isLessThanOrEqualTo($object);
     }
 
+    /**
+     * @param DateTimeInterface $object
+     * @return bool
+     */
     public function isBeforeOrIs(DateTimeInterface $object)
     {
         return $this->isGreaterThanOrEqualTo($object);

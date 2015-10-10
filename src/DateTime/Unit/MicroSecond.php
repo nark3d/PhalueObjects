@@ -54,7 +54,8 @@ final class MicroSecond extends FloatVO implements DateTimeInterface
     }
 
     /**
-     * @param string $microTime
+     * @param $microTime
+     * @return static
      */
     public static function getMicroTimeAsInteger($microTime)
     {

@@ -22,9 +22,6 @@ final class Month extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 1;
-    protected $maximum = 31;
-
     public function __construct($value)
     {
         parent::__construct($value);
@@ -68,13 +65,19 @@ final class Month extends Integer implements DateTimeInterface
         return new static((int) $native->format('j'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
-        return $this->maximum;
+        return 31;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
-        return $this->minimum;
+        return 1;
     }
 }

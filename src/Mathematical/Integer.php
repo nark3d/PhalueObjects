@@ -18,6 +18,9 @@ use BestServedCold\PhalueObjects\Mathematical;
  */
 class Integer extends Mathematical
 {
+    /**
+     * @param $value
+     */
     public function __construct($value)
     {
         if (!is_int($value)) {

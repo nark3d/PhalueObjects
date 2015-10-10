@@ -22,9 +22,6 @@ final class Month extends Integer implements DateTimeInterface
 {
     use DateTimeTrait, RangeTrait;
 
-    protected $minimum = 1;
-    protected $maximum = 12;
-
     /**
      * @param integer $value
      */
@@ -33,11 +30,17 @@ final class Month extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('n'));
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
@@ -67,14 +70,20 @@ final class Month extends Integer implements DateTimeInterface
         return new static((int) $native->format('n'));
     }
 
+    /**
+     * @return int
+     */
     public function getMaximum()
     {
-        return $this->maximum;
+        return 12;
     }
 
+    /**
+     * @return int
+     */
     public function getMinimum()
     {
-        return $this->minimum;
+        return 1;
     }
 
 }

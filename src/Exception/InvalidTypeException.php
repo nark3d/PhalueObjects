@@ -5,10 +5,25 @@ namespace BestServedCold\PhalueObjects\Exception;
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
+/**
+ * Class InvalidTypeException
+ *
+ * @package   BestServedCold\PhalueObjects\Exception
+ * @author    Adam Lewis <adam.lewis@bestservedcold.com>
+ * @copyright Copyright (c) 2015 Best Served Cold Media Limited
+ * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link	  http://bestservedcold.com
+ * @since	  0.0.1-alpha
+ * @version   0.0.2-alpha
+ */
 class InvalidTypeException extends \InvalidArgumentException
 {
     use ExtendedArrayTrait;
 
+    /**
+     * @param string $value
+     * @param array  $allowedTypes
+     */
     public function __construct($value, array $allowedTypes)
     {
         $this->message =
@@ -17,6 +32,10 @@ class InvalidTypeException extends \InvalidArgumentException
             $this->getAllowedTypes($allowedTypes) . ']';
     }
 
+    /**
+     * @param  $allowedTypes
+     * @return string
+     */
     protected function getAllowedTypes($allowedTypes)
     {
         return $this->arrayToCommaString($allowedTypes, new Integer(1));
