@@ -6,28 +6,18 @@ use BestServedCold\PhalueObjects\TestCase;
 
 class ConfigurationTest extends TestCase
 {
-    public function testGetFileString()
-    {
-//        $reflection = new \ReflectionClass(Configuration::getInstance());
-//        $configuration = $this->reflect(Configuration::getInstance());
-//        $configuration->$path = '/bob/';
-//        $configuration->$file = 'bottom.yml';
-//        $this->assertEquals(
-//            dirname($reflection->getFilename()) . '/bob/bottom.yml',
-//            Configuration::getFileString()
-//        );
-//
-//        Configuration::destroy();
-    }
-
     public function testGet()
     {
-        //        $configuration = $this->mock(
-//            'BestServedCold\PhalueObjects\Configuration'
-//        );
+        $configuration = $this->reflect(Configuration::getInstance());
+        $configuration->configuration = [
+            'bob' => 'susan',
+            'mary' => [
+                'harry' => 'sally'
+            ]
+        ];
 
-//        $config = $this->reflect(new );
-//        var_dump(Configuration::get('language.locale'));
-        $this->assertTrue(true);
+        $this->assertEquals('susan', Configuration::get('bob'));
+        $this->assertEquals('sally', Configuration::get('mary.harry'));
+        $this->assertNotEquals('billy', Configuration::get('bob'));
     }
 }

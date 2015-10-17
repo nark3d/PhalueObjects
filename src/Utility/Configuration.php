@@ -3,11 +3,15 @@
 namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\File\Yaml;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Configuration
+ *
+ * Note: This class will work without extending the Singleton patter via the static
+ * property. however, I've left it extended to make it clear that it is,
+ * effectively, following the Singleton pattern.
  *
  * @package   BestServedCold\PhalueObjects\Utility
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
@@ -21,31 +25,13 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
+    private static $configuration = [];
+
+    private $bob = ['bob'];
     /**
      * @var string
      */
-    protected static $path = '/Configuration/';
-
-    /**
-     * @var string
-     */
-    protected static $file = 'configuration.yml';
-
-    /**
-     * @return array
-     */
-    public static function buildConfiguration()
-    {
-        return Yaml::parse(file_get_contents(self::getFileString()));
-    }
-
-    /**
-     * @return string
-     */
-    public static function getFileString()
-    {
-        return __DIR__ . self::$path . self::$file;
-    }
+    protected static $file = '/Configuration/configuration.yml';
 
     /**
      * @param  string $key
@@ -53,12 +39,12 @@ class Configuration extends Singleton
      */
     public static function get($key)
     {
-        $config = self::getInstance();
+        empty(self::$configuration) ? self::setConfiguration() : null;
+        return self::getFromArrayUsingJsonNotation(self::$configuration, $key);
+    }
 
-        if (empty($config::$configuration)) {
-            $config::$configuration = self::buildConfiguration();
-        }
-
-        return self::getFromArrayUsingJsonNotation($config::$configuration, $key);
+    private static function setConfiguration()
+    {
+        self::$configuration = Yaml::fromString(__DIR__ . self::$file)->parse();
     }
 }

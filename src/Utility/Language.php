@@ -3,8 +3,8 @@
 namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\File\Yaml;
 use BestServedCold\PhalueObjects\Pattern\Singleton\Multiton;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Language
@@ -34,7 +34,7 @@ final class Language extends Multiton
     {
         return [
             $identifier =>
-                Yaml::parse(file_get_contents(self::getFileString($identifier)))
+                Yaml::fromString(self::getFileString($identifier))->parse()
         ];
     }
 

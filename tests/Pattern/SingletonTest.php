@@ -15,6 +15,8 @@ class SingletonTest extends TestCase
             $singleton,
             Singleton::getInstance()
         );
+
+        $singleton->destroy();
     }
 
     public function testConstructor()
@@ -24,13 +26,7 @@ class SingletonTest extends TestCase
                 ->getMethod('__construct')
                 ->isPrivate()
         );
-    }
 
-    public function testDestroy()
-    {
-//        $instance = Singleton::getInstance();
-//
-//        var_dump($instance);
-
+        Singleton::getInstance()->destroy();
     }
 }
