@@ -25,7 +25,7 @@ class File extends SingleValue
      */
     public function getExtension()
     {
-         return pathinfo($this->getValue(), PATHINFO_EXTENSION);
+            return pathinfo($this->getValue(), PATHINFO_EXTENSION);
     }
 
     /**
@@ -44,6 +44,9 @@ class File extends SingleValue
         return pathinfo($this->getValue(), PATHINFO_FILENAME);
     }
 
+    /**
+     * @param string $string
+     */
     public static function fromString($string)
     {
         return new static($string);
