@@ -25,9 +25,9 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [];
+    private static $configuration = [ ];
 
-    private $bob = ['bob'];
+    private $bob = [ 'bob' ];
     /**
      * @var string
      */
