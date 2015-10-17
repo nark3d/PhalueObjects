@@ -2,10 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\Pattern;
 
-use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
-
 /**
- * Class Singleton
+ * Class Multiton
  *
  * @package   BestServedCold\PhalueObjects\Pattern
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
@@ -15,12 +13,12 @@ use BestServedCold\PhalueObjects\Pattern\Singleton\SingletonInterface;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Singleton extends NotConstructable implements SingletonInterface
+class Singleton extends NotConstructable
 {
     /**
-     * @var $instance
+     * @var array $instances
      */
-    protected static $instance;
+    protected static $instances = [ ];
 
     /**
      * Prevent class from being constructed.
@@ -28,25 +26,40 @@ class Singleton extends NotConstructable implements SingletonInterface
     private function __construct() {}
 
     /**
-     * Get singleton class.
+     * Get instance from $instances array.
      *
      * If the called class is present in the static $instances array, then return it.
      * Otherwise, create a new copy of the class and store it in the $instances
      * array.
      *
-     * @return string|null
+     * @return mixed
      */
     final public static function getInstance()
     {
-        if (static::$instance === null) {
-            static::$instance = new static;
+        $calledClass = get_called_class();
+
+        if (!isset(self::$instances[ $calledClass ])) {
+            self::$instances[ $calledClass ] = new $calledClass();
         }
 
-        return static::$instance;
+        return self::$instances[ $calledClass ];
     }
 
-    public function destroy()
+    /**
+     * Destroy
+     *
+     * @return void
+     */
+    final public static function destroy()
     {
-        self::$instance = null;
+        self::$instances = [ ];
+    }
+
+    /**
+     * @param $instance
+     */
+    final public static function destroyInstance($instance)
+    {
+        unset(self::$instances[ $instance ]);
     }
 }
