@@ -23,7 +23,7 @@ class File extends ValueObject
      */
     public function getExtension()
     {
-         return pathinfo($this->getValue(), PATHINFO_EXTENSION);
+            return pathinfo($this->getValue(), PATHINFO_EXTENSION);
     }
 
     /**
@@ -42,6 +42,9 @@ class File extends ValueObject
         return pathinfo($this->getValue(), PATHINFO_FILENAME);
     }
 
+    /**
+     * @param string $string
+     */
     public static function fromString($string)
     {
         return new static($string);

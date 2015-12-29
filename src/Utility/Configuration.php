@@ -25,9 +25,8 @@ class Configuration extends Singleton
 {
     use ExtendedArrayTrait;
 
-    private static $configuration = [];
+    private static $configuration = [ ];
 
-    private $bob = ['bob'];
     /**
      * @var string
      */
@@ -43,8 +42,13 @@ class Configuration extends Singleton
         return self::getFromArrayUsingJsonNotation(self::$configuration, $key);
     }
 
+    /**
+     * Set Configuration
+     *
+     * @return array
+     */
     private static function setConfiguration()
     {
-        self::$configuration = Yaml::fromString(__DIR__ . self::$file)->parse();
+        return self::$configuration = Yaml::fromString(__DIR__ . self::$file)->parse();
     }
 }
