@@ -6,7 +6,6 @@ use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Range;
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
 /***
  * Class Mathematical
