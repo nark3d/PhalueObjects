@@ -18,7 +18,6 @@ use BestServedCold\PhalueObjects\ValueObject;
 abstract class MultipleValue extends ValueObject
 {
     /**
-     * @param array $arguments
      */
     public function __construct()
     {
