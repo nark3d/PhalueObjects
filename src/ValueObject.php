@@ -13,7 +13,7 @@ namespace BestServedCold\PhalueObjects;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-abstract class ValueObject implements ValueObjectInterface
+class ValueObject implements ValueObjectInterface
 {
     /**
      * @var \ReflectionClass
@@ -28,8 +28,9 @@ abstract class ValueObject implements ValueObjectInterface
     /**
      * Class Constructor
      */
-    public function __construct()
+    public function __construct($value)
     {
+        $this->value = $value;
         $this->reflection = new \ReflectionClass($this);
     }
 
@@ -75,5 +76,22 @@ abstract class ValueObject implements ValueObjectInterface
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->value;
+    }
+
+    /**
+     * @param  ValueObject $object
+     * @return bool
+     */
+    public function equals(ValueObject $object)
+    {
+        return $this->value === $object->value;
     }
 }

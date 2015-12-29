@@ -2,7 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
@@ -20,7 +19,7 @@ use BestServedCold\PhalueObjects\ValueObject\SingleValue;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Mathematical extends SingleValue
+class Mathematical extends ValueObject
 {
     use ComparisonTrait, TypeTrait, ArithmeticTrait;
 }

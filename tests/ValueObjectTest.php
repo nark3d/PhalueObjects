@@ -24,7 +24,7 @@ class AbstractObjectTest extends TestCase
 
     public function setUp()
     {
-        $this->abstractObject = new MockValueObject();
+        $this->abstractObject = new MockValueObject('hello');
     }
 
     public function testGetShortName()
@@ -43,7 +43,7 @@ class AbstractObjectTest extends TestCase
     {
         $this->assertNotSame(
             $this->abstractObject->hash(),
-            (new MockValueObject())->hash()
+            (new MockValueObject('hello'))->hash()
         );
     }
 

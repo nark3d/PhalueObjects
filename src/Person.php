@@ -2,8 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
-
 /**
  * Class Person
  *
@@ -15,4 +13,4 @@ use BestServedCold\PhalueObjects\ValueObject\SingleValue;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Person extends SingleValue {}
+class Person extends ValueObject {}

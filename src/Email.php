@@ -3,7 +3,6 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 
 /**
  * Class Email
@@ -16,7 +15,7 @@ use BestServedCold\PhalueObjects\ValueObject\SingleValue;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Email extends SingleValue
+class Email extends ValueObject
 {
     protected $domain;
     protected $userName;

@@ -29,7 +29,6 @@ final class DateTime extends MultipleValue implements DayInterface
 {
     use DayTrait;
 
-
     protected $date;
     protected $time;
 

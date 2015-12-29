@@ -18,33 +18,24 @@ use BestServedCold\PhalueObjects\ValueObject;
 abstract class MultipleValue extends ValueObject
 {
     /**
-     * @var array
-     */
-    protected $arguments;
-
-    /**
      * @param array $arguments
      */
-    public function __construct(array $arguments)
+    public function __construct()
     {
-        $this->arguments = $arguments;
-        parent::__construct();
-    }
-
-    /**
-     * @return array
-     */
-    public function getValues()
-    {
-        return $this->arguments;
+        parent::__construct(func_get_args());
     }
 
     /**
      * @param  MultipleValue $object
      * @return bool
      */
-    public function equals(MultipleValue $object)
+    public function equals(ValueObject $object)
     {
-        return serialize($this->getValues()) === serialize($object->getValues());
+        return serialize($this->getValue()) === serialize($object->getValue());
+    }
+
+    public function __toString()
+    {
+        return (string) serialize($this->getValue());
     }
 }

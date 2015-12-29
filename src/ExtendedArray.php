@@ -2,7 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 /**
@@ -16,7 +15,7 @@ use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class ExtendedArray extends SingleValue
+class ExtendedArray extends ValueObject
 {
     /***
      * @param $value

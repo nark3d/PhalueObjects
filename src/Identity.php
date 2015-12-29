@@ -2,8 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
-
 /**
  * Class Identity
  *
@@ -15,7 +13,7 @@ use BestServedCold\PhalueObjects\ValueObject\SingleValue;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Identity extends SingleValue
+class Identity extends ValueObject
 {
     /**
      * @return string

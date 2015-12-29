@@ -1,8 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\ValueObject\SingleValue;
-
-class File extends SingleValue
+class File extends ValueObject
 {
     /**
      * @return bool
