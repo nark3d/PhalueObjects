@@ -49,4 +49,9 @@ class File extends ValueObject
     {
         return new static($string);
     }
+
+    public static function fromUrl($url)
+    {
+        return self::fromString(file_get_contents($url));
+    }
 }
