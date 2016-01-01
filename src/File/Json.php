@@ -1,4 +1,4 @@
-<?php namespace BestServedCold\PhalueObjects;
+<?php namespace BestServedCold\PhalueObjects\File;
 
 final class Json extends File
 {

@@ -15,7 +15,7 @@ class ExtendedArrayTest extends TestCase
 
         $this->assertSame($array, $extendedArray->getValue());
         $this->setExpectedException(
-        'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
+            'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
         );
         new ExtendedArray('this is the wrong type');
     }

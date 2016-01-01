@@ -23,7 +23,7 @@ class File extends ValueObject
      */
     public function getExtension()
     {
-            return pathinfo($this->getValue(), PATHINFO_EXTENSION);
+        return pathinfo($this->getValue(), PATHINFO_EXTENSION);
     }
 
     /**

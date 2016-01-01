@@ -38,16 +38,16 @@ class Configuration extends Singleton
      */
     public static function get($key)
     {
-        empty(self::$configuration) ? self::setConfiguration() : null;
+        empty(self::$configuration) ? self::getConfiguration() : null;
         return self::getFromArrayUsingJsonNotation(self::$configuration, $key);
     }
 
     /**
-     * Set Configuration
+     * Get Configuration
      *
      * @return array
      */
-    private static function setConfiguration()
+    public static function getConfiguration()
     {
         return self::$configuration = Yaml::fromString(__DIR__ . self::$file)->parse();
     }
