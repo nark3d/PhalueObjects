@@ -15,8 +15,8 @@
   "require": {
     "php": ">=5.4.0",
     "symfony/translation": "2.7.*",
-    "symfony/yaml": "^2.7",
-    "symfony/finder": "^2.7"
+    "symfony/yaml": "2.*",
+    "symfony/finder": "2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",
