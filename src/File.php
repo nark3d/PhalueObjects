@@ -42,7 +42,7 @@ class File extends ValueObject
         }
 
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TI/MEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_exec($ch);
         if (curl_errno($ch)) {   // should be 0
             curl_close($ch);
