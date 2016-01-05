@@ -5,6 +5,7 @@ php:
   - 5.5
   - 5.6
   - 7.0
+  - 7.1
   - hhvm
   - nightly
 
@@ -13,8 +14,8 @@ before_script:
   - composer install --prefer-dist --no-interaction
 
 script:
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];  then vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text; else vendor/bin/phpunit; fi
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.1" ] && [ $TRAVIS_PHP_VERSION != "nightly" ];  then vendor/bin/phpunit --coverage-clover=coverage.clover --coverage-text; else vendor/bin/phpunit; fi
 
 after_script:
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.0" ] && [ $TRAVIS_PHP_VERSION != "nightly" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.1" ] && [ $TRAVIS_PHP_VERSION != "nightly" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [ $TRAVIS_PHP_VERSION != "hhvm" ] && [ $TRAVIS_PHP_VERSION != "7.1" ] && [ $TRAVIS_PHP_VERSION != "nightly" ]; then php ocular.phar code-coverage:upload --format=php-clover coverage.clover; fi
