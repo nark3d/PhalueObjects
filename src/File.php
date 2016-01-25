@@ -7,52 +7,7 @@ class File extends ValueObject
      */
     public function exists()
     {
-        if ($this->isUrl()) {
-            return $this->isReachableUrl();
-        } else {
-            return file_exists($this->getValue());
-        }
-    }
-
-    public function isUrl()
-    {
-        return filter_var($this->getValue(), FILTER_VALIDATE_URL);
-    }
-
-    /**
-     * Refactor this, it's terrible.
-     *
-     * @param bool|true $followRedirects
-     * @return bool|mixed
-     */
-    public function isReachableUrl($followRedirects = true)
-    {
-        if (! $ch = curl_init($this->getValue())) {
-            return false;
-        }
-        curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
-        curl_setopt($ch, CURLOPT_NOBODY, true);    // don't need body
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);    // catch output (do NOT print!)
-
-        if ($followRedirects) {
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-            curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-        } else {
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
-        }
-
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_exec($ch);
-        if (curl_errno($ch)) {   // should be 0
-            curl_close($ch);
-            return false;
-        }
-
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        @curl_close($ch);
-
-        return $code;
+        return file_exists($this->getValue());
     }
 
     /**
@@ -89,14 +44,10 @@ class File extends ValueObject
 
     /**
      * @param string $string
+     * @return static
      */
     public static function fromString($string)
     {
         return new static($string);
-    }
-
-    public static function fromUrl($url)
-    {
-        return self::fromString($url);
     }
 }

@@ -71,6 +71,15 @@ class ValueObject implements ValueObjectInterface
     }
 
     /**
+     * @param $string
+     * @return static
+     */
+    public static function fromString($string)
+    {
+        return new static((string) $string);
+    }
+
+    /**
      * @return mixed
      */
     public function getValue()

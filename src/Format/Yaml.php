@@ -1,13 +1,13 @@
 <?php namespace BestServedCold\PhalueObjects\File;
 
-use BestServedCold\PhalueObjects\File;
+use BestServedCold\PhalueObjects\Format;
 use Symfony\Component\Yaml\Yaml as SymfonyYaml;
 
 /**
  * Class Yaml
  * @package BestServedCold\PhalueObjects\File
  */
-final class Yaml extends File
+final class Yaml extends Format
 {
     /**
      * Parse
@@ -16,6 +16,6 @@ final class Yaml extends File
      */
     public function parse()
     {
-        return SymfonyYaml::parse($this->getContents());
+        return SymfonyYaml::parse($this->getValue());
     }
 }

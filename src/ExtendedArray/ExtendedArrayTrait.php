@@ -14,7 +14,7 @@ use BestServedCold\PhalueObjects\String\StringTrait;
  * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
  * @link	  http://bestservedcold.com
  * @since	  0.0.1-alpha
- * @version   0.0.2-alpha
+ * @version   0.0.8-alpha
  */
 trait ExtendedArrayTrait
 {
@@ -48,8 +48,11 @@ trait ExtendedArrayTrait
      *
      * @return mixed
      */
-    public static function getFromArrayUsingJsonNotation($array, $key = null, $default = null)
-    {
+    public static function getFromArrayUsingJsonNotation(
+        $array,
+        $key = null,
+        $default = null
+    ) {
         if (is_null($key)) {
             return $array;
         }
@@ -66,5 +69,25 @@ trait ExtendedArrayTrait
         }
 
         return $array;
+    }
+
+    /**
+     * @param array $array
+     * @param bool|false $key
+     * @return null
+     */
+    public static function nullIfNotSet(array $array, $key = false)
+    {
+        return isset($array[$key]) ? $array[$key] : null;
+    }
+
+    /**
+     * @param array $array
+     * @param bool|false $key
+     * @return bool
+     */
+    public static function falseIfNotSet(array $array, $key = false)
+    {
+        return isset($array[$key]) ? $array[$key] : false;
     }
 }
