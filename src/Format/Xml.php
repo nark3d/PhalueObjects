@@ -8,28 +8,29 @@ final class Xml extends Format
 {
     public function parse()
     {
-        return $this->xmlJsonFix(
-            simplexml_load_string(
-                $this->getValue(),
-                'SimpleXMLElement',
-                LIBXML_NOCDATA
-            )
-        );
+        return (array) $this->objectify($this->getValue());
     }
 
-    private function xmlJsonFix($xml)
+    private function getXml($value)
     {
-        return json_decode(
-            str_replace(
-                ':[]',
-                ':null',
-                str_replace(
-                    ':{}',
-                    ':null',
-                    json_encode((array) $xml)
-                )
-            ),
-            1
-        );
+        return is_string($value)
+            ? simplexml_load_string($value, 'SimpleXMLElement', LIBXML_NOCDATA)
+            : $value;
+    }
+
+    
+    private function objectify($value)
+    {
+        $temp = $this->getXml($value);
+
+        $result = [];
+
+        foreach ((array) $temp as $key => $value) {
+            $result[$key] = (is_array($value) || is_object($value))
+                ? $this->objectify($value)
+                : $value;
+        }
+
+        return $result;
     }
 }
