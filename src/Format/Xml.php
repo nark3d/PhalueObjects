@@ -3,11 +3,14 @@
 namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Format;
+use Laravie\Parser\Xml\Reader;
 
 final class Xml extends Format
 {
     public function parse()
     {
+        $xml = new Reader($this->getValue());
+        return $xml->parse();
         return (array) $this->objectify($this->getValue());
     }
 
@@ -18,7 +21,6 @@ final class Xml extends Format
             : $value;
     }
 
-    
     private function objectify($value)
     {
         $temp = $this->getXml($value);
