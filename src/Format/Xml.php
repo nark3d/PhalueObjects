@@ -3,15 +3,14 @@
 namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Format;
-use Laravie\Parser\Xml\Reader;
+use BestServedCold\PhalueObjects\Format\Xml\Iterator;
 
 final class Xml extends Format
 {
     public function parse()
     {
-        $xml = new Reader($this->getValue());
-        return $xml->parse();
-        return (array) $this->objectify($this->getValue());
+        $xml = new Iterator($this->getContents());
+        var_dump($xml);
     }
 
     private function getXml($value)
