@@ -63,11 +63,10 @@ class File extends ValueObject
      * @param string $string
      * @return static
      */
-    public static function fromString($string)
+    public static function fromString($string, $mustExist = true, $timeout = 10)
     {
-        return new static($string);
+        return new static($string, $mustExist, $timeout);
     }
-
 
     public function arrayFromXml()
     {
