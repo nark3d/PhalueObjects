@@ -2,6 +2,17 @@
 
 class File extends ValueObject
 {
+    protected $checkExists = true;
+    protected $timeout;
+    protected $mustExist;
+
+    public function __construct($value, $mustExist = true, $timeout = 10)
+    {
+        parent::__construct($value);
+        $this->timeout = $timeout;
+        $this->mustExist = $mustExist;
+    }
+
     /**
      * @return bool
      */
@@ -15,7 +26,9 @@ class File extends ValueObject
      */
     public function getContents()
     {
-        return $this->exists() ? file_get_contents($this->getValue()) : false;
+        return ! $this->mustExist || $this->exists()
+            ? file_get_contents($this->getValue())
+            : false;
     }
 
     /**

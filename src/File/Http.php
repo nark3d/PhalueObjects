@@ -12,12 +12,18 @@ final class Http extends File
         }
 
         $curl = Curl::fromString($this->getValue());
-        $curl->setOption($curl->noBody)
+        $curl
+            ->setOption($curl->connectTimeout, $this->timeout)
+            ->setOption($curl->timeout, $this->timeout)
+            ->setOption($curl->noBody)
             ->setOption($curl->returnTransfer)
             ->setOption($curl->followRedirects)
             ->setOption($curl->maxRedirects)
             ->exec();
-        return $curl->error() ? false : true;
+        if ($curl->error()) {
+            throw new \Exception;
+        }
+        return true;
     }
 
     public function valid()
