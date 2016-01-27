@@ -14,12 +14,10 @@ final class Curl extends ValueObject
     public $timeout         = CURLOPT_TIMEOUT;
 
     private $options = [];
-    private $constants;
 
     public function __construct($value)
     {
         parent::__construct($value);
-//        $this->constants = new Constant();
         $this->init()
             ->setOption($this->headers)
             ->setOption($this->timeout)

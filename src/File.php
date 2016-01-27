@@ -1,5 +1,9 @@
 <?php namespace BestServedCold\PhalueObjects;
 
+use BestServedCold\PhalueObjects\Format\Json;
+use BestServedCold\PhalueObjects\Format\Xml;
+use BestServedCold\PhalueObjects\Format\Yaml;
+
 class File extends ValueObject
 {
     protected $checkExists = true;
@@ -62,5 +66,21 @@ class File extends ValueObject
     public static function fromString($string)
     {
         return new static($string);
+    }
+
+
+    public function arrayFromXml()
+    {
+        return Xml::fromString($this->getContents())->parse();
+    }
+
+    public function arrayFromJson()
+    {
+        return Json::fromString($this->getContents())->parse();
+    }
+
+    public function arrayFromYaml()
+    {
+        return Yaml::fromString($this->getContents())->parse();
     }
 }

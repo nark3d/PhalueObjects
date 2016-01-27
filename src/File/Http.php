@@ -3,7 +3,7 @@
 use BestServedCold\PhalueObjects\File;
 use BestServedCold\PhalueObjects\Access\Curl;
 
-final class Http extends File
+class Http extends File
 {
     public function exists()
     {

@@ -1,4 +1,6 @@
-<?php namespace BestServedCold\PhalueObjects\File;
+<?php namespace
+
+BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Format;
 use Symfony\Component\Yaml\Yaml as SymfonyYaml;

@@ -1,6 +1,8 @@
-<?php namespace BestServedCold\PhalueObjects\File;
+<?php
 
-use phpDocumentor\Plugin\Scrybe\Converter\Format\Format;
+namespace BestServedCold\PhalueObjects\Format;
+
+use BestServedCold\PhalueObjects\Format;
 
 final class Json extends Format
 {
