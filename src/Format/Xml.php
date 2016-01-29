@@ -35,40 +35,38 @@ final class Xml extends Format
                 $output = $this->elementNode($node);
                 break;
         }
-
         return $output;
     }
 
     private function elementNode($node)
     {
-        $output = $this->addChildNodes($this->childNode($node));
+        $output = $this->childNode($node);
+        $output = $this->addChildNodes($output);
         return $this->attributes($node, $output);
     }
 
-    private function childNode($node)
+    private function childNode($node, $output = [])
     {
-        foreach($node->childNodes as $child) {
+        foreach ($node->childNodes as $child) {
             $children = $this->convert($child);
 
-            if(isset($child->tagName)) {
+            if (isset($child->tagName)) {
                 $tagName = $child->tagName;
                 $output[$tagName] = isset($output[$tagName])
                     ? $output[$tagName]
                     : [];
-
                 $output[$tagName][] = $children;
-            } elseif($children !== '') {
+            } elseif ($children !== '') {
                 $output = $children;
             }
         }
-
         return $output;
     }
 
     private function loopAttributes($attributes, $array = [])
     {
         // Loop through the attributes and collect them.
-        foreach($attributes as $key => $node) {
+        foreach ($attributes as $key => $node) {
             $array[$key] = (string) $node->value;
         }
 
@@ -78,28 +76,24 @@ final class Xml extends Format
     private function attributes($node, $output)
     {
         // If there are attributes.
-        if($node->attributes->length) {
+        if ($node->attributes->length) {
             $output = is_array($output) ? $output : ['@value' => $output];
             $output['@attributes'] = $this->loopAttributes($node->attributes);
         }
-
         return $output;
     }
 
-    private function addChildNodes ($output)
+    private function addChildNodes($output)
     {
-        if(is_array($output)) {
+        if (is_array($output)) {
             foreach ($output as $key => $value) {
                 $output[$key] = is_array($value) && count($value) === 1
                     ? $value[0]
                     : $value;
             }
-
-            $output = empty($output) ? '' : $output;
+            $output = !isset($output) || empty($output) ? '' : $output;
         }
 
         return $output;
     }
-
-
 }
