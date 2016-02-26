@@ -19,22 +19,23 @@ final class Xml extends Format
     public function parse()
     {
         return [$this->getValue()->documentElement->tagName =>
-            $this->convert($this->value->documentElement)];
+            $this->parseElement($this->value->documentElement)];
     }
 
-    public function convert($node, $output = [])
+    public function parseElement($node, $output = [])
     {
         switch ($node->nodeType) {
             case XML_CDATA_SECTION_NODE:
                 $output['@cdata'] = trim($node->textContent);
                 break;
             case XML_TEXT_NODE:
-                $output = trim($node->textContent);
+                return trim($node->textContent);
                 break;
             case XML_ELEMENT_NODE:
-                $output = $this->elementNode($node);
+                return $this->elementNode($node);
                 break;
         }
+
         return $output;
     }
 
@@ -48,7 +49,7 @@ final class Xml extends Format
     private function childNode($node, $output = [])
     {
         foreach ($node->childNodes as $child) {
-            $children = $this->convert($child);
+            $children = $this->parseElement($child);
 
             if (isset($child->tagName)) {
                 $tagName = $child->tagName;
