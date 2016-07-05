@@ -1,6 +1,5 @@
 <?php namespace BestServedCold\PhalueObjects\Internet;
 
-use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
 use BestServedCold\PhalueObjects\ValueObject;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 

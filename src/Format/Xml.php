@@ -16,12 +16,20 @@ final class Xml extends Format
         $this->value = $domDocument;
     }
 
+    /**
+     * @return array
+     */
     public function parse()
     {
         return [$this->getValue()->documentElement->tagName =>
             $this->parseElement($this->value->documentElement)];
     }
 
+    /**
+     * @param $node
+     * @param array $output
+     * @return array
+     */
     public function parseElement($node, $output = [])
     {
         switch ($node->nodeType) {
@@ -39,6 +47,10 @@ final class Xml extends Format
         return $output;
     }
 
+    /**
+     * @param $node
+     * @return array
+     */
     private function elementNode($node)
     {
         $output = $this->childNode($node);
@@ -46,6 +58,11 @@ final class Xml extends Format
         return $this->attributes($node, $output);
     }
 
+    /**
+     * @param $node
+     * @param array $output
+     * @return array
+     */
     private function childNode($node, $output = [])
     {
         foreach ($node->childNodes as $child) {

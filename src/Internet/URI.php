@@ -1,8 +1,9 @@
 <?php
 
-namespace BestServedCold\PhalueObjects;
+namespace BestServedCold\PhalueObjects\Internet;
 
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\ValueObject;
 
 /**
  * Class URI
