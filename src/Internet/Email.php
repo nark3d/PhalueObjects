@@ -13,9 +13,4 @@ final class Email extends ValueObject
 
         parent::__construct($value);
     }
-
-    public function equals(Email $address)
-    {
-        return strtolower((string) $this) === strtolower((string) $address);
-    }
 }
