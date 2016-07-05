@@ -8,6 +8,7 @@ class CurlTest extends TestCase
     {
         $curl = Curl::fromString('http://bestservedcold.com');
 
+        var_dump(get_resource_type($curl->getValue()));
         $this->assertEquals('curl', get_resource_type($curl->getValue()));
         $this->assertEquals(
             [
