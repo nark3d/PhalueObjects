@@ -24,7 +24,7 @@ class ExtendedArray extends ValueObject
     {
         parent::__construct($value);
 
-        if (! $this->getValue()->isArray()) {
+        if ($this->getType() !== 'array') {
             throw new InvalidTypeException($value, [ 'array' ]);
         }
     }

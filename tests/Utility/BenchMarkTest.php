@@ -15,13 +15,8 @@ class BenchMarkTest extends TestCase
         require_once('./tests/Utility/SomeFunction.php');
 
         define('SOME_CONSTANT', true);
-        $someVar = true;
         BenchMark::stop('bob');
 
-//        $get = BenchMark::get();
-        echo Benchmark::human('bob');
-//        var_dump(get_class_methods(Benchmark::get('bob')));
-//        var_dump(BenchMark::get('bob'));
-
+//        echo Benchmark::human('bob');
     }
 }
