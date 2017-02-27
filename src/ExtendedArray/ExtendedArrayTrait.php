@@ -2,7 +2,6 @@
 
 namespace BestServedCold\PhalueObjects\ExtendedArray;
 
-use BestServedCold\PhalueObjects\Mathematical\Integer;
 use BestServedCold\PhalueObjects\String\StringTrait;
 
 /**
@@ -25,9 +24,16 @@ trait ExtendedArrayTrait
      * @param  Integer $spaces
      * @return string
      */
-    public function arrayToCommaString(array $array, Integer $spaces)
+    public function arrayToCommaString(array $array, $spaces)
     {
         return implode(",{$this->integerToSpace($spaces)}", $array);
+    }
+
+    public function arrayToPairString(array $array)
+    {
+        return implode(',', array_map(function ($key, $value) {
+            return $key . '=' . $value;
+        }, array_keys($array), $array));
     }
 
     /**

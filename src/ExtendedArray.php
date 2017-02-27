@@ -22,10 +22,10 @@ class ExtendedArray extends ValueObject
      */
     public function __construct($value)
     {
-        if (!is_array($value)) {
+        parent::__construct($value);
+
+        if (! $this->getValue()->isArray()) {
             throw new InvalidTypeException($value, [ 'array' ]);
         }
-
-        parent::__construct($value);
     }
 }

@@ -36,12 +36,8 @@ abstract class AbstractReflection
      */
     public function __get($key)
     {
-        $property = new \ReflectionProperty($this->class, $key);
-        $property->setAccessible(true);
-
-        return $property->isStatic()
-            ? $property->getValue()
-            : $property->getValue($this->object);
+        $property = $this->getAccessibleProperty($key);
+        return $property->getValue($property->isStatic() ?: $this->object);
     }
 
     /**
@@ -56,9 +52,7 @@ abstract class AbstractReflection
      */
     public function __set($key, $value)
     {
-        $property = new \ReflectionProperty($this->class, $key);
-        $property->setAccessible(true);
-
+        $property = $this->getAccessibleProperty($key);
         $property->isStatic()
             ? $property->setValue($value)
             : $property->setValue($this->object, $value);
@@ -79,11 +73,34 @@ abstract class AbstractReflection
      */
     public function __call($name, $args)
     {
-        $method = new \ReflectionMethod($this->class, $name);
-        $method->setAccessible(true);
-
-        return $method->isStatic()
-            ? $method->invokeArgs(null, $args)
-            : $method->invokeArgs($this->object, $args);
+        $method = $this->getAccessibleMethod($name);
+        return $method->invokeArgs($method->isStatic() ? null : $this->object, $args);
     }
+
+    /**
+     * Get Accessible Property
+     *
+     * @param $key
+     * @return \ReflectionProperty
+     */
+    private function getAccessibleProperty($key)
+    {
+        $property = new \ReflectionProperty($this->class, $key);
+        $property->setAccessible(true);
+        return $property;
+    }
+
+    /**
+     * Get Accessible Method
+     *
+     * @param $key
+     * @return \ReflectionMethod
+     */
+    private function getAccessibleMethod($key)
+    {
+        $method = new \ReflectionMethod($this->class, $key);
+        $method->setAccessible(true);
+        return $method;
+    }
+
 }

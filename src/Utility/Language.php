@@ -3,8 +3,8 @@
 namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-use BestServedCold\PhalueObjects\File\Yaml;
-use BestServedCold\PhalueObjects\Pattern\Singleton\Multiton;
+use BestServedCold\PhalueObjects\Format\Yaml;
+use BestServedCold\PhalueObjects\Pattern\Singleton;
 
 /**
  * Class Language
@@ -17,7 +17,7 @@ use BestServedCold\PhalueObjects\Pattern\Singleton\Multiton;
  * @since	  0.0.1-alpha
  * @version   0.0.2-alpha
  */
-final class Language extends Multiton
+final class Language extends Singleton
 {
     use ExtendedArrayTrait;
 

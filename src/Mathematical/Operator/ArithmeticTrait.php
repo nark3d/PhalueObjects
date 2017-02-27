@@ -18,7 +18,7 @@ use BestServedCold\PhalueObjects\ValueObjectInterface;
 trait ArithmeticTrait
 {
     /**
-     * @return int
+     * @return mixed
      */
     public abstract function getValue();
 

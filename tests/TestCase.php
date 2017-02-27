@@ -20,9 +20,6 @@ class TestCase extends \PHPUnit_Framework_TestCase
 
     public function reflect($object)
     {
-        if (is_string($object)) {
-            return new ReflectionClass($object);
-        }
-        return new ReflectionObject($object);
+        return is_string($object) ? new ReflectionClass($object) : new ReflectionObject($object);
     }
 }

@@ -5,7 +5,6 @@ namespace BestServedCold\PhalueObjects;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
-use BestServedCold\PhalueObjects\Mathematical\Range;
 
 /***
  * Class Mathematical

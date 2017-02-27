@@ -2,6 +2,8 @@
 
 namespace BestServedCold\PhalueObjects;
 
+use phpDocumentor\Compiler\Pass\PackageTreeBuilder;
+
 /**
  * Class ValueObject
  *
@@ -26,12 +28,27 @@ class ValueObject implements ValueObjectInterface
     protected $value;
 
     /**
+     * @var string
+     */
+    protected $type;
+
+    /**
      * Class Constructor
      */
     public function __construct($value)
     {
-        $this->value = $value;
+        $this->value      = $value;
+        $this->type       = gettype($value);
         $this->reflection = new \ReflectionClass($this);
+
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -43,8 +60,10 @@ class ValueObject implements ValueObjectInterface
     }
 
     /**
-     * @param $field
-     * @param $value
+     * @param  $field
+     * @param  $value
+     * @throws \RuntimeException
+     * @return void
      */
     public function __set($field, $value)
     {
@@ -102,5 +121,55 @@ class ValueObject implements ValueObjectInterface
     public function equals(ValueObject $object)
     {
         return $this->value === $object->value;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isArray()
+    {
+        return is_array($this->getValue());
+    }
+
+    /**
+     * @param  ValueObject $object
+     * @return array|mixed
+     */
+    public function diff(ValueObject $object)
+    {
+        switch ($this->type) {
+            case 'boolean':
+            case 'double':
+            case 'integer':
+                return new static($this->getValue() - $object->getValue());
+            case 'array':
+                return new static(array_diff_assoc($this->getValue(), $object->getValue()));
+            case 'object':
+            case 'resource':
+            case 'NULL':
+                return 'todo';
+            case 'unknown type':
+            default:
+                throw new \InvalidArgumentException('Unknown type');
+        }
+    }
+
+    public function count()
+    {
+        switch ($this->type) {
+            case 'boolean':
+            case 'double':
+            case 'integer':
+                return $this->getValue();
+            case 'array':
+                return count($this->getValue());
+            case 'object':
+            case 'resource':
+            case 'NULL':
+                return 'todo';
+            case 'unknown type':
+            default:
+                throw new \InvalidArgumentException('Unknown type');
+        }
     }
 }
