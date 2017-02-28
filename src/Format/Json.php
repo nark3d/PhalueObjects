@@ -4,13 +4,13 @@ namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Format;
 
-final class Json extends Format
+class Json extends Format
 {
     /**
-     * @return mixed
+     * @return array
      */
-    public function parse()
+    public function toArray()
     {
-        return json_decode($this->getValue());
+        return (array) json_decode($this->getValue());
     }
 }

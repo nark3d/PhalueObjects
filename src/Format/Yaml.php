@@ -9,15 +9,13 @@ use Symfony\Component\Yaml\Yaml as SymfonyYaml;
  * Class Yaml
  * @package BestServedCold\PhalueObjects\File
  */
-final class Yaml extends Format
+class Yaml extends Format
 {
     /**
-     * Parse
-     *
      * @return array
      */
-    public function parse()
+    public function toArray()
     {
-        return SymfonyYaml::parse($this->getValue());
+        return (array) SymfonyYaml::parse($this->getValue());
     }
 }
