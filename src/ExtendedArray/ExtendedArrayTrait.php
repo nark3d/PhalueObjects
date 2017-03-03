@@ -29,10 +29,25 @@ trait ExtendedArrayTrait
         return implode(",{$this->integerToSpace($spaces)}", $array);
     }
 
+    /**
+     * @param  array  $array
+     * @return string
+     */
     public function arrayToPairString(array $array)
     {
         return implode(',', array_map(function ($key, $value) {
             return $key . '=' . $value;
+        }, array_keys($array), $array));
+    }
+
+    /**
+     * @param  array $array
+     * @return array
+     */
+    public function arrayToAttributeArray(array $array)
+    {
+        return implode(' ', array_map(function($key, $value) {
+            return is_null($value) ? $key : $key . '="' . $value . '"';
         }, array_keys($array), $array));
     }
 
