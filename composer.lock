@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "30c535a4a99c5900394fdf3846a5a20e",
-    "content-hash": "09308573d22a84bea06ac4cc836192a6",
+    "hash": "778a5b2abc777781dc94923135bdbd81",
+    "content-hash": "62cad0db2126be6dbeea9d6678b84ada",
     "packages": [
         {
             "name": "sabre/uri",
@@ -4172,7 +4172,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.0"
+        "php": ">=5.6"
     },
     "platform-dev": []
 }
