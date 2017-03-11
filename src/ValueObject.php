@@ -143,11 +143,15 @@ class ValueObject implements ValueObjectInterface
             case 'integer':
                 return new static($this->getValue() - $object->getValue());
             case 'array':
-                return new static(array_diff_assoc($this->getValue(), $object->getValue()));
+                return new static(
+                    $object->getType() === 'array'
+                        ? array_diff_assoc($this->getValue(), $object->getValue())
+                        : $this->getValue()
+                );
+            case 'NULL':
+                return new static($object->getValue());
             case 'object':
             case 'resource':
-            case 'NULL':
-                return 'todo';
             case 'unknown type':
             default:
                 throw new \InvalidArgumentException('Unknown type');
@@ -163,10 +167,11 @@ class ValueObject implements ValueObjectInterface
                 return $this->getValue();
             case 'array':
                 return count($this->getValue());
+            case 'NULL':
+                return count($this->getValue());
             case 'object':
             case 'resource':
-            case 'NULL':
-                return 'todo';
+                return null;
             case 'unknown type':
             default:
                 throw new \InvalidArgumentException('Unknown type');
