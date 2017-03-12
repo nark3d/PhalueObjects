@@ -12,9 +12,4 @@ abstract class Metric extends ValueObject
     {
         return is_array($this->getValue()) ? implode(',', $this->getValue()) : (string) $this->getValue();
     }
-
-    /**
-     * @return static
-     */
-    public abstract static function now();
 }
