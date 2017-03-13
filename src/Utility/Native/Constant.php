@@ -31,7 +31,7 @@ class Constant
      */
     public function __call($category, array $key)
     {
-        $category = $this->definedConstants[$category];
+        $category = $this->definedConstants[ $category ];
         return empty($key) ? $category : array_search(reset($key), $category);
     }
 

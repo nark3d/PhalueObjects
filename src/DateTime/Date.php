@@ -49,7 +49,7 @@ class Date extends MultipleValue implements DayInterface
         $this->year      = $year;
         $this->month     = $month;
         $this->day       = $day;
-        $this->native    = new \DateTime($year . '-' . $month . '-' . $day);
+        $this->native    = new \DateTime($year.'-'.$month.'-'.$day);
         $this->timestamp = $this->native->getTimeStamp();
         parent::__construct([ $year, $month, $day ]);
     }
@@ -80,7 +80,7 @@ class Date extends MultipleValue implements DayInterface
      */
     public function __toString()
     {
-        return $this->year . '-' . $this->month . '-' . $this->day;
+        return $this->year.'-'.$this->month.'-'.$this->day;
     }
 
     /**

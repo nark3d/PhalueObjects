@@ -10,6 +10,9 @@ class File extends ValueObject
     protected $timeout;
     protected $mustExist;
 
+    /**
+     * @param string $value
+     */
     public function __construct($value, $mustExist = true, $timeout = 10)
     {
         parent::__construct($value);
@@ -30,7 +33,7 @@ class File extends ValueObject
      */
     public function getContents()
     {
-        return ! $this->mustExist || $this->exists()
+        return !$this->mustExist || $this->exists()
             ? file_get_contents($this->getValue())
             : false;
     }

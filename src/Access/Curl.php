@@ -13,7 +13,7 @@ final class Curl extends ValueObject
     public $returnTransfer  = CURLOPT_RETURNTRANSFER;
     public $timeout         = CURLOPT_TIMEOUT;
 
-    private $options = [];
+    private $options = [ ];
 
     public function __construct($value)
     {
@@ -31,7 +31,7 @@ final class Curl extends ValueObject
 
     private function init()
     {
-        if (! $this->value = curl_init($this->getValue())) {
+        if (!$this->value = curl_init($this->getValue())) {
             throw new \Exception;
         }
 
@@ -45,18 +45,18 @@ final class Curl extends ValueObject
 
     public function getOption($option)
     {
-        return isset($this->options[$option]) ? $this->options[$option] : null;
+        return isset($this->options[ $option ]) ? $this->options[ $option ] : null;
     }
 
     /**
      * @param $option
-     * @param bool|true $value
+     * @param integer $value
      * @return $this
      */
     public function setOption($option, $value = true)
     {
         if (curl_setopt($this->getValue(), $option, $value)) {
-            $this->options[Constant::init()->curl($option)] = $value;
+            $this->options[ Constant::init()->curl($option) ] = $value;
         }
 
         return $this;

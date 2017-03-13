@@ -19,7 +19,7 @@ class DefinedConstant extends Metric implements MetricInterface
      */
     public static function now()
     {
-        return new static(get_defined_constants(true)['user']);
+        return new static(get_defined_constants(true)[ 'user' ]);
     }
 
     /**

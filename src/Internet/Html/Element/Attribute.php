@@ -113,7 +113,7 @@ class Attribute extends ValueObject
         'autofocus'    => [ 'button', 'input', 'keygen', 'select', 'textarea' ],
         'autoplay'     => [ 'audio', 'video' ],
         'autosave'     => [ 'input' ],
-        'bgcolor'      => [ 'body', 'col', 'colgroup', 'table', 'tbody', 'tfoot','td', 'th', 'tr' ],
+        'bgcolor'      => [ 'body', 'col', 'colgroup', 'table', 'tbody', 'tfoot', 'td', 'th', 'tr' ],
         'border'       => [ 'img', 'object', 'table' ],
         'buffered'     => [ 'audio', 'video' ],
         'challenge'    => [ 'keygen' ],
@@ -214,8 +214,8 @@ class Attribute extends ValueObject
      */
     public function __construct($value)
     {
-        if (! in_array($value, array_merge($this->global, array_keys($this->elements)))) {
-            throw new \InvalidArgumentException('[' . $value . '] is not a valid HTML Attribute');
+        if (!in_array($value, array_merge($this->global, array_keys($this->elements)))) {
+            throw new \InvalidArgumentException('['.$value.'] is not a valid HTML Attribute');
         }
 
         parent::__construct($value);

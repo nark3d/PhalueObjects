@@ -16,6 +16,6 @@ class DefinedFunction extends Metric implements MetricInterface
      */
     public static function now()
     {
-        return new static(get_defined_functions()['user']);
+        return new static(get_defined_functions()[ 'user' ]);
     }
 }
