@@ -85,8 +85,8 @@ class DateTimeTest extends TestCase
     public function testFromTimestamp()
     {
         $this->assertEquals(
-            '2015-10-09 11:17:04',
-            (string) DateTime::fromTimestamp(1444389424)
+            (new \DateTime())->setTimestamp(1444389424),
+            DateTime::fromTimestamp(1444389424)->getNative()
         );
         $this->assertNotEquals(
             '2015-10-10 12:00:00',

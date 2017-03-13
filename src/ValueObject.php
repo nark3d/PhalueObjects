@@ -40,7 +40,6 @@ class ValueObject implements ValueObjectInterface
         $this->value      = $value;
         $this->type       = gettype($value);
         $this->reflection = new \ReflectionClass($this);
-
     }
 
     /**
@@ -48,7 +47,8 @@ class ValueObject implements ValueObjectInterface
      */
     public function getType()
     {
-        return $this->type;
+        $phpType = gettype($this->getValue());
+        return $phpType === 'object' ? get_class($this->getValue()) : $phpType;
     }
 
     /**
@@ -111,7 +111,7 @@ class ValueObject implements ValueObjectInterface
      */
     public function __toString()
     {
-        return (string) $this->value;
+        return (string) $this->getValue();
     }
 
     /**
