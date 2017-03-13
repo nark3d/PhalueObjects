@@ -28,6 +28,6 @@ class MicroTime extends Metric implements MetricInterface
     public function __toString()
     {
         list($sec, $fine) = explode('.', $this->getValue());
-        return  $sec . '.' . preg_replace('/0\./', '.', $fine);
+        return  $sec.'.'.preg_replace('/0\./', '.', $fine);
     }
 }

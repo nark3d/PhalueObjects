@@ -121,6 +121,6 @@ class Time extends MultipleValue implements DateTimeInterface
      */
     public function __toString()
     {
-        return $this->hour . ':' . $this->minute . ':' . $this->second;
+        return $this->hour.':'.$this->minute.':'.$this->second;
     }
 }

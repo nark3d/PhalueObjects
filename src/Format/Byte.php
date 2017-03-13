@@ -9,7 +9,7 @@ abstract class Byte extends ValueObject
     /**
      * @var array $units
      */
-    private $units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+    private $units = [ "Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" ];
 
     /**
      * @var integer $power
@@ -55,6 +55,6 @@ abstract class Byte extends ValueObject
      */
     public function __toString()
     {
-        return $this->getValue() ? $this->power() . ' ' . $this->getUnit() : '0 bytes';
+        return $this->getValue() ? $this->power().' '.$this->getUnit() : '0 bytes';
     }      
 }

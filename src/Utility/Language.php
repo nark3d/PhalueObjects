@@ -44,8 +44,8 @@ final class Language extends Singleton
      */
     public static function getFileString($identifier)
     {
-        return __DIR__ . self::$path . Configuration::get('language.locale') .
-            "/" . $identifier . '.yml';
+        return __DIR__.self::$path.Configuration::get('language.locale').
+            "/".$identifier.'.yml';
     }
 
     /**

@@ -29,9 +29,9 @@ class InvalidRangeTypeException extends InvalidTypeException
 
     /**
      * @param string $value
-     * @param array $allowedTypes
-     * @param $minimum
-     * @param $maximum
+     * @param string[] $allowedTypes
+     * @param integer $minimum
+     * @param integer $maximum
      */
     public function __construct($value, $allowedTypes, $minimum, $maximum)
     {
@@ -48,8 +48,8 @@ class InvalidRangeTypeException extends InvalidTypeException
     {
         $string = [ ];
         foreach ($allowedTypes as $type) {
-            $string[ ] = '(' . $type . ' >= ' . $this->minimum . ', ' . $type .
-                ' <= ' . $this->maximum . ')';
+            $string[ ] = '('.$type.' >= '.$this->minimum.', '.$type.
+                ' <= '.$this->maximum.')';
         }
 
         return $this->arrayToCommaString($string, new Integer(1));

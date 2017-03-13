@@ -86,6 +86,6 @@ trait DayTrait
      */
     public function addDay($days)
     {
-        return static::fromNative($this->native->modify($days . ' day'));
+        return static::fromNative($this->native->modify($days.' day'));
     }
 }

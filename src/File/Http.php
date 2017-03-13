@@ -1,13 +1,13 @@
 <?php namespace BestServedCold\PhalueObjects\File;
 
-use BestServedCold\PhalueObjects\File;
 use BestServedCold\PhalueObjects\Access\Curl;
+use BestServedCold\PhalueObjects\File;
 
 class Http extends File
 {
     public function exists()
     {
-        if (! $this->valid()) {
+        if (!$this->valid()) {
             throw new \Exception;
         }
 
