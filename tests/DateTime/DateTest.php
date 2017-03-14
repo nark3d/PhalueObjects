@@ -10,67 +10,67 @@ class DateTest extends TestCase
     public function testGetYear()
     {
         $date = Date::fromString('2012-02-04');
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             'BestServedCold\PhalueObjects\DateTime\Unit\Year',
             $date->getYear()
         );
-        $this->assertEquals($date->getYear()->getValue(), 2012);
-        $this->assertNotEquals($date->getYear()->getValue(), 2011);
+        self::assertEquals($date->getYear()->getValue(), 2012);
+        self::assertNotEquals($date->getYear()->getValue(), 2011);
     }
 
     public function testGetMonth()
     {
         $date = Date::fromString('2012-02-04');
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             'BestServedCold\PhalueObjects\DateTime\Unit\Month',
             $date->getMonth()
         );
-        $this->assertEquals($date->getMonth()->getValue(), 2);
-        $this->assertNotEquals($date->getMonth()->getValue(), 3);
+        self::assertEquals($date->getMonth()->getValue(), 2);
+        self::assertNotEquals($date->getMonth()->getValue(), 3);
     }
 
     public function testGetDay()
     {
         $date = Date::fromString('2012-02-04');
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             'BestServedCold\PhalueObjects\DateTime\Unit\Day\Month',
             $date->getDay()
         );
-        $this->assertEquals($date->getDay()->getValue(), 4);
-        $this->assertNotEquals($date->getDay()->getValue(), 3);
+        self::assertEquals($date->getDay()->getValue(), 4);
+        self::assertNotEquals($date->getDay()->getValue(), 3);
     }
 
     public function testGetTimestamp()
     {
         $date = Date::fromString('2012-02-04');
 
-        $this->assertEquals(1328313600, $date->getTimestamp());
-        $this->assertNotEquals($date->getTimestamp(), 22);
+        self::assertEquals(1328313600, $date->getTimestamp());
+        self::assertNotEquals($date->getTimestamp(), 22);
     }
 
     public function testFromTimestamp()
     {
         $date = Date::fromTimestamp(1444330290);
-        $this->assertEquals('2015-10-08', "$date");
+        self::assertEquals('2015-10-08', "$date");
     }
 
     public function testIsWeekend()
     {
-        $this->assertTrue(Date::fromString('2015-09-20')->isWeekend());
-        $this->assertTrue(Date::fromString('2015-09-19')->isWeekend());
-        $this->assertFalse(Date::fromString('2015-09-18')->isWeekend());
+        self::assertTrue(Date::fromString('2015-09-20')->isWeekend());
+        self::assertTrue(Date::fromString('2015-09-19')->isWeekend());
+        self::assertFalse(Date::fromString('2015-09-18')->isWeekend());
     }
 
     public function testIsWeekDay()
     {
-        $this->assertFalse(Date::fromString('2015-09-20')->isWeekDay());
-        $this->assertFalse(Date::fromString('2015-09-19')->isWeekDay());
-        $this->assertTrue(Date::fromString('2015-09-18')->isWeekDay());
+        self::assertFalse(Date::fromString('2015-09-20')->isWeekDay());
+        self::assertFalse(Date::fromString('2015-09-19')->isWeekDay());
+        self::assertTrue(Date::fromString('2015-09-18')->isWeekDay());
     }
 
     public function isLeap()
     {
-        $this->assertEquals(
+        self::assertEquals(
             (new Year(2012))->isLeap(),
             Date::fromString('2012-01-01')->isLeap()
         );
@@ -78,27 +78,27 @@ class DateTest extends TestCase
 
     public function testIsBeforeToday()
     {
-        $this->assertTrue(
+        self::assertTrue(
             Date::fromNative((new \DateTime())->modify('-1 day'))->isBeforeToday()
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Date::fromNative((new \DateTime())->modify('1 day'))->isBeforeToday()
         );
     }
 
     public function testIsBeforeOrIsToday()
     {
-        $this->assertTrue(
+        self::assertTrue(
             Date::fromNative(new \DateTime())->isBeforeOrIsToday()
         );
 
-        $this->assertTrue(
+        self::assertTrue(
             Date::fromNative((new \DateTime())->modify('-1 day'))
                 ->isBeforeOrIsToday()
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Date::fromNative((new \DateTime())->modify('+1 day'))
                 ->isBeforeOrIsToday()
         );
@@ -106,27 +106,27 @@ class DateTest extends TestCase
 
     public function testIsAfterToday()
     {
-        $this->assertTrue(
+        self::assertTrue(
             Date::fromNative((new \DateTime())->modify('1 day'))->isAfterToday()
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Date::fromNative((new \DateTime())->modify('-1 day'))->isAfterToday()
         );
     }
 
     public function testIsAfterOrIsToday()
     {
-        $this->assertTrue(
+        self::assertTrue(
             Date::fromNative((new \DateTime())->modify('1 day'))->isAfterOrIsToday()
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Date::fromNative((new \DateTime())->modify('-1 day'))
                 ->isAfterOrIsToday()
         );
 
-        $this->assertFalse(
+        self::assertFalse(
             Date::fromNative((new \DateTime())->modify('-1 day'))
                 ->isAfterOrIsToday()
         );
@@ -134,12 +134,12 @@ class DateTest extends TestCase
 
     public function testNow()
     {
-        $this->assertEquals(
+        self::assertEquals(
             (new \DateTime())->setTime(0, 0),
             Date::now()->getNative()
         );
 
-        $this->assertNotEquals(
+        self::assertNotEquals(
             (new \DateTime())->modify('1 day')->setTime(0, 0),
             Date::now()->getNative()
         );
@@ -147,11 +147,11 @@ class DateTest extends TestCase
 
     public function testAddDay()
     {
-        $this->assertEquals(
+        self::assertEquals(
             (new \DateTime())->setTime(0, 0, 0)->modify('1 day'),
             Date::now()->addDay(1)->getNative()
         );
-        $this->assertNotEquals(
+        self::assertNotEquals(
             (new \DateTime())->setTime(0, 0, 0)->modify('15 day'),
             Date::now()->addDay(1)->getNative()
         );
@@ -159,8 +159,8 @@ class DateTest extends TestCase
 
     public function testIsLeap()
     {
-        $this->assertTrue(Date::fromString('2012-01-01')->isLeap());
-        $this->assertFalse(Date::fromString('2011-01-01')->isLeap());
+        self::assertTrue(Date::fromString('2012-01-01')->isLeap());
+        self::assertFalse(Date::fromString('2011-01-01')->isLeap());
 
     }
 }

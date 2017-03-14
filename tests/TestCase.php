@@ -2,9 +2,10 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Utility\Reflection\ReflectionClass;
+use BestServedCold\Reflection\ReflectionClass;
+use BestServedCold\Reflection\ReflectionObject;
 use Mockery;
-use BestServedCold\PhalueObjects\Utility\Reflection\ReflectionObject;
+
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {

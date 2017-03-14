@@ -9,17 +9,17 @@ class MinuteTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('i'), Minute::now()->getValue());
+        self::assertSame((int) date('i'), Minute::now()->getValue());
     }
 
     public function testFromString()
     {
-        $this->assertEquals(23, Minute::fromString('23')->getValue());
+        self::assertEquals(23, Minute::fromString('23')->getValue());
     }
 
     public function testFromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             23,
             Minute::fromNative((new \Datetime('11:23:55')))->getValue()
         );
@@ -27,7 +27,7 @@ class MinuteTest extends TestCase
 
     public function testGetMinimum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             0,
             Minute::now()->getMinimum()
         );
@@ -35,7 +35,7 @@ class MinuteTest extends TestCase
 
     public function testGetMaximum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             59,
             Minute::now()->getMaximum()
         );

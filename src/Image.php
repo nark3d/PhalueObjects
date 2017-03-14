@@ -15,8 +15,6 @@ class Image extends ValueObject
     public function toBmp()
     {
 
-
-
     }
 
 }

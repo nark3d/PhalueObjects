@@ -7,7 +7,7 @@ class URITest extends TestCase
     public function testConstructor()
     {
         $URI = new URI('http://bestservedcold.com');
-        $this->assertSame('http://bestservedcold.com', $URI->getValue());
+        self::assertSame('http://bestservedcold.com', $URI->getValue());
         $this->setExpectedException(
             'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
         );

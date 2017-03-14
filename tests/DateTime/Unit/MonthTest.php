@@ -9,24 +9,24 @@ class MonthTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('n'), Month::now()->getValue());
+        self::assertSame((int) date('n'), Month::now()->getValue());
     }
 
     public function testFromString()
     {
-        $this->assertEquals(1, Month::fromString('01')->getValue());
-        $this->assertEquals(1, Month::fromString('January')->getValue());
-        $this->assertNotEquals(5, Month::fromString("0006")->getValue());
-        $this->assertNotEquals(7, Month::fromString('December')->getValue());
+        self::assertEquals(1, Month::fromString('01')->getValue());
+        self::assertEquals(1, Month::fromString('January')->getValue());
+        self::assertNotEquals(5, Month::fromString("0006")->getValue());
+        self::assertNotEquals(7, Month::fromString('December')->getValue());
     }
 
     public function testFromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             11,
             Month::fromNative((new \Datetime('2015-11-23')))->getValue()
         );
-        $this->assertNotEquals(
+        self::assertNotEquals(
             4,
             Month::fromNative((new \DateTime('2015-11-23')))->getValue()
         );
@@ -34,7 +34,7 @@ class MonthTest extends TestCase
 
     public function testGetMinimum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             1,
             Month::now()->getMinimum()
         );
@@ -42,7 +42,7 @@ class MonthTest extends TestCase
 
     public function testGetMaximum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             12,
             Month::now()->getMaximum()
         );

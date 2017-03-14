@@ -3,6 +3,10 @@
 use BestServedCold\PhalueObjects\Utility\Native\Constant;
 use BestServedCold\PhalueObjects\ValueObject;
 
+/**
+ * Class Curl
+ * @package BestServedCold\PhalueObjects\Access
+ */
 final class Curl extends ValueObject
 {
     public $connectTimeout  = CURLOPT_CONNECTTIMEOUT;

@@ -5,7 +5,8 @@ namespace BestServedCold\PhalueObjects\DateTime;
 use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
 use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
+use BestServedCold\PhalueObjects\Variadic;
+use BestServedCold\PhalueObjects\Contract\DateTime as DateTimeInterface;
 
 /**
  * Class Time
@@ -13,12 +14,12 @@ use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
  * @package   BestServedCold\PhalueObjects\DateTime
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
- * @link	  http://bestservedcold.com
- * @since	  0.0.1-alpha
+ * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since      0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Time extends MultipleValue implements DateTimeInterface
+class Time extends Variadic implements DateTimeInterface
 {
     use DateTimeTrait;
 
@@ -52,7 +53,7 @@ class Time extends MultipleValue implements DateTimeInterface
             ->setTime($hour->getValue(), $minute->getValue(), $minute->getValue()
         );
 
-        parent::__construct(func_get_args());
+        parent::__construct($hour, $minute, $second);
     }
 
     /**

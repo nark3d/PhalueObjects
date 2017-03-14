@@ -16,8 +16,8 @@ class ConfigurationTest extends TestCase
             ]
         ];
 
-        $this->assertEquals('susan', Configuration::get('bob'));
-        $this->assertEquals('sally', Configuration::get('mary.harry'));
-        $this->assertNotEquals('billy', Configuration::get('bob'));
+        self::assertEquals('susan', Configuration::get('bob'));
+        self::assertEquals('sally', Configuration::get('mary.harry'));
+        self::assertNotEquals('billy', Configuration::get('bob'));
     }
 }
