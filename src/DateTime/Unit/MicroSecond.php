@@ -50,7 +50,7 @@ final class MicroSecond extends FloatVO implements DateTimeInterface
      */
     public static function fromNative(\DateTime $native)
     {
-        return new static(floatval('0.' . $native->format('u')));
+        return new static(floatval('0.'.$native->format('u')));
     }
 
     /**

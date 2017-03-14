@@ -112,7 +112,7 @@ class ValueObject implements ValueObjectInterface
 
     /**
      * @param  ValueObject $object
-     * @return array|mixed
+     * @return ValueObject
      */
     public function diff(ValueObject $object)
     {

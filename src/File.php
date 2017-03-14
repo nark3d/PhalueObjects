@@ -41,7 +41,7 @@ class File extends ValueObject
      */
     public function getContents()
     {
-        return ! $this->mustExist || $this->exists()
+        return !$this->mustExist || $this->exists()
             ? file_get_contents($this->getValue())
             : false;
     }

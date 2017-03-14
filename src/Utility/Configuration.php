@@ -49,6 +49,6 @@ class Configuration extends Singleton
      */
     public static function getConfiguration()
     {
-        return self::$configuration = Yaml::fromString(__DIR__ . self::$file)->parse();
+        return self::$configuration = Yaml::fromString(__DIR__.self::$file)->parse();
     }
 }

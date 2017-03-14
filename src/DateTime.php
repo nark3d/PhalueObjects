@@ -40,7 +40,7 @@ final class DateTime extends Variadic implements DayInterface
         $this->date      = $date;
         $this->time      = $time;
         $this->timestamp = (int) $date->getTimestamp() + (int) $time->getTimestamp();
-        $this->native    = self::getDateTime($date . ' ' . $time);
+        $this->native    = self::getDateTime($date.' '.$time);
         parent::__construct($date, $time);
     }
 
@@ -110,6 +110,6 @@ final class DateTime extends Variadic implements DayInterface
      */
     public function __toString()
     {
-        return $this->date . ' ' . $this->time;
+        return $this->date.' '.$this->time;
     }
 }

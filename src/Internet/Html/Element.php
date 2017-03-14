@@ -151,8 +151,8 @@ class Element extends ValueObject
      */
     public function __construct($value)
     {
-        if (! in_array($value, $this->elements)) {
-            throw new \InvalidArgumentException('[' . $value . '] is not a valid HTML element');
+        if (!in_array($value, $this->elements)) {
+            throw new \InvalidArgumentException('['.$value.'] is not a valid HTML element');
         }
 
         parent::__construct($value);

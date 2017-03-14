@@ -35,19 +35,19 @@ trait ExtendedArrayTrait
      */
     public function arrayToPairString(array $array)
     {
-        return implode(',', array_map(function ($key, $value) {
-            return $key . '=' . $value;
+        return implode(',', array_map(function($key, $value) {
+            return $key.'='.$value;
         }, array_keys($array), $array));
     }
 
     /**
      * @param  array $array
-     * @return array
+     * @return string
      */
     public function arrayToAttributeArray(array $array)
     {
         return implode(' ', array_map(function($key, $value) {
-            return is_null($value) ? $key : $key . '="' . $value . '"';
+            return is_null($value) ? $key : $key.'="'.$value.'"';
         }, array_keys($array), $array));
     }
 
@@ -99,7 +99,7 @@ trait ExtendedArrayTrait
      */
     public static function nullIfNotSet(array $array, $key = false)
     {
-        return isset($array[$key]) ? $array[$key] : null;
+        return isset($array[ $key ]) ? $array[ $key ] : null;
     }
 
     /**
@@ -109,6 +109,6 @@ trait ExtendedArrayTrait
      */
     public static function falseIfNotSet(array $array, $key = false)
     {
-        return isset($array[$key]) ? $array[$key] : false;
+        return isset($array[ $key ]) ? $array[ $key ] : false;
     }
 }
