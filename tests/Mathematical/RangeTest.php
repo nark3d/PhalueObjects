@@ -6,7 +6,7 @@ class RangeTest extends TestCase
 {
     public function testToString()
     {
-        $this->assertEquals(
+        self::assertEquals(
             "1, 10",
             (string) new Range(1, 10)
         );

@@ -7,7 +7,7 @@ class FloatVOTest extends TestCase
     public function testConstructor()
     {
         $integer = new FloatVO(7.12001);
-        $this->assertSame(7.12001, $integer->getValue());
+        self::assertSame(7.12001, $integer->getValue());
         $this->setExpectedException(
             'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
         );
@@ -17,7 +17,7 @@ class FloatVOTest extends TestCase
     public function testRound()
     {
         $float = new FloatVO(1.123456);
-        $this->assertEquals(
+        self::assertEquals(
             1.12,
             $float->round(1.123456, 2)
         );

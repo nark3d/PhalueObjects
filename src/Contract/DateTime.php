@@ -1,21 +1,19 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\DateTime;
-
-use BestServedCold\PhalueObjects\ValueObjectInterface;
+namespace BestServedCold\PhalueObjects\Contract;
 
 /**
- * Class DateTime
+ * Interface DateTime
  *
- * @package   BestServedCold\PhalueObjects
+ * @package   BestServedCold\PhalueObjects\Contract
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
- * @link	  http://bestservedcold.com
- * @since	  0.0.1-alpha
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-interface DateTimeInterface extends ValueObjectInterface
+interface DateTime
 {
     /**
      * Now.
@@ -28,7 +26,7 @@ interface DateTimeInterface extends ValueObjectInterface
      * From Native
      *
      * @param \DateTime $native
-     * @return DateTimeInterface
+     * @return DateTime
      */
     public static function fromNative(\DateTime $native);
 
@@ -36,7 +34,7 @@ interface DateTimeInterface extends ValueObjectInterface
      * From String
      *
      * @param  string $string
-     * @return DateTimeInterface
+     * @return DateTime
      */
     public static function fromString($string);
 }

@@ -6,7 +6,7 @@ class ZeroPaddedIntegerTest extends TestCase
 {
     public function testConstructor()
     {
-        $this->assertEquals(
+        self::assertEquals(
             "000123",
             $this->reflect(new ZeroPaddedInteger(123, 3))->value
         );

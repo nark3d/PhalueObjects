@@ -12,7 +12,7 @@ class MicroSecondTest extends TestCase
      */
     public function testNow()
     {
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             'BestServedCold\PhalueObjects\DateTime\Unit\MicroSecond',
             MicroSecond::now()
         );
@@ -20,7 +20,7 @@ class MicroSecondTest extends TestCase
 
     public function testFromString()
     {
-        $this->assertEquals(
+        self::assertEquals(
             0.12312412424,
             MicroSecond::fromString('0.12312412424')->getValue()
         );
@@ -28,7 +28,7 @@ class MicroSecondTest extends TestCase
 
     public function testFromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             0.123456,
             MicroSecond::fromNative(
                 new \DateTime('2015-10-09 18:13:22.123456')
@@ -39,7 +39,7 @@ class MicroSecondTest extends TestCase
     public function testGetMicroTimeAsInteger()
     {
         $microTime = microtime();
-        $this->assertEquals(
+        self::assertEquals(
             explode(' ', $microTime)[0],
             MicroSecond::getMicroTimeAsInteger($microTime)
         );

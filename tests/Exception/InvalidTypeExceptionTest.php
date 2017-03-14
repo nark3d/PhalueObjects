@@ -8,6 +8,6 @@ class InvalidTypeExceptionTest extends TestCase
 {
     public function testBob()
     {
-        $this->assertTrue(true);
+        self::assertTrue(true);
     }
 }

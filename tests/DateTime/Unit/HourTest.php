@@ -9,17 +9,17 @@ class HourTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertEquals((int) date('H'), Hour::now()->getValue());
+        self::assertEquals((int) date('H'), Hour::now()->getValue());
     }
 
     public function testFromString()
     {
-        $this->assertEquals(23, Hour::fromString('23')->getValue());
+        self::assertEquals(23, Hour::fromString('23')->getValue());
     }
 
     public function testFromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             11,
             Hour::fromNative((new \Datetime('11:23:55')))->getValue()
         );
@@ -27,7 +27,7 @@ class HourTest extends TestCase
 
     public function testGetMinimum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             0,
             Hour::now()->getMinimum()
         );
@@ -35,7 +35,7 @@ class HourTest extends TestCase
 
     public function testGetMaximum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             23,
             Hour::now()->getMaximum()
         );

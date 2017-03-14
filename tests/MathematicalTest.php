@@ -6,8 +6,8 @@ class MathematicalTest extends TestCase
 {
     public function testMakeNegative()
     {
-        $this->assertSame(-254, (new Mathematical(254))->makeNegative()->getValue());
-        $this->assertNotSame(
+        self::assertSame(-254, (new Mathematical(254))->makeNegative()->getValue());
+        self::assertNotSame(
             1232,
             (new Mathematical(100))->makeNegative()->getValue()
         );
@@ -15,8 +15,8 @@ class MathematicalTest extends TestCase
 
     public function testMakePositive()
     {
-        $this->assertSame(254, (new Mathematical(-254))->makePositive()->getValue());
-        $this->assertNotSame(
+        self::assertSame(254, (new Mathematical(-254))->makePositive()->getValue());
+        self::assertNotSame(
             -1232,
             (new Mathematical(100))->makeNegative()->getValue()
         );
@@ -24,31 +24,31 @@ class MathematicalTest extends TestCase
 
     public function testIsNegativeTest()
     {
-        $this->assertTrue((new Mathematical(-1234))->isNegative());
-        $this->assertFalse((new Mathematical(123213))->isNegative());
+        self::assertTrue((new Mathematical(-1234))->isNegative());
+        self::assertFalse((new Mathematical(123213))->isNegative());
     }
 
     public function testIsPositive()
     {
-        $this->assertTrue((new Mathematical(12345))->isPositive());
-        $this->assertFalse((new Mathematical(-123213))->isPositive());
+        self::assertTrue((new Mathematical(12345))->isPositive());
+        self::assertFalse((new Mathematical(-123213))->isPositive());
     }
 
     public function testIsZeroTest()
     {
-        $this->assertTrue((new Mathematical(0))->isZero());
-        $this->assertFalse((new Mathematical(123124))->isZero());
-        $this->assertFalse((new Mathematical(-12356))->isZero());
+        self::assertTrue((new Mathematical(0))->isZero());
+        self::assertFalse((new Mathematical(123124))->isZero());
+        self::assertFalse((new Mathematical(-12356))->isZero());
     }
 
     public function testIsGreaterThan()
     {
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isGreaterThan(
                 new Mathematical(5)
             )
         );
-        $this->assertFalse(
+        self::assertFalse(
             (new Mathematical(10))->isGreaterThan(
                 new Mathematical(15)
             )
@@ -57,12 +57,12 @@ class MathematicalTest extends TestCase
 
     public function testIsLessThan()
     {
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isLessThan(
                 new Mathematical(15)
             )
         );
-        $this->assertFalse(
+        self::assertFalse(
             (new Mathematical(10))->isLessThan(
                 new Mathematical(5)
             )
@@ -71,17 +71,17 @@ class MathematicalTest extends TestCase
 
     public function testIsGreaterThanOrEqualToTest()
     {
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isGreaterThanOrEqualTo(
                 new Mathematical(10)
             )
         );
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isGreaterThanOrEqualTo(
                 new Mathematical(5)
             )
         );
-        $this->assertFalse(
+        self::assertFalse(
             (new Mathematical(10))->isGreaterThanOrEqualTo(
                 new Mathematical(15)
             )
@@ -90,17 +90,17 @@ class MathematicalTest extends TestCase
 
     public function testisLessThanOrEqualTo()
     {
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isLessThanOrEqualTo(
                 new Mathematical(10)
             )
         );
-        $this->assertTrue(
+        self::assertTrue(
             (new Mathematical(10))->isLessThanOrEqualTo(
                 new Mathematical(15)
             )
         );
-        $this->assertFalse(
+        self::assertFalse(
             (new Mathematical(10))->isLessThanOrEqualTo(
                 new Mathematical(5)
             )
@@ -109,19 +109,19 @@ class MathematicalTest extends TestCase
 
     public function testReversePolarity()
     {
-        $this->assertSame(
+        self::assertSame(
             123,
             (new Mathematical(-123))->reversePolarity()->getValue()
         );
-        $this->assertNotSame(
+        self::assertNotSame(
             123,
             (new Mathematical(123))->reversePolarity()->getValue()
         );
-        $this->assertSame(
+        self::assertSame(
             -123,
             (new Mathematical(123))->reversePolarity()->getValue()
         );
-        $this->assertNotSame(
+        self::assertNotSame(
             -123,
             (new Mathematical(-123))->reversePolarity()->getValue()
         );

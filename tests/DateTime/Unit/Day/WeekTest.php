@@ -9,13 +9,13 @@ class WeekTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('N'), Week::now()->getValue());
+        self::assertSame((int) date('N'), Week::now()->getValue());
     }
 
     public function testToString()
     {
         $day = new Week(3);
-        $this->assertEquals('3',  "$day");
+        self::assertEquals('3',  "$day");
     }
 
     public function testConstructor()
@@ -28,19 +28,19 @@ class WeekTest extends TestCase
 
     public function testFromString()
     {
-        $this->assertEquals(1, Week::fromString('01')->getValue());
-        $this->assertEquals(6, Week::fromString('Saturday')->getValue());
-        $this->assertNotEquals(5, Week::fromString("0006")->getValue());
-        $this->assertNotEquals(5, Week::fromString('Sunday')->getValue());
+        self::assertEquals(1, Week::fromString('01')->getValue());
+        self::assertEquals(6, Week::fromString('Saturday')->getValue());
+        self::assertNotEquals(5, Week::fromString("0006")->getValue());
+        self::assertNotEquals(5, Week::fromString('Sunday')->getValue());
     }
 
     public function fromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             4,
             Week::fromNative((new \Datetime('2015-10-09')))->getValue()
         );
-        $this->assertNotEquals(
+        self::assertNotEquals(
             1,
             Week::fromNative((new \DateTime('2015-10-09')))->getValue()
         );
@@ -48,7 +48,7 @@ class WeekTest extends TestCase
 
     public function testGetMinimum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             1,
             Week::now()->getMinimum()
         );
@@ -56,7 +56,7 @@ class WeekTest extends TestCase
 
     public function testGetMaximum()
     {
-        $this->assertEquals(
+        self::assertEquals(
             7,
             Week::now()->getMaximum()
         );

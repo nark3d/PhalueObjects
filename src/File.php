@@ -4,6 +4,11 @@ use BestServedCold\PhalueObjects\Format\Json;
 use BestServedCold\PhalueObjects\Format\Xml;
 use BestServedCold\PhalueObjects\Format\Yaml;
 
+/**
+ * Class File
+ *
+ * @package BestServedCold\PhalueObjects
+ */
 class File extends ValueObject
 {
     protected $checkExists = true;
@@ -11,7 +16,10 @@ class File extends ValueObject
     protected $mustExist;
 
     /**
-     * @param string $value
+     * File constructor.
+     * @param array $value
+     * @param bool $mustExist
+     * @param int $timeout
      */
     public function __construct($value, $mustExist = true, $timeout = 10)
     {

@@ -5,6 +5,7 @@ namespace BestServedCold\PhalueObjects\DateTime;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ComparisonTrait;
 use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
+use BestServedCold\PhalueObjects\Contract\DateTime as DateTimeInterface;
 
 /**
  * Class DateTimeTrait
@@ -12,9 +13,9 @@ use BestServedCold\PhalueObjects\Mathematical\Operator\TypeTrait;
  * @package BestServedCold\PhalueObjects\DateTime
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
- * @link	  http://bestservedcold.com
- * @since	  0.0.1-alpha
+ * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since      0.0.1-alpha
  * @version   0.0.2-alpha
  */
 trait DateTimeTrait

@@ -7,9 +7,9 @@ class HttpTest extends TestCase
     public function testValid()
     {
         $http = new Http('http://example.com');
-        $this->assertTrue($http->valid());
+        self::assertTrue($http->valid());
 
         $brokenHttp = new Http('This is not a URL');
-        $this->assertFalse($brokenHttp->valid());
+        self::assertFalse($brokenHttp->valid());
     }
 }

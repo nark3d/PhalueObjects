@@ -12,14 +12,14 @@ class ExtendedArrayTraitTest extends TestCase
 
     public function testArrayToCommaString()
     {
-        $this->assertEquals(
+        self::assertEquals(
             'bob,  mary,  susan',
             $this->arrayToCommaString(
                 ['bob', 'mary', 'susan'],
                 new Integer(2)
             )
         );
-        $this->assertNotEquals(
+        self::assertNotEquals(
             'this is not, right, susan',
             $this->arrayToCommaString(['some', 'random', 'array'], new Integer(1))
         );
@@ -27,7 +27,7 @@ class ExtendedArrayTraitTest extends TestCase
 
     public function testGetArrayUsingJsonNotation()
     {
-        $this->assertEquals(
+        self::assertEquals(
             ['bob', 'susan', 'harry', 'sally'],
             $this->getArrayUsingJsonNotation('bob.susan.harry.sally')
 
@@ -37,23 +37,23 @@ class ExtendedArrayTraitTest extends TestCase
     public function testGetFromArrayUsingJsonNotation()
     {
         $array = ['bob' => 'susan', 'mary' => ['susan' => 'harry']];
-        $this->assertEquals(
+        self::assertEquals(
             $array,
             $this->getFromArrayUsingJsonNotation($array)
         );
-        $this->assertEquals(
+        self::assertEquals(
             'harry',
             $this->getFromArrayUsingJsonNotation($array, 'mary.susan')
         );
-        $this->assertEquals(
+        self::assertEquals(
             'default',
             $this->getFromArrayUsingJsonNotation($array, 'sally', 'default')
         );
-        $this->assertEquals(
+        self::assertEquals(
             null,
             $this->getFromArrayUsingJsonNotation($array, 'george')
         );
-        $this->assertEquals(
+        self::assertEquals(
             'susan',
             $this->getFromArrayUsingJsonNotation($array, 'bob')
         );

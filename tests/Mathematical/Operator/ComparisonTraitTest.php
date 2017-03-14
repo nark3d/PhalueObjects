@@ -3,6 +3,7 @@
 namespace BestServedCold\PhalueObjects\Mathematical\Operator;
 
 use BestServedCold\PhalueObjects\TestCase;
+use BestServedCold\PhalueObjects\Contract\ValueObject as ValueObjectInterface;
 
 class ComparisonTraitTest extends TestCase
 {
@@ -14,7 +15,7 @@ class ComparisonTraitTest extends TestCase
     public function setUp()
     {
         $this->stub = $this->getMock(
-            'BestServedCold\PhalueObjects\ValueObjectInterface',
+            ValueObjectInterface::class,
             ['getValue', '__toString', '__set']
         );
 
@@ -26,47 +27,47 @@ class ComparisonTraitTest extends TestCase
     public function testIsGreaterThan()
     {
         $this->value = 15;
-        $this->assertTrue($this->isGreaterThan($this->stub));
+        self::assertTrue($this->isGreaterThan($this->stub));
         $this->value = 5;
-        $this->assertFalse($this->isGreaterThan($this->stub));
+        self::assertFalse($this->isGreaterThan($this->stub));
     }
 
     public function testIsLessThan()
     {
         $this->value = 5;
-        $this->assertTrue($this->isLessThan($this->stub));
+        self::assertTrue($this->isLessThan($this->stub));
         $this->value = 15;
-        $this->assertFalse($this->isLessThan($this->stub));
+        self::assertFalse($this->isLessThan($this->stub));
     }
 
     public function testIsGreaterThanOrEqualTo()
     {
         $this->value = 15;
-        $this->assertTrue($this->isGreaterThanOrEqualTo($this->stub));
+        self::assertTrue($this->isGreaterThanOrEqualTo($this->stub));
         $this->value = 5;
-        $this->assertFalse($this->isGreaterThanOrEqualTo($this->stub));
+        self::assertFalse($this->isGreaterThanOrEqualTo($this->stub));
         $this->value = 10;
-        $this->assertTrue($this->isGreaterThanOrEqualTo($this->stub));
+        self::assertTrue($this->isGreaterThanOrEqualTo($this->stub));
     }
 
     public function testIsLessThanOrEqualTo()
     {
         $this->value = 5;
-        $this->assertTrue($this->isLessThanOrEqualTo($this->stub));
+        self::assertTrue($this->isLessThanOrEqualTo($this->stub));
         $this->value = 15;
-        $this->assertFalse($this->isLessThanOrEqualTo($this->stub));
+        self::assertFalse($this->isLessThanOrEqualTo($this->stub));
         $this->value = 10;
-        $this->assertTrue($this->isLessThanOrEqualTo($this->stub));
+        self::assertTrue($this->isLessThanOrEqualTo($this->stub));
     }
 
     public function testSpaceship()
     {
         $this->value = 10;
-        $this->assertEquals($this->spaceship($this->stub), 0);
+        self::assertEquals($this->spaceship($this->stub), 0);
         $this->value = 5;
-        $this->assertEquals($this->spaceship($this->stub), -1);
+        self::assertEquals($this->spaceship($this->stub), -1);
         $this->value = 15;
-        $this->assertEquals($this->spaceship($this->stub), 1);
+        self::assertEquals($this->spaceship($this->stub), 1);
     }
 
     public function getValue()

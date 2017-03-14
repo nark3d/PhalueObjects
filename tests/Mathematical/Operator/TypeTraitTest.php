@@ -13,45 +13,45 @@ class TypeTraitTest extends TestCase
     public function testIsPositive()
     {
         $this->value = 23;
-        $this->assertTrue($this->isPositive());
+        self::assertTrue($this->isPositive());
         $this->value = -23;
-        $this->assertFalse($this->isPositive());
+        self::assertFalse($this->isPositive());
     }
 
     public function testIsNegative()
     {
         $this->value = -23;
-        $this->assertTrue($this->isNegative());
+        self::assertTrue($this->isNegative());
         $this->value = 23;
-        $this->assertFalse($this->isNegative());
+        self::assertFalse($this->isNegative());
     }
 
     public function testIsZero()
     {
         $this->value = 0;
-        $this->assertTrue($this->isZero());
+        self::assertTrue($this->isZero());
         $this->value = 1234;
-        $this->assertFalse($this->isZero());
+        self::assertFalse($this->isZero());
     }
 
     public function testIsNegativeOrZero()
     {
         $this->value = 0;
-        $this->assertTrue($this->isNegativeOrZero());
+        self::assertTrue($this->isNegativeOrZero());
         $this->value = -342345234;
-        $this->assertTrue($this->isNegativeOrZero());
+        self::assertTrue($this->isNegativeOrZero());
         $this->value = 234234;
-        $this->assertFalse($this->isNegativeOrZero());
+        self::assertFalse($this->isNegativeOrZero());
     }
 
     public function testIsPositiveOrZero()
     {
         $this->value = 0;
-        $this->assertTrue($this->isPositiveOrZero());
+        self::assertTrue($this->isPositiveOrZero());
         $this->value = 324234;
-        $this->assertTrue($this->isPositiveOrZero());
+        self::assertTrue($this->isPositiveOrZero());
         $this->value = -2344;
-        $this->assertFalse($this->isPositiveOrZero());
+        self::assertFalse($this->isPositiveOrZero());
     }
 
     public function getValue()

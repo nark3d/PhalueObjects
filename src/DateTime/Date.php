@@ -3,11 +3,12 @@
 namespace BestServedCold\PhalueObjects\DateTime;
 
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
-use BestServedCold\PhalueObjects\DateTime\Unit\DayInterface;
+use BestServedCold\PhalueObjects\Contract\DateTime\Day as DayInterface;
+use BestServedCold\PhalueObjects\Contract\DateTime as DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\Unit\DayTrait;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
+use BestServedCold\PhalueObjects\Variadic;
 
 /**
  * Class Date
@@ -15,12 +16,12 @@ use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
  * @package   BestServedCold\PhalueObjects\DateTime
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
- * @link	  http://bestservedcold.com
- * @since	  0.0.1-alpha
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Date extends MultipleValue implements DayInterface
+class Date extends Variadic implements DateTimeInterface, DayInterface
 {
     use DayTrait;
 
@@ -50,8 +51,8 @@ class Date extends MultipleValue implements DayInterface
         $this->month     = $month;
         $this->day       = $day;
         $this->native    = new \DateTime($year.'-'.$month.'-'.$day);
-        $this->timestamp = $this->native->getTimeStamp();
-        parent::__construct([ $year, $month, $day ]);
+        $this->timestamp = $this->native->getTimestamp();
+        parent::__construct($year, $month, $day);
     }
 
     /**

@@ -7,11 +7,11 @@ class SingletonTest extends TestCase
     public function testUnique()
     {
         $singleton = Singleton::getInstance();
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             'BestServedCold\PhalueObjects\Pattern\Singleton',
             $singleton
         );
-        $this->assertEquals(
+        self::assertEquals(
             $singleton,
             Singleton::getInstance()
         );
@@ -19,7 +19,7 @@ class SingletonTest extends TestCase
 
     public function testConstructor()
     {
-        $this->assertTrue(
+        self::assertTrue(
             (new \ReflectionObject(Singleton::getInstance()))
                 ->getMethod('__construct')
                 ->isPrivate()

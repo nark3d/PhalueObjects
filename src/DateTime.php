@@ -4,7 +4,7 @@ namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\DateTime\Date;
 use BestServedCold\PhalueObjects\DateTime\Time;
-use BestServedCold\PhalueObjects\DateTime\Unit\DayInterface;
+use BestServedCold\PhalueObjects\Contract\DateTime\Day as DayInterface;
 use BestServedCold\PhalueObjects\DateTime\Unit\DayTrait;
 use BestServedCold\PhalueObjects\DateTime\Unit\Day\Month as Day;
 use BestServedCold\PhalueObjects\DateTime\Unit\Hour;
@@ -12,7 +12,6 @@ use BestServedCold\PhalueObjects\DateTime\Unit\Minute;
 use BestServedCold\PhalueObjects\DateTime\Unit\Month;
 use BestServedCold\PhalueObjects\DateTime\Unit\Second;
 use BestServedCold\PhalueObjects\DateTime\Unit\Year;
-use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
 
 /**
  * Class DateTime
@@ -20,12 +19,12 @@ use BestServedCold\PhalueObjects\ValueObject\MultipleValue;
  * @package   BestServedCold\PhalueObjects
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license	  http://http://opensource.org/licenses/GPL-3.0 GPL License
- * @link	  http://bestservedcold.com
- * @since	  0.0.1-alpha
+ * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since      0.0.1-alpha
  * @version   0.0.2-alpha
  */
-final class DateTime extends MultipleValue implements DayInterface
+final class DateTime extends Variadic implements DayInterface
 {
     use DayTrait;
 
@@ -42,7 +41,7 @@ final class DateTime extends MultipleValue implements DayInterface
         $this->time      = $time;
         $this->timestamp = (int) $date->getTimestamp() + (int) $time->getTimestamp();
         $this->native    = self::getDateTime($date.' '.$time);
-        parent::__construct([ $date, $time ]);
+        parent::__construct($date, $time);
     }
 
     /**

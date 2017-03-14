@@ -9,13 +9,13 @@ class YearTest extends TestCase
 {
     public function testNow()
     {
-        $this->assertSame((int) date('z'), Year::now()->getValue());
+        self::assertSame((int) date('z'), Year::now()->getValue());
     }
 
     public function testToString()
     {
         $day = new Year(258);
-        $this->assertEquals('258',  "$day");
+        self::assertEquals('258',  "$day");
     }
 
     public function testConstructor()
@@ -28,7 +28,7 @@ class YearTest extends TestCase
 
     public function testFromNative()
     {
-        $this->assertEquals(
+        self::assertEquals(
             281,
             Year::fromNative((new \Datetime('2015-10-09')))->getValue()
         );
@@ -36,6 +36,6 @@ class YearTest extends TestCase
 
     public function testFromString()
     {
-        $this->assertEquals(281, Year::fromString('281')->getValue());
+        self::assertEquals(281, Year::fromString('281')->getValue());
     }
 }

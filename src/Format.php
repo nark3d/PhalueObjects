@@ -1,6 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-class Format extends ValueObject
-{
-
-}
+/**
+ * Class Format
+ *
+ * @package BestServedCold\PhalueObjects
+ */
+class Format extends ValueObject {}

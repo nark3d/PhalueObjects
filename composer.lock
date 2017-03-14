@@ -4,9 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "778a5b2abc777781dc94923135bdbd81",
-    "content-hash": "62cad0db2126be6dbeea9d6678b84ada",
+    "hash": "ea6bfd314779cfc76dc77c2df8115fc4",
+    "content-hash": "8fedbb902f235c32695a4852f8e01060",
     "packages": [
+        {
+            "name": "best-served-cold/reflection",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nark3d/Reflection.git",
+                "reference": "9cdf0485d8129d675488bf2a130ad0a4163e3889"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nark3d/Reflection/zipball/9cdf0485d8129d675488bf2a130ad0a4163e3889",
+                "reference": "9cdf0485d8129d675488bf2a130ad0a4163e3889",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.4",
+                "phpdocumentor/phpdocumentor": "^2.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BestServedCold\\Reflection\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Lewis",
+                    "email": "adam.lewis@bestservedcold.com",
+                    "homepage": "http://adamlewis.gb.com"
+                }
+            ],
+            "description": "Reflection - Simple utility to reflect objects and classes to access properties and methods.",
+            "homepage": "http://bestservedcold.com",
+            "keywords": [
+                "Auto reflection",
+                "Best Served Cold",
+                "Easy reflection",
+                "reflection"
+            ],
+            "time": "2017-03-14 21:14:15"
+        },
         {
             "name": "sabre/uri",
             "version": "1.2.1",

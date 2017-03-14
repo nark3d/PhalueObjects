@@ -1,12 +1,13 @@
 <?php
 
-namespace BestServedCold\PhalueObjects;
+namespace BestServedCold\PhalueObjects\Contract;
 
 /**
  * Interface ValueObjectInterface
- * @package  BestServedCold\PhalueObjects
+ * 
+ * @package  BestServedCold\PhalueObjects\Contract
  */
-interface ValueObjectInterface
+interface ValueObject
 {
     /**
      * @return string
@@ -16,7 +17,12 @@ interface ValueObjectInterface
     /**
      * @param  $field
      * @param  $value
-     * @return mixed
+     * @throws \RuntimeException
      */
     public function __set($field, $value);
+
+    /**
+     * @return mixed
+     */
+    public function getValue();
 }

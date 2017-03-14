@@ -8,7 +8,7 @@ class EmailTest extends TestCase
     {
         $email = new Email('adam.lewis@bestservedcold.com');
 
-        $this->assertSame('adam.lewis@bestservedcold.com', $email->getValue());
+        self::assertSame('adam.lewis@bestservedcold.com', $email->getValue());
         $this->setExpectedException(
             'BestServedCold\PhalueObjects\Exception\InvalidTypeException'
         );
