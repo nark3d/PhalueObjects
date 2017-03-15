@@ -193,11 +193,19 @@ class ArrayVO extends ValueObject implements Iterator, Arrayable, Countable
     }
 
     /**
+     * @return array
+     */
+    public function getKeys()
+    {
+        return array_keys($this->value);
+    }
+
+    /**
      * @return mixed
      */
     public function getLastKey()
     {
-        return end(array_keys($this->value));
+        return end($this->getKeys());
     }
 
     /**
