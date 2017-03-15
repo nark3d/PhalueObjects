@@ -185,19 +185,20 @@ class ArrayVO extends ValueObject implements Iterator, Arrayable, Countable
     }
 
     /**
-     * @return mixed
-     */
-    public function getFirstKey()
-    {
-        return array_shift(array_keys($this->value));
-    }
-
-    /**
      * @return array
      */
     public function getKeys()
     {
         return array_keys($this->value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstKey()
+    {
+        $keys = $this->getKeys();
+        return array_shift($keys);
     }
 
     /**
