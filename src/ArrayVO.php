@@ -103,7 +103,7 @@ class ArrayVO extends ValueObject implements Iterator, Arrayable, Countable
      * Iterates through an array of values and finds a key.  If it makes it to the final value,
      * it returns what ever value matches that key.
      *
-     * @param  ArrayValueObject $arrayValueObject
+     * @param  ArrayVO    $arrayValueObject
      * @return bool|mixed
      */
     public function findArrayVO(ArrayVO $arrayValueObject)
@@ -205,7 +205,8 @@ class ArrayVO extends ValueObject implements Iterator, Arrayable, Countable
      */
     public function getLastKey()
     {
-        return end($this->getKeys());
+        $keys = $this->getKeys();
+        return end($keys);
     }
 
     /**
