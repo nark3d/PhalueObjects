@@ -7,7 +7,7 @@ namespace BestServedCold\PhalueObjects;
  *
  * @package BestServedCold\PhalueObjects\ValueObject
  */
-class Variadic extends ArrayVO
+class Variadic extends VOArray
 {
     /**
      * Variadic constructor.

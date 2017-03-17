@@ -2,6 +2,11 @@
 
 use BestServedCold\PhalueObjects\TestCase;
 
+/**
+ * Class RangeTest
+ *
+ * @package BestServedCold\PhalueObjects\Mathematical
+ */
 class RangeTest extends TestCase
 {
     public function testToString()

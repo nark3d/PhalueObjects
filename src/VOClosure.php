@@ -5,14 +5,14 @@ namespace BestServedCold\PhalueObjects;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 /**
- * Class ClosureVO
+ * Class VOClosure
  *
  * @package BestServedCold\PhalueObjects\ValueObject
  */
-class ClosureVO extends ValueObject
+class VOClosure extends ValueObject
 {
     /**
-     * ClosureVO constructor.
+     * VOClosure constructor.
      *
      * @param \Closure $value
      */

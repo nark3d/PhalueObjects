@@ -3,6 +3,7 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
+use BestServedCold\PhalueObjects\VOArray\Map;
 
 /**
  * Class String
@@ -15,10 +16,10 @@ use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
  * @since      0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class StringVO extends ValueObject
+class VOString extends ValueObject
 {
     /**
-     * StringVO constructor.
+     * VOString constructor.
      *
      * @param  $value
      * @throws InvalidTypeException
@@ -28,6 +29,17 @@ class StringVO extends ValueObject
         if (! is_string($value)) {
             throw new InvalidTypeException($value, ['string']);
         }
+
         parent::__construct($value);
+    }
+
+    /**
+     * @param  Map    $map
+     * @param  string $glue
+     * @return string
+     */
+    public function fromArrayMap(Map $map, $glue = ',')
+    {
+        return implode($glue, $map->getValue());
     }
 }

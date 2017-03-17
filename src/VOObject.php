@@ -5,11 +5,11 @@ namespace BestServedCold\PhalueObjects;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 /**
- * Class ObjectVO
+ * Class VOObject
  *
  * @package BestServedCold\PhalueObjects\ValueObject
  */
-class ObjectVO extends ValueObject
+class VOObject extends ValueObject
 {
     /**
      * @var \ReflectionClass

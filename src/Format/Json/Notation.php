@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Format\Json;
 
-use BestServedCold\PhalueObjects\ArrayVO;
+use BestServedCold\PhalueObjects\VOArray;
 use BestServedCold\PhalueObjects\Format\Json;
 
 /**
@@ -13,10 +13,10 @@ use BestServedCold\PhalueObjects\Format\Json;
 class Notation extends Json
 {
     /**
-     * @return ArrayVO
+     * @return VOArray
      */
-    public function toArrayVO()
+    public function toVOArray()
     {
-        return ArrayVO::fromArray(explode('.', $this->getValue()));
+        return VOArray::fromArray(explode('.', $this->getValue()));
     }
 }

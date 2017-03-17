@@ -5,13 +5,13 @@ namespace BestServedCold\PhalueObjects;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 use stdClass;
 
-class ObjectVOTest extends TestCase
+class VOObjectTest extends TestCase
 {
     public function testConstructor()
     {
-        $objectVO = new ObjectVO(new stdClass);
-        self::assertTrue(is_object($objectVO->getValue()));
+        $VOObject = new VOObject(new stdClass);
+        self::assertTrue(is_object($VOObject->getValue()));
         self::setExpectedException(InvalidTypeException::class);
-        new ObjectVO('string');
+        new VOObject('string');
     }
 }

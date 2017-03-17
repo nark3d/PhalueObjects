@@ -1,5 +1,6 @@
 <?php namespace BestServedCold\PhalueObjects\Mathematical\Range;
 
+use BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException;
 use BestServedCold\PhalueObjects\TestCase;
 
 class RangeTraitImplementation
@@ -22,10 +23,7 @@ class RangeTraitTest extends TestCase
 {
     public function testConstructor()
     {
-        $this->setExpectedException(
-            'BestServedCold\PhalueObjects\Exception\InvalidRangeTypeException'
-        );
-
+        $this->setExpectedException(InvalidRangeTypeException::class);
         new RangeTraitImplementation(155);
     }
 }

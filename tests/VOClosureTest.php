@@ -3,15 +3,15 @@
 namespace BestServedCold\PhalueObjects;
 
 /**
- * Class ClosureVOTest
+ * Class VOClosureTest
  *
  * @package BestServedCold\PhalueObjects
  */
-class ClosureVOTest extends TestCase
+class VOClosureTest extends TestCase
 {
     public function testConstructor()
     {
-        $closure = new ClosureVO(
+        $closure = new VOClosure(
             function () {
                 return 'bob';
             }

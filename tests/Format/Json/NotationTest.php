@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Format\Json;
 
-use BestServedCold\PhalueObjects\ArrayVO;
+use BestServedCold\PhalueObjects\VOArray;
 use BestServedCold\PhalueObjects\TestCase;
 
 /**
@@ -11,11 +11,11 @@ use BestServedCold\PhalueObjects\TestCase;
  */
 class NotationTest extends TestCase
 {
-    public function testToArrayVO()
+    public function testToVOArray()
     {
         self::assertInstanceOf(
-            ArrayVO::class,
-            Notation::fromString('bob.mary.string')->toArrayVO()
+            VOArray::class,
+            Notation::fromString('bob.mary.string')->toVOArray()
         );
     }
 }

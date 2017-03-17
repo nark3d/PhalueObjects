@@ -1,0 +1,64 @@
+<?php
+
+namespace BestServedCold\PhalueObjects;
+
+use BestServedCold\PhalueObjects\Contract\Arrayable;
+use BestServedCold\PhalueObjects\Contract\Countable;
+use BestServedCold\PhalueObjects\VOArray\Find;
+use BestServedCold\PhalueObjects\VOArray\Key;
+use BestServedCold\PhalueObjects\VOArray\Iterator as IteratorTrait;
+use BestServedCold\PhalueObjects\VOArray\Mutate;
+use BestServedCold\PhalueObjects\VOArray\Pointer;
+use BestServedCold\PhalueObjects\VOArray\Metric;
+use Iterator;
+
+/**
+ * Class VOArray
+ *
+ * @package   BestServedCold\PhalueObjects\ValueObject
+ * @author    Adam Lewis <adam.lewis@bestservedcold.com>
+ * @copyright Copyright (c) 2015 Best Served Cold Media Limited
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @link      http://bestservedcold.com
+ * @since     0.0.1-alpha
+ * @version   0.0.2-alpha
+ */
+class VOArray extends ValueObject implements Iterator, Arrayable, Countable
+{
+    use IteratorTrait, Key, Find, Mutate, Pointer, Metric;
+
+    /**
+     * ArrayValueObject constructor.
+     *
+     * @param $value
+     */
+    public function __construct(array $value)
+    {
+        parent::__construct($value);
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) serialize($this->getValue());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function toArray()
+    {
+        return $this->getValue();
+    }
+
+    /**
+     * @param array $array
+     * @return static
+     */
+    public static function fromArray(array $array)
+    {
+        return new static($array);
+    }
+}

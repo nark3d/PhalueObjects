@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Exception;
 
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\Format\Csv;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
 /**
@@ -18,26 +18,16 @@ use BestServedCold\PhalueObjects\Mathematical\Integer;
  */
 class InvalidTypeException extends \InvalidArgumentException
 {
-    use ExtendedArrayTrait;
-
     /**
      * @param string $value
      * @param array  $allowedTypes
      */
     public function __construct($value, array $allowedTypes)
     {
+        $value = is_array($value) ?: var_export($value, true);
         $this->message =
             '[PhalueObjects] Argument ['.$value.'] of type ['.gettype($value).
             '] is not a valid type.'.' The allowed type(s) are ['.
-            $this->getAllowedTypes($allowedTypes).']';
-    }
-
-    /**
-     * @param  $allowedTypes
-     * @return string
-     */
-    protected function getAllowedTypes($allowedTypes)
-    {
-        return $this->arrayToCommaString($allowedTypes, new Integer(1));
+            Csv::fromArray($allowedTypes)->getValue().']';
     }
 }

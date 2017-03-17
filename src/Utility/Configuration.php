@@ -2,9 +2,10 @@
 
 namespace BestServedCold\PhalueObjects\Utility;
 
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\File\Yaml;
+use BestServedCold\PhalueObjects\Format\Json\Notation;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
+use BestServedCold\PhalueObjects\VOArray;
 
 /**
  * Class Configuration
@@ -23,8 +24,6 @@ use BestServedCold\PhalueObjects\Pattern\Singleton;
  */
 class Configuration extends Singleton
 {
-    use ExtendedArrayTrait;
-
     private static $configuration = [ ];
 
     /**
@@ -39,7 +38,7 @@ class Configuration extends Singleton
     public static function get($key)
     {
         empty(self::$configuration) ? self::getConfiguration() : null;
-        return self::getFromArrayUsingJsonNotation(self::$configuration, $key);
+        return VOArray::fromArray(self::$configuration)->jsonNotation(new Notation($key));
     }
 
     /**

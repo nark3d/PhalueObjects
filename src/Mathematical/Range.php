@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Mathematical;
 
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
+use BestServedCold\PhalueObjects\Format\Csv;
 use BestServedCold\PhalueObjects\Mathematical;
 use BestServedCold\PhalueObjects\Variadic;
 
@@ -19,8 +19,6 @@ use BestServedCold\PhalueObjects\Variadic;
  */
 class Range extends Variadic
 {
-    use ExtendedArrayTrait;
-
     /**
      * @var mixed
      */
@@ -47,10 +45,7 @@ class Range extends Variadic
      */
     public function __toString()
     {
-        return $this->arrayToCommaString(
-            [ $this->maximum, $this->minimum ],
-            new Integer(1)
-        );
+        return Csv::fromArray([ $this->maximum, $this->minimum ], ' ')->getValue();
     }
 
     /**
