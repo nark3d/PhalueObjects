@@ -10,7 +10,7 @@ use BestServedCold\PhalueObjects\VOArray;
  *
  * @package BestServedCold\PhalueObjects\VOArray
  */
-trait Find
+class Find extends VOArray
 {
     /**
      * @param  Notation $notation
@@ -27,7 +27,7 @@ trait Find
      */
     public function nativeArray(array $array)
     {
-        return $this->voArray(VOArray::fromArray($array));
+        return $this->voArray(static::fromArray($array));
     }
 
     /**
@@ -41,7 +41,7 @@ trait Find
     {
         if ($key = VOArray::fromArray($this->getValue())->getKey($arrayValueObject->current())) {
             return $arrayValueObject->isLast() ? $key
-                : VOArray::fromArray($key)
+                : static::fromArray($key)
                     ->voArray($arrayValueObject->dropFirst());
         }
 

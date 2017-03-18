@@ -18,12 +18,12 @@ class FindTest extends TestCase
         $array = ['bob' => ['susan' => ['mary' => 'findMe']]];
         self::assertEquals(
             'findMe',
-            (new VOArray($array))
+            (new Find($array))
                 ->jsonNotation(Notation::fromString('bob.susan.mary'))
         );
 
         self::assertFalse(
-            (new VOArray($array))
+            (new Find($array))
                 ->jsonNotation(Notation::fromString('bob.susan.barry'))
         );
     }
@@ -33,12 +33,12 @@ class FindTest extends TestCase
         $array = ['bob' => ['susan' => ['mary' => 'findMe']]];
         self::assertEquals(
             'findMe',
-            (new VOArray($array))
+            (new Find($array))
                 ->nativeArray(['bob', 'susan', 'mary'])
         );
 
         self::assertFalse(
-            (new VOArray($array))
+            (new Find($array))
                 ->nativeArray(['bob', 'no', 'way', 'hosai'])
         );
     }

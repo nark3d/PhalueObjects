@@ -4,6 +4,11 @@ namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\ValueObject;
 
+/**
+ * Class Byte
+ *
+ * @package BestServedCold\PhalueObjects\Format
+ */
 abstract class Byte extends ValueObject
 {
     /**
@@ -56,5 +61,5 @@ abstract class Byte extends ValueObject
     public function __toString()
     {
         return $this->getValue() ? $this->power().' '.$this->getUnit() : '0 bytes';
-    }      
+    }
 }

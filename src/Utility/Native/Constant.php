@@ -1,16 +1,11 @@
 <?php namespace BestServedCold\PhalueObjects\Utility\Native;
 
-use BestServedCold\PhalueObjects\ValueObject;
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
-
 /**
  * Class Constants
  * @package BestServedCold\PhalueObjects\Utility\Native
  */
 class Constant
 {
-    use ExtendedArrayTrait;
-
     /**
      * @var array
      */

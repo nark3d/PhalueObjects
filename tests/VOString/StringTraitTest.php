@@ -1,10 +1,15 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\String;
+namespace BestServedCold\PhalueObjects\VOString;
 
 use BestServedCold\PhalueObjects\TestCase;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
 
+/**
+ * Class StringTraitTest
+ *
+ * @package BestServedCold\PhalueObjects\String
+ */
 class StringTraitTest extends TestCase
 {
     use StringTrait;

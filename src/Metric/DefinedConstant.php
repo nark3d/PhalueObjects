@@ -2,8 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\Metric;
 
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Metric;
+use BestServedCold\PhalueObjects\VOString\Pair;
 
 /**
  * Class DefinedConstant
@@ -12,8 +12,6 @@ use BestServedCold\PhalueObjects\Metric;
  */
 class DefinedConstant extends Metric implements MetricInterface
 {
-    use ExtendedArrayTrait;
-
     /**
      * @return static
      */
@@ -27,6 +25,6 @@ class DefinedConstant extends Metric implements MetricInterface
      */
     public function __toString()
     {
-        return $this->arrayToPairString($this->getValue());
+        return Pair::fromArray($this->getValue())->getValue();
     }
 }

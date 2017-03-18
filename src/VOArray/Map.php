@@ -2,7 +2,6 @@
 
 namespace BestServedCold\PhalueObjects\VOArray;
 
-use BestServedCold\PhalueObjects\Variadic;
 use BestServedCold\PhalueObjects\VOArray;
 use BestServedCold\PhalueObjects\VOClosure;
 
@@ -14,14 +13,14 @@ use BestServedCold\PhalueObjects\VOClosure;
 class Map extends VOArray
 {
     /**
-     * Map constructor.
-     *
-     * @param \Closure $value
-     * @param \array[] ...$array
+     * @param  VOClosure $value
+     * @param  \array[]  ...$array
+     * @return static
      */
-    public function __construct(\Closure $value, array ...$array)
+    public static function fromVariadic(VOClosure $value, array ...$array)
     {
-        parent::__construct(call_user_func_array('array_map', func_get_args()));
+        return new static(
+            call_user_func_array('array_map', array_merge([$value->getValue()], $array))
+        );
     }
 }
-

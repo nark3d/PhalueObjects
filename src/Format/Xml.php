@@ -5,6 +5,10 @@ namespace BestServedCold\PhalueObjects\Format;
 use BestServedCold\PhalueObjects\Format;
 use Sabre\Xml\Service;
 
+/**
+ * Class Xml
+ * @package BestServedCold\PhalueObjects\Format
+ */
 class Xml extends Format
 {
     /**

@@ -5,4 +5,7 @@
  *
  * @package BestServedCold\PhalueObjects
  */
-class Format extends ValueObject {}
+class Format extends VOString
+{
+
+}

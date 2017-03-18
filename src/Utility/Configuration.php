@@ -5,12 +5,12 @@ namespace BestServedCold\PhalueObjects\Utility;
 use BestServedCold\PhalueObjects\File\Yaml;
 use BestServedCold\PhalueObjects\Format\Json\Notation;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
-use BestServedCold\PhalueObjects\VOArray;
+use BestServedCold\PhalueObjects\VOArray\Find;
 
 /**
  * Class Configuration
  *
- * Note: This class will work without extending the Singleton patter via the static
+ * Note: This class will work without extending the Singleton pattern via the static
  * property. however, I've left it extended to make it clear that it is,
  * effectively, following the Singleton pattern.
  *
@@ -38,7 +38,7 @@ class Configuration extends Singleton
     public static function get($key)
     {
         empty(self::$configuration) ? self::getConfiguration() : null;
-        return VOArray::fromArray(self::$configuration)->jsonNotation(new Notation($key));
+        return Find::fromArray(self::$configuration)->jsonNotation(new Notation($key));
     }
 
     /**

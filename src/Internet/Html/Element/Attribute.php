@@ -2,6 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Internet\Html\Element;
 
+use BestServedCold\PhalueObjects\Internet\Html\Element;
 use BestServedCold\PhalueObjects\ValueObject;
 
 class Attribute extends ValueObject
@@ -209,7 +210,7 @@ class Attribute extends ValueObject
 
     /**
      * Attribute constructor.
-     * 
+     *
      * @param $value
      */
     public function __construct($value)
@@ -225,8 +226,9 @@ class Attribute extends ValueObject
      * @param  $element
      * @return bool
      */
-    public function validForElement($element)
+    public function validForElement(Element $element)
     {
-        return in_array($element, $this->global) || in_array($element, $this->elements[ $element ]);
+        return in_array($element->getValue(), $this->global)
+            || in_array($element->getValue(), $this->elements[ $this->getValue() ]);
     }
 }

@@ -4,6 +4,11 @@ namespace BestServedCold\PhalueObjects\Format\Byte;
 
 use BestServedCold\PhalueObjects\TestCase;
 
+/**
+ * Class BinaryTest
+ *
+ * @package BestServedCold\PhalueObjects\Format\Byte
+ */
 class BinaryTest extends TestCase
 {
     public function testGetUnit()

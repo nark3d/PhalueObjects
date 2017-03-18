@@ -3,6 +3,7 @@
 namespace BestServedCold\PhalueObjects\VOArray;
 
 use BestServedCold\PhalueObjects\TestCase;
+use BestServedCold\PhalueObjects\VOClosure;
 
 /**
  * Class MapTest
@@ -16,14 +17,14 @@ class MapTest extends TestCase
         $array = ['some' => 'data', 'to' => 'test'];
         self::assertEquals(
             ['some:data', 'to:test'],
-            (
-                new Map(
+            Map::fromVariadic(
+                new VOClosure(
                     function ($key, $value) {
                         return $key . ':' . $value;
-                    },
-                    array_keys($array),
-                    $array
-                )
+                    }
+                ),
+                array_keys($array),
+                $array
             )->getValue()
         );
     }

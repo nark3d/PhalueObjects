@@ -27,7 +27,7 @@ class VOObject extends ValueObject
             throw new InvalidTypeException($value, ['object']);
         }
 
-        $this->reflection = new \ReflectionClass($this);
+        $this->reflection = new \ReflectionClass($value);
         parent::__construct($value);
     }
 

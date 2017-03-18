@@ -25,7 +25,7 @@ use Iterator;
  */
 class VOArray extends ValueObject implements Iterator, Arrayable, Countable
 {
-    use IteratorTrait, Key, Find, Mutate, Pointer, Metric;
+    use IteratorTrait, Key, Mutate, Pointer, Metric;
 
     /**
      * ArrayValueObject constructor.
@@ -60,5 +60,14 @@ class VOArray extends ValueObject implements Iterator, Arrayable, Countable
     public static function fromArray(array $array)
     {
         return new static($array);
+    }
+
+    /**
+     * @param  string $glue
+     * @return string
+     */
+    public function implode($glue = ',')
+    {
+        return implode($glue, $this->getValue());
     }
 }

@@ -2,9 +2,9 @@
 
 namespace BestServedCold\PhalueObjects\Utility;
 
-use BestServedCold\PhalueObjects\ExtendedArray\ExtendedArrayTrait;
 use BestServedCold\PhalueObjects\Format\Yaml;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
+use BestServedCold\PhalueObjects\VOArray;
 
 /**
  * Class Language
@@ -19,8 +19,6 @@ use BestServedCold\PhalueObjects\Pattern\Singleton;
  */
 final class Language extends Singleton
 {
-    use ExtendedArrayTrait;
-
     /**
      * @var string
      */
@@ -64,16 +62,17 @@ final class Language extends Singleton
             $singleton::$language = self::buildLanguage($identifier);
         }
 
-        return self::getFromArrayUsingJsonNotation($singleton::$language, $key);
+        return VOArray::fromArray($singleton::$language)->jsonNotation($key);
     }
 
     /**
+     * This doesn't work... Looking to remove all this non value object stuff soon.
      * @param  $key
      * @return array|mixed
      */
     private static function getIdentifier($key)
     {
-        $file = self::getArrayUsingJsonNotation($key);
+        $file = VOArray::fromArray($key)->jsonNotation($key);
         return is_array($file) ? reset($file) : $file;
     }
 }
