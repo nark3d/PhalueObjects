@@ -2,9 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\VOString;
 
-use BestServedCold\PhalueObjects\VOString;
-
 use BestServedCold\PhalueObjects\VOArray\Map\Attribute as VOArrayAttribute;
+use BestServedCold\PhalueObjects\VOString;
 
 /**
  * Class Attribute
@@ -15,7 +14,7 @@ class Attribute extends VOString
 {
     /**
      * @param  array  $array
-     * @return string
+     * @return Attribute
      */
     public static function fromArray(array $array)
     {

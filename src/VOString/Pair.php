@@ -2,8 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\VOString;
 
-use BestServedCold\PhalueObjects\VOString;
 use BestServedCold\PhalueObjects\VOArray\Map\Pair as VOArrayPair;
+use BestServedCold\PhalueObjects\VOString;
 
 /**
  * Class Pair
@@ -14,7 +14,7 @@ class Pair extends VOString
 {
     /**
      * @param array $array
-     * @return string
+     * @return Pair
      */
     public static function fromArray(array $array)
     {

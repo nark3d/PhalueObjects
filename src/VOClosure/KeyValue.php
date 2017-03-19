@@ -20,8 +20,8 @@ class KeyValue extends VOClosure
     public static function fromVars($prefix = null, $glue = null, $suffix = null)
     {
         return new static(
-            function ($key, $value) use ($prefix, $glue, $suffix) {
-                return $prefix . $key . $glue . $value . $suffix;
+            function($key, $value) use ($prefix, $glue, $suffix) {
+                return $prefix.$key.$glue.$value.$suffix;
             }
         );
     }
