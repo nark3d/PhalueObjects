@@ -51,4 +51,12 @@ trait Iterator
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function end()
+    {
+        end($this->value);
+        return $this;
+    }
 }

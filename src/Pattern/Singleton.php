@@ -34,9 +34,9 @@ class Singleton extends NotConstructable
      *
      * @return mixed
      */
-    final public static function getInstance()
+    final public static function getInstance($calledClass = null)
     {
-        $calledClass = get_called_class();
+        $calledClass = $calledClass ?: get_called_class();
 
         if (!isset(self::$instances[ $calledClass ])) {
             self::$instances[ $calledClass ] = new $calledClass();

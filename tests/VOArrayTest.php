@@ -82,4 +82,15 @@ class VOArrayTest extends TestCase
         $inValid = $VOArray->next()->next();
         self::assertFalse($inValid->valid());
     }
+
+    public function testToArray()
+    {
+        $voArray = new VOArray(['bob', 'mary']);
+        self::assertTrue(is_array($voArray->getValue()));
+        self::assertEquals(
+            ['bob', 'mary'],
+            $voArray->toArray()
+        );
+
+    }
 }

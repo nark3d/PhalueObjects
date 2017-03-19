@@ -23,10 +23,17 @@ class VOObjectTest extends TestCase
 
     public function testGetShortName()
     {
-        $voObject = new VOObject(new Binary(1000));
         self::assertEquals(
             'Binary',
-            $voObject->getShortName()
+            (new VOObject(new Binary(1000)))->getShortName()
+        );
+    }
+
+    public function testGetType()
+    {
+        self::assertEquals(
+            Binary::class,
+            (new VOObject(new Binary(1000)))->getType()
         );
     }
 }

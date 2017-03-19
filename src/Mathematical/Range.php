@@ -49,15 +49,11 @@ class Range extends Variadic
     }
 
     /**
-     * @param  Mathematical $mathematical
+     * @param  integer $integer
      * @return bool
      */
-    public function inRange(Mathematical $mathematical)
+    public function inRange($integer)
     {
-        return (
-            $this->minimum <= $mathematical->getValue()
-        ) && (
-            $this->maximum >= $mathematical->getValue()
-        );
+        return ($this->minimum >= $integer) && ($this->maximum <= $integer);
     }
 }

@@ -4,7 +4,7 @@ namespace BestServedCold\PhalueObjects\Utility;
 
 use BestServedCold\PhalueObjects\Format\Yaml;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
-use BestServedCold\PhalueObjects\VOArray;
+use BestServedCold\PhalueObjects\VOArray\Find;
 
 /**
  * Class Language
@@ -12,9 +12,9 @@ use BestServedCold\PhalueObjects\VOArray;
  * @package   BestServedCold\PhalueObjects\Utility
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
  * @link      http://bestservedcold.com
- * @since      0.0.1-alpha
+ * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
 final class Language extends Singleton
@@ -32,7 +32,7 @@ final class Language extends Singleton
     {
         return [
             $identifier =>
-                Yaml::fromString(self::getFileString($identifier))->parse()
+                Yaml::fromString(self::getFileString($identifier))->toArray()
         ];
     }
 
@@ -72,7 +72,7 @@ final class Language extends Singleton
      */
     private static function getIdentifier($key)
     {
-        $file = VOArray::fromArray($key)->jsonNotation($key);
+        $file = Find::fromArray($key)->jsonNotation($key);
         return is_array($file) ? reset($file) : $file;
     }
 }

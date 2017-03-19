@@ -5,16 +5,16 @@ namespace BestServedCold\PhalueObjects;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 /**
- * Class VOStringTest
+ * Class VONullTest
  *
  * @package BestServedCold\PhalueObjects
  */
-class VOStringTest extends TestCase
+class VONullTest extends TestCase
 {
     public function testConstructor()
     {
-        self::assertEquals('string', (new VOString('string'))->getValue());
+        self::assertNull((new VONull(null))->getValue());
         self::setExpectedException(InvalidTypeException::class);
-        new VOString(['bob']);
+        new VONull('thisIsNotNull');
     }
 }

@@ -32,14 +32,4 @@ class VOString extends ValueObject
 
         parent::__construct($value);
     }
-
-    /**
-     * @param  Map    $map
-     * @param  string $glue
-     * @return string
-     */
-    public function fromArrayMap(Map $map, $glue = ',')
-    {
-        return implode($glue, $map->getValue());
-    }
 }

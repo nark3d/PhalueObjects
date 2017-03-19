@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Utility;
 
-use BestServedCold\PhalueObjects\File\Yaml;
+use BestServedCold\PhalueObjects\Format\Yaml;
 use BestServedCold\PhalueObjects\Format\Json\Notation;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
 use BestServedCold\PhalueObjects\VOArray\Find;
@@ -17,13 +17,16 @@ use BestServedCold\PhalueObjects\VOArray\Find;
  * @package   BestServedCold\PhalueObjects\Utility
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
  * @link      http://bestservedcold.com
- * @since      0.0.1-alpha
+ * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
 class Configuration extends Singleton
 {
+    /**
+     * @var array
+     */
     private static $configuration = [ ];
 
     /**
@@ -48,6 +51,6 @@ class Configuration extends Singleton
      */
     public static function getConfiguration()
     {
-        return self::$configuration = Yaml::fromString(__DIR__.self::$file)->parse();
+        return self::$configuration = Yaml::fromString(__DIR__.self::$file)->toArray();
     }
 }

@@ -5,7 +5,6 @@ namespace BestServedCold\PhalueObjects\DateTime\Unit;
 use BestServedCold\PhalueObjects\Contract\DateTime as DateTimeInterface;
 use BestServedCold\PhalueObjects\DateTime\DateTimeTrait;
 use BestServedCold\PhalueObjects\Mathematical\Integer;
-use BestServedCold\PhalueObjects\Mathematical\Range\RangeTrait;
 
 /**
  * Class Minute
@@ -20,7 +19,7 @@ use BestServedCold\PhalueObjects\Mathematical\Range\RangeTrait;
  */
 final class Minute extends Integer implements DateTimeInterface
 {
-    use DateTimeTrait, RangeTrait;
+    use DateTimeTrait;
 
     /**
      * @param integer $value

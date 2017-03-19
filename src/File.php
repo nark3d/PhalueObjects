@@ -11,8 +11,14 @@ use BestServedCold\PhalueObjects\Format\Yaml;
  */
 class File extends ValueObject
 {
-    protected $checkExists = true;
+    /**
+     * @var int
+     */
     protected $timeout;
+
+    /**
+     * @var bool
+     */
     protected $mustExist;
 
     /**
@@ -71,26 +77,34 @@ class File extends ValueObject
     }
 
     /**
-     * @param string $string
-     * @return static
+     * @return VOString
      */
-    public static function fromString($string, $mustExist = true, $timeout = 10)
+    public function toVOString()
     {
-        return new static($string, $mustExist, $timeout);
+        return new VOString($this->getContents());
     }
 
-    public function arrayFromXml()
+    /**
+     * @return Xml
+     */
+    public function toXml()
     {
-        return Xml::fromString($this->getContents())->parse();
+        return Xml::fromString($this->getContents());
     }
 
-    public function arrayFromJson()
+    /**
+     * @return Json
+     */
+    public function toJson()
     {
-        return Json::fromString($this->getContents())->parse();
+        return Json::fromString($this->getContents());
     }
 
-    public function arrayFromYaml()
+    /**
+     * @return Yaml
+     */
+    public function toYaml()
     {
-        return Yaml::fromString($this->getContents())->parse();
+        return Yaml::fromString($this->getContents());
     }
 }

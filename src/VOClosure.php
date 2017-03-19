@@ -2,8 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
-
 /**
  * Class VOClosure
  *

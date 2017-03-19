@@ -1,20 +1,10 @@
 <?php namespace BestServedCold\PhalueObjects;
 
+/**
+ * Class Image
+ *
+ * @package BestServedCold\PhalueObjects
+ */
 class Image extends ValueObject
 {
-    public function toHex()
-    {
-
-    }
-
-    public function toRgb()
-    {
-
-    }
-
-    public function toBmp()
-    {
-
-    }
-
 }

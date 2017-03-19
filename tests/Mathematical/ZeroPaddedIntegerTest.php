@@ -2,6 +2,11 @@
 
 use BestServedCold\PhalueObjects\TestCase;
 
+/**
+ * Class ZeroPaddedIntegerTest
+ *
+ * @package BestServedCold\PhalueObjects\Mathematical
+ */
 class ZeroPaddedIntegerTest extends TestCase
 {
     public function testConstructor()

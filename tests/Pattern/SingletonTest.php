@@ -2,13 +2,18 @@
 
 use BestServedCold\PhalueObjects\TestCase;
 
+/**
+ * Class SingletonTest
+ *
+ * @package BestServedCold\PhalueObjects\Pattern
+ */
 class SingletonTest extends TestCase
 {
     public function testUnique()
     {
         $singleton = Singleton::getInstance();
         self::assertInstanceOf(
-            'BestServedCold\PhalueObjects\Pattern\Singleton',
+            Singleton::class,
             $singleton
         );
         self::assertEquals(
@@ -24,6 +29,16 @@ class SingletonTest extends TestCase
                 ->getMethod('__construct')
                 ->isPrivate()
         );
+    }
+
+    public function testDestroy()
+    {
+        self::assertNull(Singleton::destroy());
+    }
+
+    public function testDestroyInstance()
+    {
+        self::assertNull(Singleton::destroyInstance(Singleton::class));
     }
 }
 
