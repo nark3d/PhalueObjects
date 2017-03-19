@@ -20,7 +20,7 @@ class Map extends VOArray
     public static function fromVariadic(VOClosure $value, array ...$array)
     {
         return new static(
-            call_user_func_array('array_map', array_merge([$value->getValue()], $array))
+            call_user_func_array('array_map', array_merge([ $value->getValue() ], $array))
         );
     }
 }

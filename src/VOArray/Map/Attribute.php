@@ -3,8 +3,8 @@
 namespace BestServedCold\PhalueObjects\VOArray\Map;
 
 use BestServedCold\PhalueObjects\VOArray;
-use BestServedCold\PhalueObjects\VOClosure\KeyValue;
 use BestServedCold\PhalueObjects\VOArray\Map;
+use BestServedCold\PhalueObjects\VOClosure\KeyValue;
 
 /**
  * Class Attribute

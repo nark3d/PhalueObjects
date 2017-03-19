@@ -23,8 +23,8 @@ class VOObject extends ValueObject
      */
     public function __construct($value)
     {
-        if (! is_object($value)) {
-            throw new InvalidTypeException($value, ['object']);
+        if (!is_object($value)) {
+            throw new InvalidTypeException($value, [ 'object' ]);
         }
 
         $this->reflection = new \ReflectionClass($value);
