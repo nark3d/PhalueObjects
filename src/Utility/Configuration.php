@@ -2,8 +2,8 @@
 
 namespace BestServedCold\PhalueObjects\Utility;
 
-use BestServedCold\PhalueObjects\Format\Yaml;
 use BestServedCold\PhalueObjects\Format\Json\Notation;
+use BestServedCold\PhalueObjects\Format\Yaml;
 use BestServedCold\PhalueObjects\Pattern\Singleton;
 use BestServedCold\PhalueObjects\VOArray\Find;
 
