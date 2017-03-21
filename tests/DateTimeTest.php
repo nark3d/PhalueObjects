@@ -1,5 +1,10 @@
 <?php namespace BestServedCold\PhalueObjects;
 
+/**
+ * Class DateTimeTest
+ *
+ * @package BestServedCold\PhalueObjects
+ */
 class DateTimeTest extends TestCase
 {
     public function testGetDate()

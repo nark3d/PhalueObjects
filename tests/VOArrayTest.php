@@ -46,12 +46,7 @@ class VOArrayTest extends TestCase
         self::assertTrue($this->VOArray->equals(new VOArray($this->testArray)));
         self::assertFalse($this->VOArray->equals(new VOArray([13, 22, 35, 33])));
     }
-
-    public function testEqualsException()
-    {
-        $this->setExpectedException(InvalidTypeException::class);
-        (new VOArray(['some', 'array']))->equals(PeakMemoryUsage::now());
-    }
+    
     public function testGetValues()
     {
         self::assertEquals($this->testArray, $this->VOArray->getValue());

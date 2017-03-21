@@ -26,17 +26,4 @@ trait Metric
     {
         return empty($this->value);
     }
-
-    /**
-     * @param  ValueObject $object
-     * @return bool
-     */
-    public function equals(ValueObject $object)
-    {
-        if (! $object instanceof VOArray) {
-            throw new InvalidTypeException($object, [ VOArray::class ]);
-        }
-
-        return parent::equals($object);
-    }
 }
