@@ -4,6 +4,11 @@ namespace BestServedCold\PhalueObjects\Metric;
 
 use BestServedCold\PhalueObjects\TestCase;
 
+/**
+ * Class MemoryUsageTest
+ *
+ * @package BestServedCold\PhalueObjects\Metric
+ */
 class MemoryUsageTest extends TestCase
 {
     public function testNow()
@@ -15,6 +20,6 @@ class MemoryUsageTest extends TestCase
     public function testToString()
     {
         $now = MemoryUsage::now();
-        self::assertTrue(is_string((string) $now));
+        self::assertTrue(is_string($now->__toString()));
     }
 }

@@ -2,14 +2,14 @@
 
 namespace BestServedCold\PhalueObjects\Format;
 
-use BestServedCold\PhalueObjects\ValueObject;
+use BestServedCold\PhalueObjects\VOFloat;
 
 /**
  * Class Byte
  *
  * @package BestServedCold\PhalueObjects\Format
  */
-abstract class Byte extends ValueObject
+abstract class Byte extends VOFloat
 {
     /**
      * @var array $units
