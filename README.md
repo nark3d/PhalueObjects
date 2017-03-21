@@ -25,7 +25,7 @@ Read the [Docs](https://github.com/nark3d/PhalueObjects/wiki) for usage
 To make this code consistent, we've stuck to a certain set of restrictions:
 
 ### Rules
-* [**Must** be immutable](#Must be immutable)
+* [**Must** be immutable](#immutable)
 * **Must** contain one value
 * **Can** instantiate new object from value
 * **Can** be created from multiple arguments
@@ -35,6 +35,7 @@ To make this code consistent, we've stuck to a certain set of restrictions:
 
 *Disclaimer: This is my interpretation of "The rules".*
 
+#<a name="immutable"></a>
 #### Must be immutable
 The value object's value must be set at the time of construction.
 At no point should the value be mutated within the object.
