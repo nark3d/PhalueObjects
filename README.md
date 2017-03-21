@@ -27,10 +27,10 @@ To make this code consistent, we've stuck to a certain set of restrictions:
 ### Rules
 * [**Must** be immutable](#must-be-immutable)
 * [**Must** contain one value](#must-contain-one-value)
-* **Can** instantiate new object from value
-* **Can** be created from multiple arguments
-* **Can** be equal regardless of object
-* **Must** have a zero lifespan
+* [**Can** instantiate new object from value](#can-instantiate-new-object-from-value)
+* [**Can** be created from multiple arguments](#can-be-created-from-multiple-arguments)
+* [**Can** be equal regardless of object](#can-be-equal-regardless-of-object)
+* [**Must** have a zero lifespan](#must-have-a-zero-lifespan)
 
 
 *Disclaimer: This is my interpretation of "The rules".*
