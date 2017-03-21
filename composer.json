@@ -30,6 +30,6 @@
     "psr-4": {"BestServedCold\\PhalueObjects\\": "src"}
   },
   "autoload-dev": {
-    "psr-4": {"BestServedCold\\PhalueObjects\\": "tests"}
+    "psr-4": {"BestServedCold\\PhalueObjects\\Tests\\": "tests"}
   }
 }

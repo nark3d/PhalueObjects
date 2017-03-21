@@ -14,7 +14,7 @@ A generic set of PHP Value Objects for use in any project.
 * [Installation](#installation)
 * [Philosophy](#philosophy)
 * Documents
-    * [Format](src/Colour/README.md)
+    * [Format](src/Format/README.md)
 
 ## Installation
 ```shell
