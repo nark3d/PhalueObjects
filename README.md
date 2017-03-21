@@ -35,7 +35,7 @@ To make this code consistent, we've stuck to a certain set of restrictions:
 
 *Disclaimer: This is my interpretation of "The rules".*
 
-#<a name="immutable"></a>
+<a name="immutable"></a>
 #### Must be immutable
 The value object's value must be set at the time of construction.
 At no point should the value be mutated within the object.
