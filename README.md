@@ -7,20 +7,19 @@
 
 A generic set of PHP Value Objects for use in any project.
 
-[Colour](src/Colour/README.md)
-
 [Wikipedia](https://en.wikipedia.org/wiki/Domain-driven_design)
 > When people exchange business cards, they generally do not distinguish between each unique card; they only are concerned about the information printed on the card. In this context, business cards are value objects.
+
+## Table of contents
+* [Installation](#installation)
+* [Philosophy](#philosophy)
+* Documents
+    * [Format](src/Colour/README.md)
 
 ## Installation
 ```shell
 composer require best-served-cold/phalue-objects
 ```
-
-## Usage
-
-Read the [Docs](https://github.com/nark3d/PhalueObjects/wiki) for usage
-  instructions.
 
 ## Philosophy
 To make this code consistent, we've stuck to a certain set of restrictions:
