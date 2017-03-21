@@ -76,6 +76,6 @@ $bob = $stringValueObject->equals($csvValueObject);
 ```$bob``` is true where the type and value are equal.
 
 ### Must have a zero lifespan
-Value objects must not persist data between run times.  For example, 
+Value objects must not persist data between run times.  For example: 
 no database or session information must be collected from within the
 object.
