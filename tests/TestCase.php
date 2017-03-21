@@ -6,7 +6,11 @@ use BestServedCold\Reflection\ReflectionClass;
 use BestServedCold\Reflection\ReflectionObject;
 use Mockery;
 
-
+/**
+ * Class TestCase
+ *
+ * @package BestServedCold\PhalueObjects
+ */
 class TestCase extends \PHPUnit_Framework_TestCase
 {
     public function tearDown()
