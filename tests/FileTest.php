@@ -2,6 +2,7 @@
 
 namespace BestServedCold\PhalueObjects;
 
+use BestServedCold\PhalueObjects\File\Local;
 use BestServedCold\PhalueObjects\Format\Json;
 use BestServedCold\PhalueObjects\Format\Xml;
 use BestServedCold\PhalueObjects\Format\Yaml;
@@ -14,42 +15,23 @@ use BestServedCold\PhalueObjects\Format\Yaml;
 class FileTest extends TestCase
 {
     /**
-     * @var File $file
+     * @var Local $file
      */
     private $file;
 
     public function setUp()
     {
-        $this->file = new File(__FILE__);
+        $this->file = new Local('/some/path/someFile.txt');
         parent::setUp();
-    }
-
-    public function testExists()
-    {
-        self::assertTrue($this->file->exists());
-    }
-
-    public function testGetContents()
-    {
-        self::assertTrue(is_string($this->file->getContents()));
     }
 
     public function testGetExtension()
     {
-        self::assertEquals('php', $this->file->getExtension());
+
     }
 
-    public function testGetDirectoryName()
-    {
-        self::assertTrue(is_string($this->file->getDirectoryName()));
-    }
 
-    public function testGetFileName()
-    {
-        self::assertEquals('FileTest', $this->file->getFileName());
-    }
-
-    public function testToString()
+    public function testToVOString()
     {
         self::assertInstanceOf(VOString::class, $this->file->toVOString());
     }

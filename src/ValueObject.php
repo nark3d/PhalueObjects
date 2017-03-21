@@ -111,6 +111,14 @@ class ValueObject implements ValueObjectInterface
     }
 
     /**
+     * @inheritdoc
+     */
+    public function __destruct()
+    {
+        $this->value = null;
+    }
+
+    /**
      * @param  ValueObject $object
      * @return ValueObject
      */

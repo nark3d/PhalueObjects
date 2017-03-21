@@ -9,7 +9,7 @@ use BestServedCold\PhalueObjects\Format\Yaml;
  *
  * @package BestServedCold\PhalueObjects
  */
-class File extends ValueObject
+abstract class File extends ValueObject
 {
     /**
      * @var int
@@ -23,33 +23,16 @@ class File extends ValueObject
 
     /**
      * File constructor.
-     * @param array $value
-     * @param bool $mustExist
-     * @param int $timeout
+     *
+     * @param string $value
+     * @param bool   $mustExist
+     * @param int    $timeout
      */
     public function __construct($value, $mustExist = true, $timeout = 10)
     {
         parent::__construct($value);
         $this->timeout = $timeout;
         $this->mustExist = $mustExist;
-    }
-
-    /**
-     * @return bool
-     */
-    public function exists()
-    {
-        return file_exists($this->getValue());
-    }
-
-    /**
-     * @return string
-     */
-    public function getContents()
-    {
-        return !$this->mustExist || $this->exists()
-            ? file_get_contents($this->getValue())
-            : false;
     }
 
     /**
@@ -81,7 +64,7 @@ class File extends ValueObject
      */
     public function toVOString()
     {
-        return new VOString($this->getContents());
+        return new VOString($this->getValue());
     }
 
     /**
@@ -89,7 +72,7 @@ class File extends ValueObject
      */
     public function toXml()
     {
-        return Xml::fromString($this->getContents());
+        return Xml::fromString($this->getValue());
     }
 
     /**
@@ -97,7 +80,7 @@ class File extends ValueObject
      */
     public function toJson()
     {
-        return Json::fromString($this->getContents());
+        return Json::fromString($this->getValue());
     }
 
     /**
@@ -105,6 +88,6 @@ class File extends ValueObject
      */
     public function toYaml()
     {
-        return Yaml::fromString($this->getContents());
+        return Yaml::fromString($this->getValue());
     }
 }
