@@ -46,7 +46,7 @@ class VOArrayTest extends TestCase
         self::assertTrue($this->VOArray->equals(new VOArray($this->testArray)));
         self::assertFalse($this->VOArray->equals(new VOArray([13, 22, 35, 33])));
     }
-    
+
     public function testGetValues()
     {
         self::assertEquals($this->testArray, $this->VOArray->getValue());

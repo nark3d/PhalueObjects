@@ -17,7 +17,7 @@ class Map extends VOArray
      * @param  \array[]  ...$array
      * @return static
      */
-    public static function fromVariadic(VOClosure $value, array ...$array)
+    public static function fromVariadic(VOClosure $value, ...$array)
     {
         return new static(
             call_user_func_array('array_map', array_merge([ $value->getValue() ], $array))
