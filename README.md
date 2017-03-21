@@ -25,7 +25,7 @@ Read the [Docs](https://github.com/nark3d/PhalueObjects/wiki) for usage
 To make this code consistent, we've stuck to a certain set of restrictions:
 
 ### Rules
-* **Must** be immutable
+* [**Must** be immutable](#Must be immutable)
 * **Must** contain one value
 * **Can** instantiate new object from value
 * **Can** be created from multiple arguments
