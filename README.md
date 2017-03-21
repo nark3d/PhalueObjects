@@ -37,7 +37,7 @@ any of the following types:
 * null 
 
 ### Can instantiate new object from value
-Rather than mutating, a new object can be instantiated from an instantiated one.
+Rather than mutating, a new object can be instantiated from an existing one.
 
 Example:
 ```php
@@ -50,7 +50,7 @@ public function double()
 ```
 
 ### Can be created from multiple arguments
-Instead of an object having multiple class properties, it can be created from
+Instead of an object having multiple object properties, it should be created from
 multiple arguments.
 
 Example:
@@ -64,7 +64,7 @@ public static function fromVars($one = 1, $two = 2, $three = 3)
 ```
 
 ### Can be equal regardless of object
-The type of value object is irrelevant to equality:
+The type of a value object is irrelevant to equality:
 
 Example:
 ```php
