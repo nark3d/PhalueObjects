@@ -4,7 +4,7 @@ namespace BestServedCold\PhalueObjects\Contract;
 
 /**
  * Interface ValueObjectInterface
- * 
+ *
  * @package  BestServedCold\PhalueObjects\Contract
  */
 interface ValueObject
@@ -25,4 +25,25 @@ interface ValueObject
      * @return mixed
      */
     public function getValue();
+
+    /**
+     * @param  ValueObject $object
+     * @return bool
+     */
+    public function equals(ValueObject $object);
+
+    /**
+     * @return string
+     */
+    public function getType();
+
+    /**
+     * @return string
+     */
+    public function hash();
+
+    /**
+     * @inheritdoc
+     */
+    public function __destruct();
 }

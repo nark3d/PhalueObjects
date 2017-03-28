@@ -4,14 +4,14 @@ namespace BestServedCold\PhalueObjects\Metric;
 
 use BestServedCold\PhalueObjects\Format\Byte\Binary;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
-use BestServedCold\PhalueObjects\Metric;
+use BestServedCold\PhalueObjects\VOFloat;
 
 /**
  * Class MemoryUsage
  *
  * @package BestServedCold\PhalueObjects\Metric
  */
-class MemoryUsage extends Metric implements MetricInterface
+class MemoryUsage extends VOFloat implements MetricInterface
 {
     use ArithmeticTrait;
 
@@ -28,6 +28,6 @@ class MemoryUsage extends Metric implements MetricInterface
      */
     public function __toString()
     {
-        return (string) Binary::fromBytes($this->getValue());
+        return (string) Binary::fromFloat($this->getValue());
     }
 }

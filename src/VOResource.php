@@ -24,4 +24,12 @@ class VOResource extends ValueObject
 
         parent::__construct($value);
     }
+
+    /**
+     * @return resource
+     */
+    public function getValue()
+    {
+        return parent::getValue();
+    }
 }

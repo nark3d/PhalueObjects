@@ -16,7 +16,7 @@ class ComparisonTraitTest extends TestCase
     {
         $this->stub = $this->getMock(
             ValueObjectInterface::class,
-            ['getValue', '__toString', '__set']
+            ['getValue', '__toString', '__set', 'equals', 'getType', 'hash', '__destruct']
         );
 
         $this->stub->expects($this->any())

@@ -9,7 +9,7 @@ use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
  *
  * @package BestServedCold\PhalueObjects\ValueObject
  */
-class VOObject extends ValueObject
+class VOObject extends ValueObject implements \Countable
 {
     /**
      * @var \ReflectionClass
@@ -32,6 +32,15 @@ class VOObject extends ValueObject
     }
 
     /**
+     * @return object
+     */
+    public function getValue()
+    {
+        return (object) parent::getValue();
+    }
+
+
+    /**
      * @return string
      */
     public function getType()
@@ -45,5 +54,18 @@ class VOObject extends ValueObject
     public function getShortName()
     {
         return $this->reflection->getShortName();
+    }
+
+    /**
+     * @return integer
+     * @throws \Exception
+     */
+    public function count()
+    {
+        if (! method_exists($this->getValue(), 'count')) {
+            throw new \Exception('[' . $this->getShortName() . '] does not have a count method.');
+        }
+
+        return $this->getValue()->count();
     }
 }

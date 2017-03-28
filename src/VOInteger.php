@@ -2,6 +2,8 @@
 
 namespace BestServedCold\PhalueObjects;
 
+use BestServedCold\PhalueObjects\Contract\Diffable;
+use BestServedCold\PhalueObjects\Contract\ValueObject as ValueObjectInterface;
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
 
 /**
@@ -15,7 +17,7 @@ use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
  * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class VOInteger extends ValueObject
+class VOInteger extends ValueObject implements \Countable, Diffable
 {
     /**
      * @param $value
@@ -27,5 +29,30 @@ class VOInteger extends ValueObject
         }
 
         parent::__construct($value);
+    }
+
+    /**
+     * @return integer
+     */
+    public function getValue()
+    {
+        return (integer) parent::getValue();
+    }
+
+    /**
+     * @return integer
+     */
+    public function count()
+    {
+        return $this->getValue();
+    }
+
+    /**
+     * @param  ValueObjectInterface $object
+     * @return static
+     */
+    public function diff(ValueObjectInterface $object)
+    {
+        return new static($this->getValue() - $object->getValue());
     }
 }

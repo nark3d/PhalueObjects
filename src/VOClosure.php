@@ -18,4 +18,21 @@ class VOClosure extends ValueObject
     {
         parent::__construct($value);
     }
+
+    /**
+     * @return \Closure
+     */
+    public function getValue()
+    {
+        return parent::getValue();
+    }
+
+    /**
+     * @param  \Closure $closure
+     * @return static
+     */
+    public static function fromClosure(\Closure $closure)
+    {
+        return new static($closure);
+    }
 }

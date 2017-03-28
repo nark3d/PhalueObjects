@@ -3,7 +3,8 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Contract\Arrayable;
-use BestServedCold\PhalueObjects\Contract\Countable;
+use BestServedCold\PhalueObjects\Contract\Diffable;
+use BestServedCold\PhalueObjects\Contract\ValueObject as ValueObjectInterface;
 use BestServedCold\PhalueObjects\VOArray\Iterator as IteratorTrait;
 use BestServedCold\PhalueObjects\VOArray\Key;
 use BestServedCold\PhalueObjects\VOArray\Metric;
@@ -22,7 +23,7 @@ use Iterator;
  * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class VOArray extends ValueObject implements Iterator, Arrayable, Countable
+class VOArray extends ValueObject implements Iterator, Arrayable, \Countable, Diffable
 {
     use IteratorTrait, Key, Mutate, Pointer, Metric;
 
@@ -68,5 +69,22 @@ class VOArray extends ValueObject implements Iterator, Arrayable, Countable
     public function implode($glue = ',')
     {
         return implode($glue, $this->getValue());
+    }
+
+    /**
+     * @return array
+     */
+    public function getValue()
+    {
+        return (array) parent::getValue();
+    }
+
+    /**
+     * @param  ValueObjectInterface $object
+     * @return static
+     */
+    public function diff(ValueObjectInterface $object)
+    {
+        return new static(array_diff_assoc($this->getValue(), $object->getValue()));
     }
 }

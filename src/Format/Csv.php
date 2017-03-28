@@ -2,18 +2,19 @@
 
 namespace BestServedCold\PhalueObjects\Format;
 
-use BestServedCold\PhalueObjects\Contract\Arrayable;
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
-use BestServedCold\PhalueObjects\ValueObject;
-use BestServedCold\PhalueObjects\VOArray;
+use BestServedCold\PhalueObjects\VOString;
+use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
 
 /**
  * Class Csv
  *
  * @package BestServedCold\PhalueObjects\Format
  */
-class Csv extends ValueObject implements Arrayable, VOArrayable
+class Csv extends VOString implements VOArrayable
 {
+    use VOArrayMixin;
+
     /**
      * @param  array       $array
      * @param  string|null $space
@@ -24,13 +25,9 @@ class Csv extends ValueObject implements Arrayable, VOArrayable
         return new static(implode(',' . $space, $array));
     }
 
-    /**
-     * @param  VOArray $voArray
-     * @return static
-     */
-    public static function fromVOArray(VOArray $voArray)
+    private static function fromMultiArray(array $array, $space = null)
     {
-        return self::fromArray($voArray->getValue());
+
     }
 
     /**
@@ -39,13 +36,5 @@ class Csv extends ValueObject implements Arrayable, VOArrayable
     public function toArray()
     {
         return explode(',', $this->getValue());
-    }
-
-    /**
-     * @return VOArray
-     */
-    public function toVOArray()
-    {
-        return VOArray::fromArray(self::toArray());
     }
 }

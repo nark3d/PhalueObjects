@@ -2,32 +2,92 @@
 
 namespace BestServedCold\PhalueObjects\Format;
 
+use BestServedCold\PhalueObjects\Contract\VOStringable;
+use BestServedCold\PhalueObjects\VOArray\Find;
+use BestServedCold\PhalueObjects\VOArray\Map;
+use BestServedCold\PhalueObjects\VOClosure\Value;
 use BestServedCold\PhalueObjects\VOFloat;
+use BestServedCold\PhalueObjects\VOString;
+use BestServedCold\PhalueObjects\VOString\Word;
+use BestServedCold\PhalueObjects\VOString\Mixin as VOStringTrait;
 
 /**
  * Class Byte
  *
  * @package BestServedCold\PhalueObjects\Format
  */
-abstract class Byte extends VOFloat
+abstract class Byte extends VOFloat implements VOStringable
 {
-    /**
-     * @var array $units
-     */
-    private $units = [ "Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB" ];
+    use VOStringTrait;
+
+    const UNITS = [
+        [ 'Byte' => 'Byte' ],
+        [ 'KB'   => 'Kilobyte' ],
+        [ 'MB'   => 'Megabyte' ],
+        [ 'GB'   => 'Gigabyte' ],
+        [ 'TB'   => 'Terabyte' ],
+        [ 'PB'   => 'Pecabyte' ],
+        [ 'EB'   => 'Exabyte' ],
+        [ 'ZB'   => 'Zettabyte' ],
+        [ 'YB'   => 'Yottabyte' ]
+    ];
 
     /**
      * @var integer $power
      */
-    protected $power;
+    protected static $power;
 
     /**
-     * @param  integer $bytes
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toString();
+    }
+
+    /**
+     * @param  string $string
      * @return static
      */
-    public static function fromBytes($bytes)
+    public static function fromString($string)
     {
-        return new static($bytes);
+        $voString = VOString::fromString($string);
+
+        return new static(
+            $voString->getNumbers() *
+            pow(
+                static::$power,
+                Find::fromArray(self::getUnitKeyList())->keyFromArrayValue($voString->getLetters())
+            )
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function toString()
+    {
+        return $this->getValue() ? $this->getPower().' '.$this->getUnit() : '0 Bytes';
+    }
+
+    /**
+     * @param  null   $power
+     * @return string
+     */
+    public function getUnit($power = null)
+    {
+        $power = $power ?: $this->getPower();
+        $unit  = reset(self::UNITS[ (int) floor($this->base()) ]);
+        return Word::fromString($unit)->getPluralised($power);
+    }
+
+    /**
+     * @param  int $precision
+     * @return float
+     */
+    public function getPower($precision = 2)
+    {
+        return round(pow(static::$power, $this->base() - floor($this->base())), $precision);
     }
 
     /**
@@ -35,31 +95,14 @@ abstract class Byte extends VOFloat
      */
     private function base()
     {
-        return log($this->getValue(), $this->power);
+        return log($this->getValue(), static::$power);
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getUnit()
+    private static function getUnitKeyList()
     {
-        return $this->units[ (int) floor($this->base()) ];
-    }
-
-    /**
-     * @param  int $precision
-     * @return float
-     */
-    public function power($precision = 2)
-    {
-        return round(pow($this->power, $this->base() - floor($this->base())), $precision);
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getValue() ? $this->power().' '.$this->getUnit() : '0 bytes';
+        return Map::fromVariadic(Value::toArrayWithPlural(true), self::UNITS)->getValue();
     }
 }

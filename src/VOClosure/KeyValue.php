@@ -3,6 +3,7 @@
 namespace BestServedCold\PhalueObjects\VOClosure;
 
 use BestServedCold\PhalueObjects\VOClosure;
+use BestServedCold\PhalueObjects\VOString\Word;
 
 /**
  * Class KeyValue
@@ -20,9 +21,10 @@ class KeyValue extends VOClosure
     public static function fromVars($prefix = null, $glue = null, $suffix = null)
     {
         return new static(
-            function($key, $value) use ($prefix, $glue, $suffix) {
+            function ($key, $value) use ($prefix, $glue, $suffix) {
                 return $prefix.$key.$glue.$value.$suffix;
             }
         );
     }
+
 }

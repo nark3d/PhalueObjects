@@ -9,7 +9,7 @@ use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
  *
  * @package BestServedCold\PhalueObjects
  */
-abstract class Metric extends ValueObject
+abstract class Metric extends VOArray
 {
     use ArithmeticTrait;
 

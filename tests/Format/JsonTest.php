@@ -4,7 +4,13 @@ namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\TestCase;
 use BestServedCold\PhalueObjects\VOArray;
+use BestServedCold\PhalueObjects\VOString;
 
+/**
+ * Class JsonTest
+ *
+ * @package BestServedCold\PhalueObjects\Format
+ */
 class JsonTest extends TestCase
 {
     private $array = [
@@ -32,6 +38,7 @@ class JsonTest extends TestCase
         );
         self::assertEquals($this->array, $voArray->getValue());
     }
+
     public function testFromArray()
     {
         self::assertEquals(
@@ -45,6 +52,30 @@ class JsonTest extends TestCase
         self::assertEquals(
             '{"some":"test","data":{"to":"test","bob":"susan"}}',
             Json::fromVOArray(VOArray::fromArray($this->array))
+        );
+    }
+
+    public function testToString()
+    {
+        self::assertEquals(
+            '{"some":"test","data":{"to":"test","bob":"susan"}}',
+            Json::fromArray($this->array)->toString()
+        );
+    }
+
+    public function testFromString()
+    {
+        self::assertEquals(
+            '{"some":"test","data":{"to":"test","bob":"susan"}}',
+            Json::fromString('{"some":"test","data":{"to":"test","bob":"susan"}}')->toString()
+        );
+    }
+
+    public function testToVOString()
+    {
+        self::assertInstanceOf(
+            VOString::class,
+            Json::fromString('{"some":"test","data":{"to":"test","bob":"susan"}}')->toVOString()
         );
     }
 }

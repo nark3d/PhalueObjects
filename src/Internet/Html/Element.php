@@ -2,14 +2,19 @@
 
 namespace BestServedCold\PhalueObjects\Internet\Html;
 
-use BestServedCold\PhalueObjects\ValueObject;
+use BestServedCold\PhalueObjects\VOString;
 
-class Element extends ValueObject
+/**
+ * Class Element
+ *
+ * @package BestServedCold\PhalueObjects\Internet\Html
+ */
+class Element extends VOString
 {
     /**
      * @var array $elements
      */
-    private  $elements = [
+    const ELEMENTS = [
         'a',
         'abbr',
         'address',
@@ -125,7 +130,7 @@ class Element extends ValueObject
     /**
      * @var array $voidElements
      */
-    private  $voidElements = [
+    const VOID_ELEMENTS = [
         'area',
         'base',
         'br',
@@ -146,12 +151,12 @@ class Element extends ValueObject
 
     /**
      * Element constructor.
-     * 
+     *
      * @param $value
      */
     public function __construct($value)
     {
-        if (!in_array($value, $this->elements)) {
+        if (!in_array($value, self::ELEMENTS)) {
             throw new \InvalidArgumentException('['.$value.'] is not a valid HTML element');
         }
 
@@ -163,6 +168,6 @@ class Element extends ValueObject
      */
     public function isVoid()
     {
-        return in_array($this->getValue(), $this->voidElements);
+        return in_array($this->getValue(), self::VOID_ELEMENTS);
     }
 }

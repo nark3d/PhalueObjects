@@ -2,18 +2,19 @@
 
 namespace BestServedCold\PhalueObjects\Format;
 
-use BestServedCold\PhalueObjects\Contract\Arrayable;
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
-use BestServedCold\PhalueObjects\Format;
-use BestServedCold\PhalueObjects\VOArray;
+use BestServedCold\PhalueObjects\VOString;
+use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
 
 /**
  * Class Json
  *
  * @package BestServedCold\PhalueObjects\Format
  */
-class Json extends Format implements Arrayable, VOArrayable
+class Json extends VOString implements VOArrayable
 {
+    use VOArrayMixin;
+
     /**
      * @return array
      */
@@ -29,22 +30,5 @@ class Json extends Format implements Arrayable, VOArrayable
     public static function fromArray(array $array)
     {
         return new static(json_encode($array));
-    }
-
-    /**
-     * @param  VOArray $voArray
-     * @return Json
-     */
-    public static function fromVOArray(VOArray $voArray)
-    {
-        return self::fromArray($voArray->getValue());
-    }
-
-    /**
-     * @return VOArray
-     */
-    public function toVOArray()
-    {
-        return VOArray::fromArray(self::toArray());
     }
 }

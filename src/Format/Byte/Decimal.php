@@ -11,5 +11,5 @@ use BestServedCold\PhalueObjects\Format\Byte;
  */
 class Decimal extends Byte
 {
-    protected $power = 1000;
+    protected static $power = 1000;
 }

@@ -27,7 +27,7 @@ class Find extends VOArray
      */
     public function nativeArray(array $array)
     {
-        return $this->voArray(static::fromArray($array));
+        return $this->voArray(VOArray::fromArray($array));
     }
 
     /**
@@ -46,5 +46,18 @@ class Find extends VOArray
         }
 
         return false;
+    }
+
+    /**
+     * @param  $arrayValue
+     * @return int|string
+     */
+    public function keyFromArrayValue($arrayValue)
+    {
+        foreach ($this->getValue() as $key => $value) {
+            if (in_array(strtolower($arrayValue), array_map('strtolower', $value))) {
+                return $key;
+            }
+        }
     }
 }

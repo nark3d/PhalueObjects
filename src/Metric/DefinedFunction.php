@@ -2,14 +2,14 @@
 
 namespace BestServedCold\PhalueObjects\Metric;
 
-use BestServedCold\PhalueObjects\Metric;
+use BestServedCold\PhalueObjects\VOArray;
 
 /**
  * Class DefinedFunction
- * 
+ *
  * @package BestServedCold\PhalueObjects\Metric
  */
-class DefinedFunction extends Metric implements MetricInterface
+class DefinedFunction extends VOArray implements MetricInterface
 {
     /**
      * @return static

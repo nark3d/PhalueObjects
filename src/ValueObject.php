@@ -2,7 +2,6 @@
 
 namespace BestServedCold\PhalueObjects;
 
-use InvalidArgumentException;
 use BestServedCold\PhalueObjects\Contract\ValueObject as ValueObjectInterface;
 
 /**
@@ -11,12 +10,12 @@ use BestServedCold\PhalueObjects\Contract\ValueObject as ValueObjectInterface;
  * @package   BestServedCold\PhalueObjects
  * @author    Adam Lewis <adam.lewis@bestservedcold.com>
  * @copyright Copyright (c) 2015 Best Served Cold Media Limited
- * @license      http://http://opensource.org/licenses/GPL-3.0 GPL License
+ * @license   http://http://opensource.org/licenses/GPL-3.0 GPL License
  * @link      http://bestservedcold.com
- * @since      0.0.1-alpha
- * @version   0.0.2-alpha
+ * @since     0.0.1-alpha
+ * @version   1.0.0
  */
-class ValueObject implements ValueObjectInterface
+abstract class ValueObject implements ValueObjectInterface
 {
     /**
      * @var mixed
@@ -29,12 +28,22 @@ class ValueObject implements ValueObjectInterface
     protected $type;
 
     /**
-     * Class Constructor
+     * ValueObject constructor.
+     *
+     * @param $value
      */
     public function __construct($value)
     {
         $this->value = $value;
         $this->type  = gettype($value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
     }
 
     /**
@@ -55,7 +64,7 @@ class ValueObject implements ValueObjectInterface
      */
     public function __toString()
     {
-        return (string) $this->getValue();
+        return method_exists($this, 'toString') ? $this->toString() : (string) $this->getValue();
     }
 
     /**
@@ -66,7 +75,6 @@ class ValueObject implements ValueObjectInterface
         return $this->type;
     }
 
-
     /**
      * @return string
      */
@@ -76,38 +84,12 @@ class ValueObject implements ValueObjectInterface
     }
 
     /**
-     * @param  $object
-     * @return mixed
-     */
-    public function cloneObject($object)
-    {
-        return clone($object);
-    }
-
-    /**
-     * @param $string
-     * @return static
-     */
-    public static function fromString($string)
-    {
-        return new static((string) $string);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * @param  ValueObject $object
+     * @param  ValueObjectInterface $object
      * @return bool
      */
-    public function equals(ValueObject $object)
+    public function equals(ValueObjectInterface $object)
     {
-        return $this->value === $object->value;
+        return $this->getValue() === $object->getValue();
     }
 
     /**
@@ -116,58 +98,5 @@ class ValueObject implements ValueObjectInterface
     public function __destruct()
     {
         $this->value = null;
-    }
-
-    /**
-     * @param  ValueObject $object
-     * @return ValueObject
-     */
-    public function diff(ValueObject $object)
-    {
-        switch ($this->getType()) {
-            case 'boolean':
-            case 'double':
-            case 'integer':
-                return new static($this->getValue() - $object->getValue());
-            case 'array':
-                return new static(
-                    $object->getType() === 'array'
-                        ? array_diff_assoc($this->getValue(), $object->getValue())
-                        : $this->getValue()
-                );
-            case 'string':
-                return new static(
-                    str_replace($object->getValue(), '', $this->getValue())
-                );
-            case 'NULL':
-                return new static($object->getValue());
-            case 'object':
-            case 'resource':
-                return null;
-            case 'unknown type':
-            default:
-                throw new InvalidArgumentException('Cannot diff type [' . $this->type . '].');
-        }
-    }
-
-    public function count()
-    {
-        switch ($this->getType()) {
-            case 'boolean':
-            case 'double':
-            case 'integer':
-                return $this->getValue();
-            case 'array':
-            case 'NULL':
-                return count($this->getValue());
-            case 'object':
-            case 'resource':
-                return null;
-            case 'string':
-                return strlen($this->getValue());
-            case 'unknown type':
-            default:
-                throw new InvalidArgumentException('Cannot count type [' . $this->type . '].');
-        }
     }
 }

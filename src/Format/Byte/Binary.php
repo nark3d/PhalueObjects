@@ -11,5 +11,5 @@ use BestServedCold\PhalueObjects\Format\Byte;
  */
 class Binary extends Byte
 {
-    protected $power = 1024;
+    protected static $power = 1024;
 }

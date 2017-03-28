@@ -3,14 +3,14 @@
 namespace BestServedCold\PhalueObjects\Metric;
 
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
-use BestServedCold\PhalueObjects\Metric;
+use BestServedCold\PhalueObjects\VOFloat;
 
 /**
  * Class MicroTime
  *
  * @package BestServedCold\PhalueObjects\Metric
  */
-class MicroTime extends Metric implements MetricInterface
+class MicroTime extends VOFloat implements MetricInterface
 {
     use ArithmeticTrait;
 

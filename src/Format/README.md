@@ -1,25 +1,51 @@
-# Format
 
 [Back](../../README.md)
 
-Namespace:
-```php 
+# Format
+
+```php
 BestServedCold\PhalueObjects\Format
 ```
 
-## Byte
+## UML
+![png](diagram.png?raw=true)
+
+
+## Classes
+
+### Byte
+
 ```php
-BestServedCold\PhalueObjects\Format\Byte
+BestServedCold\PhalueObjects\Format\Byte\Binary
+BestServedCold\PhalueObjects\Format\Byte\Decimal
 ```
 
-Abstract class containing integer of bytes.  Converts via
-the child classes of Binary and Decimal using different
-powers.
+Usage:
 
-### Binary
+```php
+var_dump(Binary::fromString('100 MB')->getValue());
+// outputs 104857600
+var_dump(Decimal::fromString('100 MB')->getValue());
+// outputs 100000000
+var_dump(Binary::fromFloat(123456)->toString());
+```
 
-Child class with power of 1024
+### Csv
+```php
+BestServedCold\PhalueObjects\Format\Csv
+```
 
-### Decimal
+### Json
+```php
+BestServedcold\PhalueObjects\Format\Json
+```
 
-Child class with power of 1000
+### Xml
+```php
+BestServedCold\PhalueObjects\Format\Xml
+```
+
+### Yaml
+```php 
+BestServedCold\PhalueObjects\Format\Yaml
+```

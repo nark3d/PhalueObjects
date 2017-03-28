@@ -30,4 +30,12 @@ class VONull extends ValueObject
 
         parent::__construct($value);
     }
+
+    /**
+     * @return null
+     */
+    public function getValue()
+    {
+        return (unset) parent::getValue();
+    }
 }

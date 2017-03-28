@@ -14,7 +14,7 @@ class MemoryUsageTest extends TestCase
     public function testNow()
     {
         $before = MemoryUsage::now();
-        self::assertTrue(is_integer($before->count()));
+        self::assertTrue(is_float($before->count()));
     }
 
     public function testToString()

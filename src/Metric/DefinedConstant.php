@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Metric;
 
-use BestServedCold\PhalueObjects\Metric;
+use BestServedCold\PhalueObjects\VOArray;
 use BestServedCold\PhalueObjects\VOString\Pair;
 
 /**
@@ -10,7 +10,7 @@ use BestServedCold\PhalueObjects\VOString\Pair;
  *
  * @package BestServedCold\PhalueObjects\Metric
  */
-class DefinedConstant extends Metric implements MetricInterface
+class DefinedConstant extends VOArray implements MetricInterface
 {
     /**
      * @return static

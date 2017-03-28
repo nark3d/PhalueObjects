@@ -4,7 +4,6 @@ namespace BestServedCold\PhalueObjects\VOArray;
 
 use BestServedCold\PhalueObjects\Format\Json\Notation;
 use BestServedCold\PhalueObjects\TestCase;
-use BestServedCold\PhalueObjects\VOArray;
 
 /**
  * Class FindTest

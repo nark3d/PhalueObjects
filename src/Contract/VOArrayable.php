@@ -9,7 +9,7 @@ use BestServedCold\PhalueObjects\VOArray;
  *
  * @package BestServedCold\PhalueObjects\Contract
  */
-interface VOArrayable
+interface VOArrayable extends Arrayable
 {
     /**
      * @param  VOArray $voArray
