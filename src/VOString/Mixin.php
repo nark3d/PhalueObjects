@@ -12,11 +12,6 @@ use BestServedCold\PhalueObjects\VOString;
 trait Mixin
 {
     /**
-     * @return string
-     */
-    public abstract function toString();
-
-    /**
      * @return VOString
      */
     public function toVOString()

@@ -12,11 +12,6 @@ use BestServedCold\PhalueObjects\VOArray;
 trait Mixin
 {
     /**
-     * @return array
-     */
-    public abstract function toArray();
-
-    /**
      * @param  VOArray $voArray
      * @return static
      */
