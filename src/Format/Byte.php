@@ -77,8 +77,8 @@ abstract class Byte extends VOFloat implements VOStringable
     public function getUnit($power = null)
     {
         $power = $power ?: $this->getPower();
-        $unit  = reset(self::UNITS[ (int) floor($this->base()) ]);
-        return Word::fromString($unit)->getPluralised($power);
+        $unit  = self::UNITS[ (int) floor($this->base()) ];
+        return Word::fromString(reset($unit))->getPluralised($power);
     }
 
     /**
