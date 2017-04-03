@@ -55,6 +55,7 @@ any of the following types:
 Rather than mutating, a new object can be instantiated from an existing one.
 
 Example:
+
 ```php
 //...
 public function double() 
@@ -69,6 +70,7 @@ Instead of an object having multiple object properties, it should be created fro
 multiple arguments.
 
 Example:
+
 ```php
 //...
 public static function fromVars($one = 1, $two = 2, $three = 3)
@@ -82,6 +84,7 @@ public static function fromVars($one = 1, $two = 2, $three = 3)
 The type of a value object is irrelevant to equality:
 
 Example:
+
 ```php
 //...
 $bob = $stringValueObject->equals($csvValueObject);
@@ -94,3 +97,39 @@ $bob = $stringValueObject->equals($csvValueObject);
 Value objects must not persist data between run times.  For example: 
 no database or session information should be collected from within the
 object.
+
+## Conventions
+Follow [PSR-FIG](http://www.php-fig.org/) rules.
+
+### Constructor
+Example:
+
+```php
+new SomeClass('value');
+```
+
+* **Must** only have one argument of any type
+
+### Creation methods (From)
+Example:
+
+```php
+SomeClass::fromSomeObject($someObject);
+```
+
+* **Always** start with "from"
+* **Must** be static
+* **Can** contain multiple arguments
+* **Must** return new static instance
+
+### Conversion methods (To)
+Example:
+
+```php
+$someObject->toArray();
+```
+
+* **Always** start with "to"
+* **Must not** be static
+* **Must** have zero arguments
+* **Must** return new static instance

@@ -4,7 +4,6 @@ namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
 use BestServedCold\PhalueObjects\VOString;
-use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
 
 /**
  * Class Json
@@ -13,7 +12,7 @@ use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
  */
 class Json extends VOString implements VOArrayable
 {
-    use VOArrayMixin;
+    use StringMixin;
 
     /**
      * @return array
@@ -31,4 +30,5 @@ class Json extends VOString implements VOArrayable
     {
         return new static(json_encode($array));
     }
+
 }

@@ -13,7 +13,7 @@ class RangeTest extends TestCase
     {
         self::assertEquals(
             "1, 10",
-            (string) new Range(1, 10)
+            (new Range(1, 10))->__toString()
         );
     }
 

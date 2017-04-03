@@ -4,7 +4,6 @@ namespace BestServedCold\PhalueObjects\Format;
 
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
 use BestServedCold\PhalueObjects\VOString;
-use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
 use Sabre\Xml\Service;
 
 /**
@@ -14,7 +13,7 @@ use Sabre\Xml\Service;
  */
 class Xml extends VOString implements VOArrayable
 {
-    use VOArrayMixin;
+    use StringMixin;
 
     /**
      * @return array

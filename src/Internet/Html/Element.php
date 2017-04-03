@@ -14,7 +14,7 @@ class Element extends VOString
     /**
      * @var array $elements
      */
-    const ELEMENTS = [
+    private $elements = [
         'a',
         'abbr',
         'address',
@@ -130,7 +130,7 @@ class Element extends VOString
     /**
      * @var array $voidElements
      */
-    const VOID_ELEMENTS = [
+    private $voidElements = [
         'area',
         'base',
         'br',
@@ -156,7 +156,7 @@ class Element extends VOString
      */
     public function __construct($value)
     {
-        if (!in_array($value, self::ELEMENTS)) {
+        if (!in_array($value, $this->elements)) {
             throw new \InvalidArgumentException('['.$value.'] is not a valid HTML element');
         }
 
@@ -168,6 +168,6 @@ class Element extends VOString
      */
     public function isVoid()
     {
-        return in_array($this->getValue(), self::VOID_ELEMENTS);
+        return in_array($this->getValue(), $this->voidElements);
     }
 }

@@ -13,9 +13,9 @@ use BestServedCold\PhalueObjects\VOString;
 class Attribute extends VOString
 {
     /**
-     * @var array $global
+     * @var array $globalAttributes
      */
-    const GLOBAL_ATTRIBUTES = [
+    private $globalAttributes = [
         'accesskey',
         'class',
         'contenteditable',
@@ -105,9 +105,9 @@ class Attribute extends VOString
     ];
 
     /**
-     * @var array $elements
+     * @var array $allowedAttributes
      */
-    const ALLOWED_ATTRIBUTES = [
+    private $allowedAttributes = [
         'accept'       => [ 'form', 'input' ],
         'accesskey'    => [ 'form' ],
         'action'       => [ 'form' ],
@@ -220,8 +220,11 @@ class Attribute extends VOString
      */
     public function __construct($value)
     {
-        if (!in_array($value, array_merge(self::GLOBAL_ATTRIBUTES, array_keys(self::ALLOWED_ATTRIBUTES)))) {
-            throw new \InvalidArgumentException('['.$value.'] is not a valid HTML Attribute');
+        if (!in_array(
+            $value,
+            array_merge($this->globalAttributes, array_keys($this->allowedAttributes))
+        )) {
+            throw new \InvalidArgumentException('[' . $value . '] is not a valid HTML Attribute');
         }
 
         parent::__construct($value);
@@ -233,7 +236,7 @@ class Attribute extends VOString
      */
     public function validForElement(Element $element)
     {
-        return in_array($element->getValue(), self::GLOBAL_ATTRIBUTES)
-            || in_array($element->getValue(), self::ALLOWED_ATTRIBUTES[ $this->getValue() ]);
+        return in_array($element->getValue(), $this->globalAttributes)
+            || in_array($element->getValue(), $this->allowedAttributes[ $this->getValue() ]);
     }
 }

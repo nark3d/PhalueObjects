@@ -14,7 +14,7 @@ use BestServedCold\PhalueObjects\VOArray\Mixin as VOArrayMixin;
  */
 class Yaml extends VOString implements VOArrayable
 {
-    use VOArrayMixin;
+    use StringMixin;
 
     /**
      * @return array

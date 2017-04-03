@@ -8,7 +8,7 @@ BestServedCold\PhalueObjects\Format
 ```
 
 ## UML
-![png](diagram.png?raw=true)
+![png](diagram.png)
 
 
 ## Classes
@@ -24,10 +24,18 @@ Usage:
 
 ```php
 var_dump(Binary::fromString('100 MB')->getValue());
-// outputs 104857600
 var_dump(Decimal::fromString('100 MB')->getValue());
-// outputs 100000000
 var_dump(Binary::fromFloat(123456)->toString());
+var_dump((string) Binary::fromFloat(1.208925819614629e24)); 
+```
+
+Outputs:
+
+```shell
+double(104857600)
+double(100000000)
+string(16) "120.56 Kilobytes"
+string(11) "1 Yottabyte"
 ```
 
 ### Csv
