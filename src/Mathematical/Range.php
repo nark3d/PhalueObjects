@@ -45,7 +45,7 @@ class Range extends Variadic
      */
     public function __toString()
     {
-        return Csv::fromArray([ $this->maximum, $this->minimum ], ' ')->getValue();
+        return Csv::fromArray([ $this->maximum, $this->minimum ])->getValue();
     }
 
     /**

@@ -46,7 +46,7 @@ trait Metric
         };
 
         // print_r returns formatted textual array presentation
-        array_map($depth($max), explode(PHP_EOL, print_r($this->getValue(), true)));
+        array_map($depth($max), explode("\n", print_r($this->getValue(), true)));
         // [1,2] -> 1, [3,4] -> 2, ..., [N,N+1] -> (N+1)/2
         return ceil(($max - 1) / 2) + 1;
     }

@@ -11,9 +11,9 @@ use BestServedCold\PhalueObjects\TestCase;
  */
 class XmlTest extends TestCase
 {
-    private $xml = '<?xml version="1.0"?>' . PHP_EOL . '<note>' . PHP_EOL . ' <to>Tove</to>' . PHP_EOL .
-        ' <from>Jani</from>'. PHP_EOL . ' <heading>Reminder</heading>' . PHP_EOL .
-        ' <body>Don\'t forget me this weekend!</body>' . PHP_EOL . '</note>' . PHP_EOL;
+    private $xml = '<?xml version="1.0"?>' . "\n" . '<note>' . "\n" . ' <to>Tove</to>' . "\n" .
+        ' <from>Jani</from>'. "\n" . ' <heading>Reminder</heading>' . "\n" .
+        ' <body>Don\'t forget me this weekend!</body>' . "\n" . '</note>' . "\n";
 
     private $array = [
         'note' => [

@@ -21,7 +21,10 @@ class MetricTest extends TestCase
     public function testGetDepth()
     {
         self::assertEquals(1, VOArray::fromArray(['this' => 'is', 'not' => 'multi'])->getDepth());
-        self::assertEquals(3, VOArray::fromArray(['test' => ['multi' => ['is' => 'true']]])->getDepth());
+        self::assertEquals(
+            3,
+                VOArray::fromArray(['test' => ['multi' => ['is' => 'true']]])->getDepth()
+        );
         self::assertEquals(
             4,
             VOArray::fromArray([

@@ -74,7 +74,6 @@ class Csv extends VOString implements VOArrayable
      */
     private static function hack(array $array, $delimiter, $enclosure, $escape)
     {
-        var_dump($array);
         $handle = fopen('php://temp', 'r+');
         VOArray::fromArray($array)->isMultiDim()
             ? self::hackWrite($handle, $array, $delimiter, $enclosure, $escape)

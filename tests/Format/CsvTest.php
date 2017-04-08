@@ -16,12 +16,12 @@ class CsvTest extends TestCase
     public function testFromArray()
     {
         self::assertSame(
-            'bob,mary,susan' . PHP_EOL,
+            'bob,mary,susan' . "\n",
             Csv::fromArray(['bob', 'mary', 'susan'])->toString()
         );
 
         self::assertSame(
-            'bob,mary,susan' . PHP_EOL . 'harry,sally,mike' . PHP_EOL,
+            'bob,mary,susan' . "\n" . 'harry,sally,mike' . "\n",
             Csv::fromArray([['bob', 'mary', 'susan'], ['harry', 'sally', 'mike']])->toString()
         );
     }
@@ -37,7 +37,7 @@ class CsvTest extends TestCase
     public function testFromVOArray()
     {
         self::assertEquals(
-            'bob,mary,susan' . PHP_EOL,
+            'bob,mary,susan' . "\n",
             (string) Csv::fromVOArray(VOArray::fromArray(['bob', 'mary', 'susan']))
         );
     }
@@ -61,7 +61,7 @@ class CsvTest extends TestCase
     public function testToString()
     {
          self::assertEquals(
-             'bob,mary,susan' . PHP_EOL,
+             'bob,mary,susan' . "\n",
              Csv::fromArray(['bob', 'mary', 'susan'])->toString()
          );
     }
