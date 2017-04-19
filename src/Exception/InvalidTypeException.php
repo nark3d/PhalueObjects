@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Exception;
 
-use BestServedCold\PhalueObjects\Format\Csv;
+use BestServedCold\PhalueObjects\Format\String\Csv;
 
 /**
  * Class InvalidTypeException
