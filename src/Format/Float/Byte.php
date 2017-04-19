@@ -20,7 +20,7 @@ abstract class Byte extends VOFloat implements VOStringable
 {
     use VOStringTrait;
 
-    const UNITS = [
+    private static $units = [
         [ 'Byte' => 'Byte' ],
         [ 'KB'   => 'Kilobyte' ],
         [ 'MB'   => 'Megabyte' ],
@@ -77,7 +77,7 @@ abstract class Byte extends VOFloat implements VOStringable
     public function getUnit($power = null)
     {
         $power = $power ?: $this->getPower();
-        $unit  = self::UNITS[ (int) floor($this->base()) ];
+        $unit  = self::$units[ (int) floor($this->base()) ];
         return Word::fromString(reset($unit))->getPluralised($power);
     }
 
@@ -103,6 +103,6 @@ abstract class Byte extends VOFloat implements VOStringable
      */
     private static function getUnitKeyList()
     {
-        return Map::fromVariadic(Value::toArrayWithPlural(true), self::UNITS)->getValue();
+        return Map::fromVariadic(Value::toArrayWithPlural(true), self::$units)->getValue();
     }
 }
