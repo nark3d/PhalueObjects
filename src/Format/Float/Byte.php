@@ -1,6 +1,6 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format;
+namespace BestServedCold\PhalueObjects\Format\Float;
 
 use BestServedCold\PhalueObjects\Contract\VOStringable;
 use BestServedCold\PhalueObjects\VOArray\Find;

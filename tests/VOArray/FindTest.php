@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\VOArray;
 
-use BestServedCold\PhalueObjects\Format\Json\Notation;
+use BestServedCold\PhalueObjects\Format\String\Json\Notation;
 use BestServedCold\PhalueObjects\TestCase;
 
 /**

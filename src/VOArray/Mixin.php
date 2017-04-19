@@ -25,6 +25,6 @@ trait Mixin
      */
     public function toVOArray()
     {
-        return VOArray::fromArray(self::toArray());
+        return VOArray::fromArray(static::toArray());
     }
 }

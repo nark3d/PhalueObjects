@@ -12,7 +12,8 @@ use BestServedCold\PhalueObjects\VOFloat;
 interface VOFloatable extends Floatable
 {
     /**
-     * @return static
+     * @param  VOFloat $voFloat
+     * @return mixed
      */
     public static function fromVOFloat(VOFloat $voFloat);
 

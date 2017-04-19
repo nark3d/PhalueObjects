@@ -1,20 +1,17 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format;
+namespace BestServedCold\PhalueObjects\Format\String;
 
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
 use BestServedCold\PhalueObjects\VOArray;
-use BestServedCold\PhalueObjects\VOString;
 
 /**
  * Class Csv
  *
  * @package BestServedCold\PhalueObjects\Format
  */
-class Csv extends VOString implements VOArrayable
+class Csv extends AbstractString implements VOArrayable
 {
-    use StringMixin;
-
     /**
      * @param  array  $array
      * @param  string $delimiter
@@ -55,7 +52,26 @@ class Csv extends VOString implements VOArrayable
      */
     public function toArray($delimiter = ",", $enclosure = '"', $escape = "\\")
     {
-        return str_getcsv($this->getValue(), $delimiter, $enclosure, $escape);
+        $lines = explode("\n", $this->getValue());
+
+        return is_array($lines) && count($lines) > 1
+            ? array_map($this->iterateCallback($delimiter, $enclosure, $escape), array_filter($lines))
+            : str_getcsv($this->getValue(), $delimiter, $enclosure, $escape);
+    }
+
+    /**
+     * Move this out into the VOClosure namespace.
+     *
+     * @param  $delimiter
+     * @param  $enclosure
+     * @param  $escape
+     * @return \Closure
+     */
+    private function iterateCallback($delimiter, $enclosure, $escape)
+    {
+        return function ($row) use ($delimiter, $enclosure, $escape) {
+            return Csv::fromString($row)->toArray($delimiter, $enclosure, $escape);
+        };
     }
 
     /**

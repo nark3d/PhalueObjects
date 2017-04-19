@@ -1,8 +1,8 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format\Byte;
+namespace BestServedCold\PhalueObjects\Format\Float\Byte;
 
-use BestServedCold\PhalueObjects\Format\Byte;
+use BestServedCold\PhalueObjects\Format\Float\Byte;
 
 /**
  * Class Decimal

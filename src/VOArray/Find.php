@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\VOArray;
 
-use BestServedCold\PhalueObjects\Format\Json\Notation;
+use BestServedCold\PhalueObjects\Format\String\Json\Notation;
 use BestServedCold\PhalueObjects\VOArray;
 
 /**
@@ -39,7 +39,8 @@ class Find extends VOArray
      */
     public function voArray(VOArray $arrayValueObject)
     {
-        if ($key = VOArray::fromArray($this->getValue())->getKey($arrayValueObject->current())) {
+        $key = VOArray::fromArray($this->getValue())->getKey($arrayValueObject->current());
+        if ($key) {
             return $arrayValueObject->isLast() ? $key
                 : static::fromArray($key)
                     ->voArray($arrayValueObject->dropFirst());
@@ -59,5 +60,7 @@ class Find extends VOArray
                 return $key;
             }
         }
+
+        return false;
     }
 }

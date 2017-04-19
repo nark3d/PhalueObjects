@@ -1,6 +1,6 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format;
+namespace BestServedCold\PhalueObjects\Format\String;
 
 use BestServedCold\PhalueObjects\TestCase;
 use BestServedCold\PhalueObjects\VOArray;

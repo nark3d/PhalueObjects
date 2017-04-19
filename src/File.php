@@ -1,8 +1,8 @@
 <?php namespace BestServedCold\PhalueObjects;
 
-use BestServedCold\PhalueObjects\Format\Json;
-use BestServedCold\PhalueObjects\Format\Xml;
-use BestServedCold\PhalueObjects\Format\Yaml;
+use BestServedCold\PhalueObjects\Format\String\Json;
+use BestServedCold\PhalueObjects\Format\String\Xml;
+use BestServedCold\PhalueObjects\Format\String\Yaml;
 
 /**
  * Class File

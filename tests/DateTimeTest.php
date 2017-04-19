@@ -10,7 +10,10 @@ class DateTimeTest extends TestCase
     public function testGetDate()
     {
         $dateTime = DateTime::fromString('2013-06-02 09:22:44');
-        self::assertInstanceOf('BestServedCold\PhalueObjects\DateTime\Date', $dateTime->getDate());
+        self::assertInstanceOf(
+            'BestServedCold\PhalueObjects\DateTime\Date',
+                $dateTime->getDate()
+        );
         self::assertEquals('2013-06-02', $dateTime->getDate());
     }
 

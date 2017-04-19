@@ -16,10 +16,14 @@ abstract class NotConstructable
     /**
      * Prevent instance from being cloned.
      */
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 
     /**
      * Prevent instance from being unserialised.
      */
-    private function __wakeup() {}
+    private function __wakeup()
+    {
+    }
 }

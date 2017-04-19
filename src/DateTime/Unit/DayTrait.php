@@ -82,6 +82,7 @@ trait DayTrait
     }
 
     /**
+     * @param  integer $days
      * @return static
      */
     public function addDay($days)

@@ -3,9 +3,9 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\File\Local;
-use BestServedCold\PhalueObjects\Format\Json;
-use BestServedCold\PhalueObjects\Format\Xml;
-use BestServedCold\PhalueObjects\Format\Yaml;
+use BestServedCold\PhalueObjects\Format\String\Json;
+use BestServedCold\PhalueObjects\Format\String\Xml;
+use BestServedCold\PhalueObjects\Format\String\Yaml;
 
 /**
  * Class FileTest
@@ -24,12 +24,6 @@ class FileTest extends TestCase
         $this->file = new Local('/some/path/someFile.txt');
         parent::setUp();
     }
-
-    public function testGetExtension()
-    {
-
-    }
-
 
     public function testToVOString()
     {

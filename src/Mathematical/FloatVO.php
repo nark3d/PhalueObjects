@@ -24,7 +24,10 @@ class FloatVO extends Mathematical
     protected $round = null;
 
     /**
-     * @param double $value
+     * FloatVO constructor.
+     *
+     * @param float         $value
+     * @param boolean|null  $round
      */
     public function __construct($value, $round = null)
     {

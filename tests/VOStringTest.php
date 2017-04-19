@@ -17,7 +17,13 @@ class VOStringTest extends TestCase
     {
         self::assertEquals('string', (new VOString('string'))->getValue());
         self::setExpectedException(InvalidTypeException::class);
-        new VOString(['bob']);
+        try {
+            new VOString(['bob']);
+//        } catch (\Throwable $exception) {
+//            var_dump(get_class($exception));
+        } catch (InvalidTypeException $invalid) {
+            var_dump(get_class($invalid));
+        }
     }
 
     public function testGetNumbers()

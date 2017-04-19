@@ -15,4 +15,6 @@ use BestServedCold\PhalueObjects\ValueObject;
  * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class TimeZone extends ValueObject {}
+class TimeZone extends ValueObject
+{
+}

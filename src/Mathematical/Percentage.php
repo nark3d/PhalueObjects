@@ -13,4 +13,7 @@ namespace BestServedCold\PhalueObjects\Mathematical;
  * @since     0.0.1-alpha
  * @version   0.0.2-alpha
  */
-class Percentage extends FloatVO {}
+class Percentage extends FloatVO
+{
+
+}

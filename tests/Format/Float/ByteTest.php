@@ -1,9 +1,9 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format;
+namespace BestServedCold\PhalueObjects\Format\Float;
 
-use BestServedCold\PhalueObjects\Format\Byte\Binary;
-use BestServedCold\PhalueObjects\Format\Byte\Decimal;
+use BestServedCold\PhalueObjects\Format\Float\Byte\Binary;
+use BestServedCold\PhalueObjects\Format\Float\Byte\Decimal;
 use BestServedCold\PhalueObjects\TestCase;
 use BestServedCold\PhalueObjects\VOFloat;
 

@@ -23,7 +23,9 @@ class Singleton extends NotConstructable
     /**
      * Prevent class from being constructed.
      */
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     /**
      * Get instance from $instances array.
@@ -32,7 +34,8 @@ class Singleton extends NotConstructable
      * Otherwise, create a new copy of the class and store it in the $instances
      * array.
      *
-     * @return mixed
+     * @param  string|null $calledClass
+     * @return Object
      */
     final public static function getInstance($calledClass = null)
     {

@@ -3,7 +3,6 @@
 namespace BestServedCold\PhalueObjects\VOClosure;
 
 use BestServedCold\PhalueObjects\VOClosure;
-use BestServedCold\PhalueObjects\VOString\Word;
 
 /**
  * Class KeyValue
@@ -26,5 +25,4 @@ class KeyValue extends VOClosure
             }
         );
     }
-
 }
