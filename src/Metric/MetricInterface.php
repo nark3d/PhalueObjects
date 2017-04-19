@@ -4,7 +4,7 @@ namespace BestServedCold\PhalueObjects\Metric;
 
 /**
  * Interface MetricInterface
- * 
+ *
  * @package BestServedCold\PhalueObjects\Metric
  */
 interface MetricInterface

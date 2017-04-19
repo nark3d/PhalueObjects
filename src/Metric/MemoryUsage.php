@@ -2,7 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Metric;
 
-use BestServedCold\PhalueObjects\Format\Byte\Binary;
+use BestServedCold\PhalueObjects\Format\Float\Byte\Binary;
 use BestServedCold\PhalueObjects\Mathematical\Operator\ArithmeticTrait;
 use BestServedCold\PhalueObjects\VOFloat;
 

@@ -2,8 +2,7 @@
 
 namespace BestServedCold\PhalueObjects\Mathematical;
 
-use BestServedCold\PhalueObjects\Format\Csv;
-use BestServedCold\PhalueObjects\Mathematical;
+use BestServedCold\PhalueObjects\Format\String\Csv;
 use BestServedCold\PhalueObjects\Variadic;
 
 /**

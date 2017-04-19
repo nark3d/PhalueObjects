@@ -28,7 +28,8 @@ class ZeroPaddedInteger extends Mathematical
                 $value,
                 strlen((string) $value) + $leading,
                 "0",
-                STR_PAD_LEFT)
+                STR_PAD_LEFT
+            )
         );
     }
 }

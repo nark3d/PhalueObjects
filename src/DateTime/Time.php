@@ -50,8 +50,7 @@ class Time extends Variadic implements DateTimeInterface
         $this->second = $second;
         $this->timestamp = $hour->getSeconds()->add($minute->getSeconds())->add($second);
         $this->native = self::getNowDateTime()
-            ->setTime($hour->getValue(), $minute->getValue(), $minute->getValue()
-        );
+            ->setTime($hour->getValue(), $minute->getValue(), $minute->getValue());
 
         parent::__construct($hour, $minute, $second);
     }

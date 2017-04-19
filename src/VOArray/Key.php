@@ -51,5 +51,4 @@ trait Key
     {
         return array_key_exists($key, $this->getValue());
     }
-
 }

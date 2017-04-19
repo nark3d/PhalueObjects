@@ -90,5 +90,4 @@ final class Hour extends Integer implements DateTimeInterface
     {
         return 0;
     }
-
 }

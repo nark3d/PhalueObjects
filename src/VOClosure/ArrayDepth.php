@@ -11,6 +11,9 @@ use BestServedCold\PhalueObjects\VOClosure;
  */
 class ArrayDepth extends VOClosure
 {
+    /**
+     * @return static
+     */
     public static function toDepth()
     {
         return new static(

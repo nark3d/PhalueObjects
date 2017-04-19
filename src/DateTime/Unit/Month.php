@@ -84,5 +84,4 @@ final class Month extends Integer implements DateTimeInterface
     {
         return 1;
     }
-
 }

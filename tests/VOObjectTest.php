@@ -3,7 +3,7 @@
 namespace BestServedCold\PhalueObjects;
 
 use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
-use BestServedCold\PhalueObjects\Format\Byte\Binary;
+use BestServedCold\PhalueObjects\Format\Float\Byte\Binary;
 use stdClass;
 
 /**

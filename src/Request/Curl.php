@@ -95,5 +95,6 @@ class Curl extends VOResource implements Request, AutoDependency
     public function __destruct()
     {
         $this->close();
+        parent::__destruct();
     }
 }

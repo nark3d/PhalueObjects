@@ -1,6 +1,6 @@
 <?php
 
-namespace BestServedCold\PhalueObjects\Format\Json;
+namespace BestServedCold\PhalueObjects\Format\String\Json;
 
 use BestServedCold\PhalueObjects\Contract\VOArrayable;
 use BestServedCold\PhalueObjects\VOString;

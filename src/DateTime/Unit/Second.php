@@ -29,11 +29,17 @@ final class Second extends Integer implements DateTimeInterface
         parent::__construct($value);
     }
 
+    /**
+     * @return static
+     */
     public static function now()
     {
         return new static(self::getNowDateTimeFormat('s'));
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return str_pad($this->getValue(), 2, '0', STR_PAD_LEFT);
@@ -76,5 +82,4 @@ final class Second extends Integer implements DateTimeInterface
     {
         return 0;
     }
-
 }

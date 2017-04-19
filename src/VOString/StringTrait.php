@@ -2,8 +2,6 @@
 
 namespace BestServedCold\PhalueObjects\VOString;
 
-use BestServedCold\PhalueObjects\Mathematical\Integer;
-
 /**
  * Class StringTrait
  *

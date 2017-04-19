@@ -2,10 +2,6 @@
 
 namespace BestServedCold\PhalueObjects\VOArray;
 
-use BestServedCold\PhalueObjects\VOArray;
-use BestServedCold\PhalueObjects\Exception\InvalidTypeException;
-use BestServedCold\PhalueObjects\Contract\ValueObject;
-
 /**
  * Trait Metric
  */
@@ -35,11 +31,18 @@ trait Metric
         return count($this->getValue()) !== count($this->getValue(), COUNT_RECURSIVE);
     }
 
+    /**
+     * Get depth
+     *
+     * This needs refactoring...
+     *
+     * @return float
+     */
     public function getDepth()
     {
         $max = 0;
         $depth = function (&$max) {
-            return function($line) use (&$max) {
+            return function ($line) use (&$max) {
                 // every line-indent equals 4 spaces
                 $max = max([$max, (strlen($line) - strlen(ltrim($line))) / 4]);
             };
@@ -50,6 +53,4 @@ trait Metric
         // [1,2] -> 1, [3,4] -> 2, ..., [N,N+1] -> (N+1)/2
         return ceil(($max - 1) / 2) + 1;
     }
-
-
 }
